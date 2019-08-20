@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import { hot } from "react-hot-loader/root";
+import React from "react";
 import styled from "styled-components";
 
 const MyStartApp = styled.div`
@@ -10,18 +11,10 @@ const MyStartApp = styled.div`
   align-items: center;
 `;
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <MyStartApp>
-        <h1>Hello!!</h1>
-      </MyStartApp>
-    );
-  }
-}
-
-export default App;
+export default hot(() => {
+  return (
+    <MyStartApp>
+      <h1>Hello!!</h1>
+    </MyStartApp>
+  );
+});
