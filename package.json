@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --hot --open"
+    "start": "NODE_ENV=development webpack-dev-server --hot"
   },
   "keywords": [],
   "author": "",
