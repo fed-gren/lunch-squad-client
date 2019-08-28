@@ -1,6 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require("webpack");
+
+const environment =
+  process.env.NODE_ENV === "development" ? "development" : "production";
+
+const MODE = {
+  development: "development",
+  production: "production"
+};
 
 module.exports = {
   entry: "./src/index.js",
@@ -46,6 +55,9 @@ module.exports = {
       template: "./public/index.html",
       filename: "index.html"
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.EnvironmentPlugin({
+      MODE: MODE[environment]
+    })
   ]
 };
