@@ -18,6 +18,7 @@ const Button = styled.button`
   ${({ bottom }) => bottom && ` bottom: ${bottom};`}
   ${({ left }) => left && ` left: ${left};`}
   ${({ right }) => right && ` right: ${right};`}
+  ${({ margin }) => margin && ` margin: ${margin};`}
 `;
 
 export default { Button };

@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from "./styles";
-import { FaFilter, FaThumbsUp } from "react-icons/fa";
+import { FaThumbsUp } from "react-icons/fa";
 import { styles } from "../../../config";
 
 import FilteredCategoryView from "../FilteredCategoryView";
@@ -19,20 +19,24 @@ export default () => {
     bgColor: styles.filteredItemColor
   });
 
+  const makeFilterButtonStyles = name => ({
+    name,
+    bgColor: styles.filteredItemColor,
+    color: "#fff",
+    width: "3rem",
+    height: "2rem",
+    margin: "0 0.4rem 0 0"
+  });
+
   return (
     <Styled.MarkerFilter>
       <FilteredCategoryView>
         {filteredItem.map(item => {
-          return <div>{item}</div>;
+          return <ButtonView {...makeFilterButtonStyles()} name={item} />;
         })}
       </FilteredCategoryView>
       <MarkerFilterControlView>
         <ButtonView {...makeButtonStyles(<FaThumbsUp />)} />
-        <ButtonView
-          {...makeButtonStyles(<FaFilter />)}
-          position="absolute"
-          right="1rem"
-        />
       </MarkerFilterControlView>
     </Styled.MarkerFilter>
   );

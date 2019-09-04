@@ -15,19 +15,6 @@ const FilteredItem = styled.div`
   & * {
     visibility: visible;
   }
-
-  & > div {
-    /* item */
-    background-color: ${styles.filteredItemColor};
-    color: #fff;
-    width: 3rem;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0.4rem;
-    border-radius: 0.4rem;
-  }
 `;
 
 export default { FilteredItem };
