@@ -8,10 +8,11 @@ const Topbar = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(1, 1, 1, 0.2);
+  background-color: rgba(1, 1, 1, 0.4);
   position: fixed;
   top: 0;
   padding: 0 0.6rem;
+  z-index: 999;
 `;
 
 export default { Topbar };

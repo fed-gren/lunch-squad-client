@@ -5,6 +5,7 @@ import { FaHome, FaList, FaMapMarkedAlt } from "react-icons/fa";
 import LinkButtonView from "../../components/LinkButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
 import SwitchView from "../../components/SwitchView";
+import NaverMapView from "../../components/NaverMapView";
 
 export default _ => {
   const homeButtonStyles = {
@@ -22,6 +23,7 @@ export default _ => {
         <LinkButtonView to="/" name={<FaHome />} {...homeButtonStyles} />
         <SwitchView onMessage={<FaList />} offMessage={<FaMapMarkedAlt />} />
       </TopbarLayoutView>
+      <NaverMapView />
     </Styled.MapPage>
   );
 };
