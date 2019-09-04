@@ -1,6 +1,5 @@
 const metadata = {
-  title: "Lunch Squad",
-  ncpClientId: "04lxzjey4k"
+  title: "Lunch Squad"
 };
 
 export default metadata;
