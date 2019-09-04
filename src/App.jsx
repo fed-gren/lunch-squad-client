@@ -26,6 +26,13 @@ const GlobalStyle = createGlobalStyle`
   :root, body, #root {
     height: 100%;
   }
+
+  button {
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+  }
 `;
 
 const MyApp = styled.section`
