@@ -4,6 +4,7 @@ const Button = styled.button`
   width: 4rem;
   height: 2rem;
   border-radius: 0.2rem;
+  cursor: pointer;
 
   /* customizing attribute */
   ${({ width }) => width && `width: ${width};`}
@@ -12,6 +13,11 @@ const Button = styled.button`
   ${({ bgColor }) => bgColor && ` background-color: ${bgColor};`}
   ${({ color }) => color && ` color: ${color};`}
   ${({ fontSize }) => fontSize && ` font-size: ${fontSize};`}
+  ${({ position }) => position && ` position: ${position};`}
+  ${({ top }) => top && ` top: ${top};`}
+  ${({ bottom }) => bottom && ` bottom: ${bottom};`}
+  ${({ left }) => left && ` left: ${left};`}
+  ${({ right }) => right && ` right: ${right};`}
 `;
 
 export default { Button };
