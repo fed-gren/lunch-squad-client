@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import reset from "styled-reset";
 //components
 import LandingPageView from "./pages/LandingPageView";
+import MapPageView from "./pages/MapPageView";
 
 export default hot(() => {
   return (
@@ -12,6 +13,7 @@ export default hot(() => {
       <GlobalStyle />
       <Router>
         <Route exact path="/" component={LandingPageView} />
+        <Route path="/map" component={MapPageView} />
       </Router>
     </MyApp>
   );

@@ -34,6 +34,7 @@
     "react-hot-loader": "^4.12.11",
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.1",
+    "react-switch": "^5.0.1",
     "styled-components": "^4.3.2",
     "styled-reset": "^4.0.0"
   }
