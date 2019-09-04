@@ -1,20 +1,33 @@
 import { hot } from "react-hot-loader/root";
 import React from "react";
-import styled from "styled-components";
-
-const MyStartApp = styled.div`
-  width: 50%;
-  min-width: 300px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import styled, { createGlobalStyle } from "styled-components";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import reset from "styled-reset";
+//components
+import LandingPageView from "./pages/LandingPageView";
 
 export default hot(() => {
   return (
-    <MyStartApp>
-      <h1>Hello!!</h1>
-    </MyStartApp>
+    <MyApp>
+      <GlobalStyle />
+      <Router>
+        <Route exact path="/" component={LandingPageView} />
+      </Router>
+    </MyApp>
   );
 });
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  * {
+    box-sizing: border-box;
+  }
+
+  :root, body, #root {
+    height: 100%;
+  }
+`;
+
+const MyApp = styled.section`
+  height: 100%;
+`;
