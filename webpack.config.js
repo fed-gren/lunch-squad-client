@@ -21,7 +21,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve("./build"),
     index: "index.html",
-    port: 8080
+    port: 8081
   },
 
   module: {
