@@ -7,6 +7,7 @@ import TopbarLayoutView from "../../components/TopbarLayoutView";
 import SwitchView from "../../components/SwitchView";
 import NaverMapView from "../../components/NaverMapView";
 import MarkerFilterView from "../../components/MarkerFilterView";
+import InfoView from "../../components/InfoView";
 
 export default _ => {
   const homeButtonStyles = {
@@ -25,7 +26,8 @@ export default _ => {
         <SwitchView onMessage={<FaList />} offMessage={<FaMapMarkedAlt />} />
       </TopbarLayoutView>
       <NaverMapView />
-      <MarkerFilterView />
+      {/* <MarkerFilterView /> */}
+      <InfoView />
     </Styled.MapPage>
   );
 };
