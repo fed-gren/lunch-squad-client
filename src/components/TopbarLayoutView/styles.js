@@ -9,10 +9,9 @@ const Topbar = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: rgba(1, 1, 1, 0.4);
-  position: fixed;
-  top: 0;
   padding: 0 0.6rem;
-  z-index: 999;
+  position: relative;
+  z-index: 1;
 `;
 
 export default { Topbar };

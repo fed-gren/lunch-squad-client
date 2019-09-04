@@ -3,7 +3,7 @@ const data = {
   naverMapConfig: {
     style: {
       width: "100%",
-      height: "110%"
+      height: "100%"
     },
     defaultCenter: {
       lat: 37.4908351,
