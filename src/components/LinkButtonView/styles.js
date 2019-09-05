@@ -9,16 +9,17 @@ const Button = styled.button`
   /* customizing attribute */
   ${({ width }) => width && `width: ${width};`}
   ${({ height }) => height && `height: ${height};`}
-  ${({ borderRadius }) => borderRadius && ` border-radius: ${borderRadius};`}
-  ${({ bgColor }) => bgColor && ` background-color: ${bgColor};`}
-  ${({ color }) => color && ` color: ${color};`}
-  ${({ fontSize }) => fontSize && ` font-size: ${fontSize};`}
-  ${({ position }) => position && ` position: ${position};`}
-  ${({ top }) => top && ` top: ${top};`}
-  ${({ bottom }) => bottom && ` bottom: ${bottom};`}
-  ${({ left }) => left && ` left: ${left};`}
-  ${({ right }) => right && ` right: ${right};`}
-  ${({ margin }) => margin && ` margin: ${margin};`}
+  ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius};`}
+  ${({ bgColor }) => bgColor && `background-color: ${bgColor};`}
+  ${({ color }) => color && `color: ${color};`}
+  ${({ fontSize }) => fontSize && `font-size: ${fontSize};`}
+  ${({ position }) => position && `position: ${position};`}
+  ${({ top }) => top && `top: ${top};`}
+  ${({ bottom }) => bottom && `bottom: ${bottom};`}
+  ${({ left }) => left && `left: ${left};`}
+  ${({ right }) => right && `right: ${right};`}
+  ${({ margin }) => margin && `margin: ${margin};`}
+  ${({ isOff }) => isOff && `background-color: #888;`}
 `;
 
 export default { Button };

@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import { FaThumbsUp } from "react-icons/fa";
 import { styles } from "../../../config";
+import { MapPageContext } from "../../contexts/MapPageContext";
 
 import FilteredCategoryView from "../FilteredCategoryView";
 import MarkerFilterControlView from "../MarkerFilterControlView";
 import ButtonView from "../ButtonView";
 
 export default () => {
-  const filteredItem = ["한식", "일식", "양식", "중식"];
+  const { filteredCategory, setFilteredCategory } = useContext(MapPageContext);
   const makeButtonStyles = name => ({
     name,
     width: "2.4rem",
@@ -28,12 +29,24 @@ export default () => {
     margin: "0 0.4rem 0 0"
   });
 
+  const toggleOnButton = idx => {
+    const newCategory = [...filteredCategory];
+    newCategory[idx].isOff = !newCategory[idx].isOff;
+    setFilteredCategory(newCategory);
+  };
+
   return (
     <Styled.MarkerFilter>
       <FilteredCategoryView>
-        {filteredItem.map(item => {
+        {filteredCategory.map(({ name, id, isOff }, idx) => {
           return (
-            <ButtonView {...makeFilterButtonStyles()} name={item} key={item} />
+            <ButtonView
+              {...makeFilterButtonStyles()}
+              name={name}
+              key={id}
+              isOff={isOff}
+              onClick={() => toggleOnButton(idx)}
+            />
           );
         })}
       </FilteredCategoryView>
