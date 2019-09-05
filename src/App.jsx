@@ -3,6 +3,7 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import reset from "styled-reset";
+import { MapPageProvider } from "./contexts/MapPageContext";
 //components
 import LandingPageView from "./pages/LandingPageView";
 import MapPageView from "./pages/MapPageView";
@@ -12,8 +13,10 @@ export default hot(() => {
     <MyApp>
       <GlobalStyle />
       <Router>
-        <Route exact path="/" component={LandingPageView} />
-        <Route path="/map" component={MapPageView} />
+        <MapPageProvider>
+          <Route exact path="/" component={LandingPageView} />
+          <Route path="/map" component={MapPageView} />
+        </MapPageProvider>
       </Router>
     </MyApp>
   );

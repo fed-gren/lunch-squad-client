@@ -3,11 +3,12 @@ import Styled from "./styles";
 import Switch from "react-switch";
 import { styles } from "../../../config";
 
-export default function SwitchView({ onMessage, offMessage }) {
+export default function SwitchView({ onMessage, offMessage, changeFunc }) {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
     setChecked(!checked);
+    changeFunc();
   };
 
   return (

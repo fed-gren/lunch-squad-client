@@ -32,7 +32,9 @@ export default () => {
     <Styled.MarkerFilter>
       <FilteredCategoryView>
         {filteredItem.map(item => {
-          return <ButtonView {...makeFilterButtonStyles()} name={item} />;
+          return (
+            <ButtonView {...makeFilterButtonStyles()} name={item} key={item} />
+          );
         })}
       </FilteredCategoryView>
       <MarkerFilterControlView>

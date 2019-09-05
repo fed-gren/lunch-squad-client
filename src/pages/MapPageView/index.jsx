@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import { FaHome, FaList, FaMapMarkedAlt } from "react-icons/fa";
+import { MapPageContext } from "../../contexts/MapPageContext";
 //components
 import LinkButtonView from "../../components/LinkButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
@@ -10,6 +11,8 @@ import MarkerFilterView from "../../components/MarkerFilterView";
 import InfoView from "../../components/InfoView";
 
 export default _ => {
+  const { listShowFlag, setListShowFlag } = useContext(MapPageContext);
+
   const homeButtonStyles = {
     bgColor: "transparent",
     color: "#000",
@@ -19,15 +22,20 @@ export default _ => {
     fontSize: "1.2rem"
   };
 
+  const toggleListView = _ => setListShowFlag(!listShowFlag);
+
   return (
     <Styled.MapPage>
       <TopbarLayoutView>
         <LinkButtonView to="/" name={<FaHome />} {...homeButtonStyles} />
-        <SwitchView onMessage={<FaList />} offMessage={<FaMapMarkedAlt />} />
+        <SwitchView
+          onMessage={<FaList />}
+          offMessage={<FaMapMarkedAlt />}
+          changeFunc={toggleListView}
+        />
       </TopbarLayoutView>
       <NaverMapView />
-      {/* <MarkerFilterView /> */}
-      <InfoView />
+      {listShowFlag ? <InfoView /> : <MarkerFilterView />}
     </Styled.MapPage>
   );
 };
