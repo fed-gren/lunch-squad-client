@@ -19,6 +19,7 @@ const Button = styled.button`
   ${({ left }) => left && `left: ${left};`}
   ${({ right }) => right && `right: ${right};`}
   ${({ margin }) => margin && `margin: ${margin};`}
+  ${({ padding }) => padding && `padding: ${padding};`}
   ${({ isOff }) => isOff && `background-color: #888;`}
 `;
 

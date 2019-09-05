@@ -2,6 +2,8 @@ import React from "react";
 import Styled from "./styles";
 import { data } from "../../../config";
 import { FaRegThumbsUp } from "react-icons/fa";
+//components
+import InfoButtonPartView from "../InfoButtonPartView";
 
 export default function index() {
   return (
@@ -14,11 +16,14 @@ export default function index() {
               <p className="like">{item.like}</p>
             </Styled.LikePart>
             <Styled.DescPart>
-              <h3>{item.name}</h3>
-              <div>
-                <span>추천메뉴:{item.recommendedMenu}</span>
-                <span>가격:{item.price}</span>
-              </div>
+              <Styled.DescTextPart>
+                <h3>{item.name}</h3>
+                <div>
+                  <span>추천메뉴:{item.recommendedMenu}</span>
+                  <span>가격:{item.price}</span>
+                </div>
+              </Styled.DescTextPart>
+              <InfoButtonPartView />
             </Styled.DescPart>
           </Styled.InfoItem>
         ))}

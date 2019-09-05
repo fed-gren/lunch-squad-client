@@ -36,6 +36,12 @@ const LikePart = styled.div`
 `;
 
 const DescPart = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+const DescTextPart = styled.div`
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -48,4 +54,10 @@ const DescPart = styled.div`
   }
 `;
 
-export default { Info, InfoItem, LikePart, DescPart };
+export default {
+  Info,
+  InfoItem,
+  LikePart,
+  DescPart,
+  DescTextPart
+};
