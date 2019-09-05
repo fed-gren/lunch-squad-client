@@ -11,15 +11,33 @@ import MarkerFilterView from "../../components/MarkerFilterView";
 import InfoView from "../../components/InfoView";
 
 export default _ => {
-  const { listShowFlag, setListShowFlag } = useContext(MapPageContext);
+  const {
+    listShowFlag,
+    setListShowFlag,
+    filteredCategory,
+    setFilteredCategory
+  } = useContext(MapPageContext);
 
   const homeButtonStyles = {
     bgColor: "transparent",
-    color: "#000",
+    color: "#fff",
     width: "2rem",
     height: "2rem",
     borderRadius: "1rem",
     fontSize: "1.2rem"
+  };
+
+  const initListViewFlag = _ => setListShowFlag(false);
+  const initFilteredCategory = _ => {
+    const newCategory = filteredCategory.map(c => {
+      c.isOff = false;
+      return c;
+    });
+    setFilteredCategory(newCategory);
+  };
+  const initMapPageState = _ => {
+    initListViewFlag();
+    initFilteredCategory();
   };
 
   const toggleListView = _ => setListShowFlag(!listShowFlag);
@@ -27,7 +45,12 @@ export default _ => {
   return (
     <Styled.MapPage>
       <TopbarLayoutView>
-        <LinkButtonView to="/" name={<FaHome />} {...homeButtonStyles} />
+        <LinkButtonView
+          to="/"
+          name={<FaHome />}
+          {...homeButtonStyles}
+          onClick={initMapPageState}
+        />
         <SwitchView
           onMessage={<FaList />}
           offMessage={<FaMapMarkedAlt />}

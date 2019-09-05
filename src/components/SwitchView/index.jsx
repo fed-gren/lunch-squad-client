@@ -18,7 +18,8 @@ export default function SwitchView({ onMessage, offMessage, changeFunc }) {
           onChange={handleChange}
           checked={checked}
           className="react-switch"
-          onColor="#888"
+          onColor={styles.filteredItemColor}
+          offColor={styles.filteredItemColor}
           uncheckedIcon={
             <div
               style={{
@@ -27,7 +28,7 @@ export default function SwitchView({ onMessage, offMessage, changeFunc }) {
                 alignItems: "center",
                 height: "100%",
                 fontSize: 12,
-                color: "#000",
+                color: "#fff",
                 paddingRight: 2
               }}
             >
@@ -42,7 +43,7 @@ export default function SwitchView({ onMessage, offMessage, changeFunc }) {
                 alignItems: "center",
                 height: "100%",
                 fontSize: 12,
-                color: "#000",
+                color: "#fff",
                 paddingRight: 2
               }}
             >
