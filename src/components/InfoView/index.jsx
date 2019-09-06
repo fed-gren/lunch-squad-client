@@ -23,7 +23,7 @@ export default function index() {
                   <span>가격:{item.price}</span>
                 </div>
               </Styled.DescTextPart>
-              <InfoButtonPartView />
+              <InfoButtonPartView id={item.id} />
             </Styled.DescPart>
           </Styled.InfoItem>
         ))}

@@ -7,16 +7,18 @@ import { MapPageProvider } from "./contexts/MapPageContext";
 //components
 import LandingPageView from "./pages/LandingPageView";
 import MapPageView from "./pages/MapPageView";
+import DetailPageView from "./pages/DetailPageView";
 
 export default hot(() => {
   return (
     <MyApp>
       <GlobalStyle />
       <Router>
+        <Route exact path="/" component={LandingPageView} />
         <MapPageProvider>
-          <Route exact path="/" component={LandingPageView} />
           <Route path="/map" component={MapPageView} />
         </MapPageProvider>
+        <Route path="/detail/:id" component={DetailPageView} />
       </Router>
     </MyApp>
   );
