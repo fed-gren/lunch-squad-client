@@ -54,6 +54,56 @@ const data = {
       price: "7200원",
       like: 0
     }
+  ],
+  dummyReviews: [
+    {
+      id: 1,
+      username: "아무개",
+      review: "싸고 맛있어요!",
+      tasteScore: 4,
+      priceScore: 4,
+      regDate: "2019-07-20"
+    },
+    {
+      id: 2,
+      username: "홍길동",
+      review: "김치찌개가 진짜 너무 맛있네..",
+      tasteScore: 5,
+      priceScore: 3,
+      regDate: "2018-11-12"
+    },
+    {
+      id: 3,
+      username: "라이언",
+      review: "흠..내입맛엔 별로. 가격은 괜춘!",
+      tasteScore: 2,
+      priceScore: 4,
+      regDate: "2018-02-05"
+    },
+    {
+      id: 4,
+      username: "황무지",
+      review: "메뉴가 왤케 없는지 모르겠음..",
+      tasteScore: 1,
+      priceScore: 2,
+      regDate: "2019-03-21"
+    },
+    {
+      id: 5,
+      username: "앙몬드",
+      review: "그냥 다 좋아~",
+      tasteScore: 5,
+      priceScore: 5,
+      regDate: "2019-05-01"
+    },
+    {
+      id: 6,
+      username: "따릉이",
+      review: "자전거 타고 가기에 좋음~",
+      tasteScore: 5,
+      priceScore: 3,
+      regDate: "2017-07-11"
+    }
   ]
 };
 

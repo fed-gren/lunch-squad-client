@@ -4,6 +4,7 @@ import Styled from "./styles";
 import DetailInfoImageView from "../DetailInfoImageView";
 import DetailInfoTitleView from "../DetailInfoTitleView";
 import DetailMenuListView from "../DetailMenuListView";
+import ReviewBarView from "../ReviewBarView";
 
 export default function index() {
   return (
@@ -11,6 +12,7 @@ export default function index() {
       <DetailInfoImageView />
       <DetailInfoTitleView />
       <DetailMenuListView />
+      <ReviewBarView />
     </Styled.DetailInfo>
   );
 }

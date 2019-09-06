@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { styles } from "../../../config";
 
 const DetailInfo = styled.section`
   background-color: #eee;
@@ -7,6 +8,7 @@ const DetailInfo = styled.section`
   position: relative;
   z-index: 1;
   overflow: scroll;
+  padding-bottom: ${styles.reviewBarHeight};
 `;
 
 export default { DetailInfo };
