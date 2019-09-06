@@ -11,7 +11,8 @@ export default function index({ id }) {
     padding: "0 0 0 1rem",
     height: "100%"
   };
-  const detailPath = `/detail/${id}`;
+  // const detailPath = `/detail/${id}`;
+  const detailPath = `/detail`;
 
   return (
     <Styled.DescButtonPart>

@@ -18,7 +18,7 @@ export default hot(() => {
         <MapPageProvider>
           <Route path="/map" component={MapPageView} />
         </MapPageProvider>
-        <Route path="/detail/:id" component={DetailPageView} />
+        <Route path="/detail" component={DetailPageView} />
       </Router>
     </MyApp>
   );

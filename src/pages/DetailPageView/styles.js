@@ -6,7 +6,6 @@ const DetailPage = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 `;
 
 export default { DetailPage };
