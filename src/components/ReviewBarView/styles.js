@@ -10,8 +10,8 @@ const ReviewBar = styled.div`
   background-color: #ddd;
   padding: 0 0.6rem;
   position: fixed;
-  ${({ getReviewBarPosition, reviewOpenFlag }) =>
-    getReviewBarPosition(reviewOpenFlag)};
+  ${({ reviewOpenFlag }) =>
+    reviewOpenFlag ? "bottom: calc(100% - 6rem)" : "bottom: 0"};
   z-index: 1;
   -webkit-transition: bottom 0.5s ease;
   -moz-transition: bottom 0.5s ease;

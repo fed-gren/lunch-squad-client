@@ -9,9 +9,6 @@ export default function index() {
   const [reviewOpenFlag, setReviewOpenFlag] = useState(false);
   const toggleReviewOpenFlag = _ => setReviewOpenFlag(!reviewOpenFlag);
 
-  const getReviewBarPosition = reviewOpenFlag =>
-    reviewOpenFlag ? "bottom: calc(100% - 6rem)" : "bottom: 0";
-
   const reviewButtonStyles = {
     bgColor: "transparent",
     color: styles.themeColor,
@@ -19,8 +16,8 @@ export default function index() {
   };
 
   return (
-    <Styled.ReviewBar {...{ getReviewBarPosition, reviewOpenFlag }}>
-      <ButtonView name="리뷰하기" {...reviewButtonStyles} />
+    <Styled.ReviewBar {...{ reviewOpenFlag }}>
+      <ButtonView name="리뷰쓰기" {...reviewButtonStyles} />
       <ButtonView
         name={reviewOpenFlag ? "리뷰닫기" : "리뷰보기"}
         {...reviewButtonStyles}

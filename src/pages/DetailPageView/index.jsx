@@ -7,7 +7,7 @@ import TopbarLayoutView from "../../components/TopbarLayoutView";
 import DetailInfoView from "../../components/DetailInfoView";
 
 export default ({ match, history }) => {
-  console.log(match.params.id);
+  // console.log(match.params.id);
 
   const homeButtonStyles = {
     bgColor: "transparent",

@@ -16,7 +16,7 @@ export default function index() {
       <ul>
         {menus.map(menu => {
           return (
-            <li>
+            <li key={menu.name}>
               <span>{menu.name}</span>
               <span>{menu.price}</span>
             </li>
