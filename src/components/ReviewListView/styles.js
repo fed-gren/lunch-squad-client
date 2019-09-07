@@ -11,25 +11,6 @@ const Reviews = styled.section`
   left: 0;
 `;
 
-// const DescPart = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   flex: 1;
-// `;
-
-// const DescTextPart = styled.div`
-//   flex: 1;
-//   display: flex;
-//   justify-content: space-between;
-
-//   & > div {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-end;
-//     font-size: 1rem;
-//   }
-// `;
-
 export default {
   Reviews
 };
