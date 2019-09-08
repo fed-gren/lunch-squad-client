@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ReviewItemTop = styled.div`
-  height: 40%;
+  height: 2.4rem;
   font-size: 1.4rem;
   display: flex;
   align-items: center;
