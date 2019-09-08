@@ -8,7 +8,6 @@ const ReviewItemInfo = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  border: 1px dotted red;
 
   & > .regDate {
     font-size: 0.7rem;

@@ -6,11 +6,10 @@ const ReviewItemScore = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 1px dotted green;
+  justify-content: flex-end;
 
   & > div {
-    margin: 0 0.4rem;
+    margin-left: 0.8rem;
   }
 `;
 

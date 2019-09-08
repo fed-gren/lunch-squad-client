@@ -6,7 +6,6 @@ const ReviewItemTop = styled.div`
   display: flex;
   align-items: center;
   color: #555;
-  background-color: orange;
 `;
 
 export default {
