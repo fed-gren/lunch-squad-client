@@ -11,7 +11,11 @@ export default () => {
           center: new kakao.maps.LatLng(33.450701, 126.570667),
           level: 3
         }}
-      ></Map>
+      >
+        <Marker
+          options={{ position: new kakao.maps.LatLng(33.450701, 126.570667) }}
+        />
+      </Map>
     </Styled.KakaoMap>
   );
 };
