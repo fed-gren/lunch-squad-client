@@ -7,6 +7,7 @@ import LinkButtonView from "../../components/LinkButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
 import SwitchView from "../../components/SwitchView";
 import NaverMapView from "../../components/NaverMapView";
+import KakaoMapView from "../../components/KakaoMapView";
 import MarkerFilterView from "../../components/MarkerFilterView";
 import InfoView from "../../components/InfoView";
 
@@ -57,7 +58,8 @@ export default _ => {
           changeFunc={toggleListView}
         />
       </TopbarLayoutView>
-      <NaverMapView />
+      {/* <NaverMapView /> */}
+      <KakaoMapView />
       {listShowFlag ? <InfoView /> : <MarkerFilterView />}
     </Styled.MapPage>
   );
