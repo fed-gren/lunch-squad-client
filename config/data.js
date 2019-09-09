@@ -59,7 +59,8 @@ const data = {
     {
       id: 1,
       username: "아무개",
-      review: "싸고 맛있어요!",
+      review:
+        "싸고 맛있어요! 근데 아쉬운 점이 식당 분위기가 조금 어두워요. 그런데 뭐 그런거 신경 쓸 겨를 있나요? ^^ 그냥 맛있게 먹으면 됩니다. ㅎㅎ",
       tasteScore: 4,
       priceScore: 4,
       regDate: "2019-07-20"

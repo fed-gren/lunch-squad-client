@@ -21,7 +21,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve("./build"),
     index: "index.html",
-    port: 8081,
+    port: 3000,
     historyApiFallback: true
   },
 
