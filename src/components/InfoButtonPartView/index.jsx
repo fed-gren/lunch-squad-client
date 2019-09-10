@@ -16,7 +16,7 @@ export default function index({ id }) {
 
   return (
     <Styled.DescButtonPart>
-      <LinkButtonView to="/review" name="리뷰쓰기" {...descButtonStyles} />
+      <LinkButtonView to="/post-review" name="리뷰쓰기" {...descButtonStyles} />
       <LinkButtonView to={detailPath} name="상세보기" {...descButtonStyles} />
     </Styled.DescButtonPart>
   );

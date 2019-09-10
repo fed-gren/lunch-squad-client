@@ -5,12 +5,11 @@ import { styles } from "../../../config";
 //components
 import ButtonView from "../../components/ButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
-import DetailInfoView from "../../components/DetailInfoView";
 
 export default ({ match, history }) => {
   // console.log(match.params.id);
   return (
-    <Styled.DetailPage>
+    <Styled.PostingReviewPage>
       <TopbarLayoutView>
         <ButtonView
           name={<FaArrowLeft />}
@@ -18,7 +17,7 @@ export default ({ match, history }) => {
           onClick={history.goBack}
         />
       </TopbarLayoutView>
-      <DetailInfoView />
-    </Styled.DetailPage>
+      리뷰쓰기 페이지
+    </Styled.PostingReviewPage>
   );
 };

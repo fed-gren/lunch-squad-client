@@ -8,6 +8,7 @@ import { MapPageProvider } from "./contexts/MapPageContext";
 import LandingPageView from "./pages/LandingPageView";
 import MapPageView from "./pages/MapPageView";
 import DetailPageView from "./pages/DetailPageView";
+import PostingReviewPageView from "./pages/PostingReviewPageView";
 
 export default hot(() => {
   return (
@@ -19,6 +20,7 @@ export default hot(() => {
           <Route path="/map" component={MapPageView} />
         </MapPageProvider>
         <Route path="/detail" component={DetailPageView} />
+        <Route path="/post-review" component={PostingReviewPageView} />
       </Router>
     </MyApp>
   );
