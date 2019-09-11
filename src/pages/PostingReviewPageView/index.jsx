@@ -5,6 +5,7 @@ import { styles } from "../../../config";
 //components
 import ButtonView from "../../components/ButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
+import PostingReivewView from "../../components/PostingReviewView";
 
 export default ({ match, history }) => {
   // console.log(match.params.id);
@@ -17,7 +18,7 @@ export default ({ match, history }) => {
           onClick={history.goBack}
         />
       </TopbarLayoutView>
-      리뷰쓰기 페이지
+      <PostingReivewView />
     </Styled.PostingReviewPage>
   );
 };
