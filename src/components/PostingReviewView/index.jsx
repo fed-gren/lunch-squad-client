@@ -4,6 +4,7 @@ import { PostingReviewPageContext } from "../../contexts/PostingReviewPageContex
 //component
 import SetRateView from "../SetRateView";
 import RateTextView from "../RateTextView";
+import RateTitleView from "../RateTitleView";
 
 export default function index() {
   const { tasteRate, setTasteRate, priceRate, setPriceRate } = useContext(
@@ -13,10 +14,12 @@ export default function index() {
     <Styled.PostingReview>
       <Styled.Rates>
         <div className="taste">
+          <RateTitleView rateTitle="맛" />
           <SetRateView {...{ rate: tasteRate, setRate: setTasteRate }} />
           <RateTextView {...{ rate: tasteRate }} />
         </div>
         <div className="price">
+          <RateTitleView rateTitle="가격" />
           <SetRateView {...{ rate: priceRate, setRate: setPriceRate }} />
           <RateTextView {...{ rate: priceRate }} />
         </div>
