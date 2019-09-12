@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import reset from "styled-reset";
 import { MapPageProvider } from "./contexts/MapPageContext";
+import { PostingReviewPageProvider } from "./contexts/PostingReviewPageContext";
 //components
 import LandingPageView from "./pages/LandingPageView";
 import MapPageView from "./pages/MapPageView";
@@ -20,7 +21,9 @@ export default hot(() => {
           <Route path="/map" component={MapPageView} />
         </MapPageProvider>
         <Route path="/detail" component={DetailPageView} />
-        <Route path="/post-review" component={PostingReviewPageView} />
+        <PostingReviewPageProvider>
+          <Route path="/post-review" component={PostingReviewPageView} />
+        </PostingReviewPageProvider>
       </Router>
     </MyApp>
   );
