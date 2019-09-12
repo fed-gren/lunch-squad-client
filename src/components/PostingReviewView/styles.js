@@ -11,4 +11,14 @@ const PostingReview = styled.section`
   padding-bottom: ${styles.reviewBarHeight};
 `;
 
-export default { PostingReview };
+const Rates = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+export default { PostingReview, Rates };

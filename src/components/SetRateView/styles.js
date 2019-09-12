@@ -5,7 +5,7 @@ const SetRate = styled.div`
   display: flex;
   align-items: center;
   font-size: 2rem;
-  color: ${styles.themeColor};
+  color: ${styles.filteredItemColor};
 `;
 
 export default { SetRate };
