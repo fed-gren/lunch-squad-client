@@ -9,6 +9,14 @@ const PostingReview = styled.section`
   z-index: 1;
   overflow: scroll;
   padding-bottom: ${styles.reviewBarHeight};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+
+  & > p {
+    margin: 1.5rem;
+  }
 `;
 
 const Rates = styled.div`

@@ -1,10 +1,12 @@
 import React from "react";
 import Styled from "./styles";
 
-export default function index({ rate }) {
+export default function index({ rate, selectedRate }) {
   return (
     <Styled.RateText>
-      <span>{rate === 0 ? "?" : rate}</span>점
+      <span className={selectedRate && "selected"}>
+        {rate !== null ? rate : selectedRate !== null ? selectedRate : "?"}점
+      </span>
     </Styled.RateText>
   );
 }
