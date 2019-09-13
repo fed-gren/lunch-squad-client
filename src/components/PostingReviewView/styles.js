@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { styles } from "../../../config";
 
-const PostingReview = styled.section`
+const PostingRate = styled.section`
   background-color: #eee;
   flex: 1;
   width: 100%;
@@ -22,6 +22,7 @@ const PostingReview = styled.section`
 const Rates = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 
   & > div {
     display: flex;
@@ -29,4 +30,4 @@ const Rates = styled.div`
   }
 `;
 
-export default { PostingReview, Rates };
+export default { PostingRate, Rates };

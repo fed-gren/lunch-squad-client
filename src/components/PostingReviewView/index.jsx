@@ -5,6 +5,8 @@ import { PostingReviewPageContext } from "../../contexts/PostingReviewPageContex
 import SetRateView from "../SetRateView";
 import RateTextView from "../RateTextView";
 import RateTitleView from "../RateTitleView";
+import ReviewTextareaView from "../ReveiwTextareaView";
+import PostingReivewButtonPartView from "../PostingReviewButtonPartView";
 
 export default function index() {
   const {
@@ -23,8 +25,8 @@ export default function index() {
   } = useContext(PostingReviewPageContext);
 
   return (
-    <Styled.PostingReview>
-      <p>리뷰를 작성해주세요.</p>
+    <Styled.PostingRate>
+      <p>맛, 가격은 어땠나요?</p>
       <Styled.Rates>
         <div className="taste">
           <RateTitleView rateTitle="맛" />
@@ -59,6 +61,8 @@ export default function index() {
           />
         </div>
       </Styled.Rates>
-    </Styled.PostingReview>
+      <ReviewTextareaView />
+      <PostingReivewButtonPartView />
+    </Styled.PostingRate>
   );
 }
