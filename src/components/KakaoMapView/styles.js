@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const KakaoMap = styled.main`
+const KakaoMapContainer = styled.main`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -8,4 +8,4 @@ const KakaoMap = styled.main`
   z-index: 0;
 `;
 
-export default { KakaoMap };
+export default { KakaoMapContainer };

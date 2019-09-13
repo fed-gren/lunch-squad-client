@@ -1,21 +1,29 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Styled from "./styles";
-import { Map, Marker } from "react-kakao-maps";
+import { withJs, withKakaoMap, KakaoMap } from "react-kakaomap-api";
 import { data } from "../../../config";
 
+const Kakao = withJs(
+  `//dapi.kakao.com/v2/maps/sdk.js?appkey=fe732a20e66cfd694c2afad012a95da9&libraries=services,clusterer,drawing&autoload=false`
+)(withKakaoMap(KakaoMap));
+
 export default () => {
+  const onZoomChang = map => {
+    const level = map.getLevel();
+    console.log("level: ", level);
+  };
+
   return (
-    <Styled.KakaoMap>
-      <Map
+    <Styled.KakaoMapContainer>
+      <Kakao
+        onZoomChang={onZoomChang}
         options={{
-          center: new kakao.maps.LatLng(33.450701, 126.570667),
+          lat: data.kakaoMapConfig.defaultCenter.lat,
+          lng: data.kakaoMapConfig.defaultCenter.lng,
+          zoom: "BOTTOMRIGHT",
           level: 3
         }}
-      >
-        <Marker
-          options={{ position: new kakao.maps.LatLng(33.450701, 126.570667) }}
-        />
-      </Map>
-    </Styled.KakaoMap>
+      ></Kakao>
+    </Styled.KakaoMapContainer>
   );
 };

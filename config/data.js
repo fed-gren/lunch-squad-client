@@ -1,6 +1,6 @@
 const data = {
   ncpClientId: "04lxzjey4k",
-  naverMapConfig: {
+  kakaoMapConfig: {
     style: {
       width: "100%",
       height: "100%"
