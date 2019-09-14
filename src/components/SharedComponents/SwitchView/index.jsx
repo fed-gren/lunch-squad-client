@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Styled from "./styles";
 import Switch from "react-switch";
-import { styles } from "../../../config";
+import { styles } from "../../../../config";
 
 export default function SwitchView({ onMessage, offMessage, changeFunc }) {
   const [checked, setChecked] = useState(false);

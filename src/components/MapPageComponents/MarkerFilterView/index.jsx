@@ -4,9 +4,9 @@ import { FaThumbsUp } from "react-icons/fa";
 import { styles } from "../../../../config";
 import { MapPageContext } from "../../../contexts/MapPageContext";
 
+import ButtonView from "../../SharedComponents/ButtonView";
 import FilteredCategoryView from "../FilteredCategoryView";
 import MarkerFilterControlView from "../MarkerFilterControlView";
-import ButtonView from "../../ButtonView";
 
 export default () => {
   const { filteredCategory, setFilteredCategory } = useContext(MapPageContext);

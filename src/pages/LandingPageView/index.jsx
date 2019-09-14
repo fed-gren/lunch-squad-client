@@ -3,7 +3,7 @@ import Styled from "./styles";
 import { metadata, styles } from "../../../config";
 import { GiFoodTruck } from "react-icons/gi";
 //components
-import LinkButtonView from "../../components/LinkButtonView";
+import LinkButtonView from "../../components/SharedComponents/LinkButtonView";
 
 export default _ => {
   const startButtonStyles = {

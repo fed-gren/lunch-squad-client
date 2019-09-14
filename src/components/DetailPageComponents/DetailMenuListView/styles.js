@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const DetailMenuList = styled.div`
-  border: 1px dotted #123;
   width: 100%;
   padding: 1rem;
   display: flex;

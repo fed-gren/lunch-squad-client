@@ -2,7 +2,7 @@ import React from "react";
 import Styled from "./styles";
 import { styles } from "../../../../config";
 //components
-import ButtonView from "../../ButtonView";
+import ButtonView from "../../SharedComponents/ButtonView";
 
 export default function index() {
   const registButtonStyles = {

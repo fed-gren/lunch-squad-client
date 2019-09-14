@@ -3,8 +3,8 @@ import Styled from "./styles";
 import { FaArrowLeft } from "react-icons/fa";
 import { styles } from "../../../config";
 //components
-import ButtonView from "../../components/ButtonView";
-import TopbarLayoutView from "../../components/TopbarLayoutView";
+import ButtonView from "../../components/SharedComponents/ButtonView";
+import TopbarLayoutView from "../../components/SharedComponents/TopbarLayoutView";
 import PostingReviewView from "../../components/PostingReviewPageComponents/PostingReviewView";
 
 export default ({ match, history }) => {

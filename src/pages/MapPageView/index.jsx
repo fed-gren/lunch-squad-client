@@ -3,9 +3,9 @@ import Styled from "./styles";
 import { FaHome, FaList, FaMapMarkedAlt } from "react-icons/fa";
 import { MapPageContext } from "../../contexts/MapPageContext";
 //components
-import LinkButtonView from "../../components/LinkButtonView";
-import TopbarLayoutView from "../../components/TopbarLayoutView";
-import SwitchView from "../../components/SwitchView";
+import LinkButtonView from "../../components/SharedComponents/LinkButtonView";
+import TopbarLayoutView from "../../components/SharedComponents/TopbarLayoutView";
+import SwitchView from "../../components/SharedComponents/SwitchView";
 import KakaoMapView from "../../components/MapPageComponents/KakaoMapView";
 import MarkerFilterView from "../../components/MapPageComponents/MarkerFilterView";
 import InfoView from "../../components/MapPageComponents/InfoView";

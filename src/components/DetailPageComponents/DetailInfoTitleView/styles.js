@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const DetailTitle = styled.div`
-  border: 1px dotted #098;
   display: flex;
   flex-direction: column;
   justify-content: center;

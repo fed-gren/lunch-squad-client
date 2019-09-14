@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const Topbar = styled.header`
-  /* TODO: remove border */
-  border: 1px dotted gray;
   width: 100%;
   height: 3rem;
   display: flex;
