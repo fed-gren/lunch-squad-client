@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import Styled from "./styles";
 import { FaThumbsUp } from "react-icons/fa";
-import { styles } from "../../../config";
-import { MapPageContext } from "../../contexts/MapPageContext";
+import { styles } from "../../../../config";
+import { MapPageContext } from "../../../contexts/MapPageContext";
 
 import FilteredCategoryView from "../FilteredCategoryView";
 import MarkerFilterControlView from "../MarkerFilterControlView";
-import ButtonView from "../ButtonView";
+import ButtonView from "../../ButtonView";
 
 export default () => {
   const { filteredCategory, setFilteredCategory } = useContext(MapPageContext);

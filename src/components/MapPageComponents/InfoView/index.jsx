@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from "./styles";
-import { data } from "../../../config";
+import { data } from "../../../../config";
 import { FaRegThumbsUp } from "react-icons/fa";
 //components
 import InfoButtonPartView from "../InfoButtonPartView";

@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "./styles";
 import { withJs, withKakaoMap, KakaoMap } from "react-kakaomap-api";
-import { data } from "../../../config";
+import { data } from "../../../../config";
 
 const Kakao = withJs(
   `//dapi.kakao.com/v2/maps/sdk.js?appkey=fe732a20e66cfd694c2afad012a95da9&libraries=services,clusterer,drawing&autoload=false`

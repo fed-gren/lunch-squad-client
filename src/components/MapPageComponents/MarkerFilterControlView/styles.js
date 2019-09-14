@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import { styles } from "../../../config";
 
-const FilteredItem = styled.div`
+const MarkerFilterContol = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 0;
   width: 100%;
   min-height: 3rem;
   background-color: rgba(1, 1, 1, 0.3);
   z-index: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
 
@@ -17,4 +17,4 @@ const FilteredItem = styled.div`
   }
 `;
 
-export default { FilteredItem };
+export default { MarkerFilterContol };

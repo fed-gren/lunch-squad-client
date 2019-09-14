@@ -6,9 +6,9 @@ import { MapPageContext } from "../../contexts/MapPageContext";
 import LinkButtonView from "../../components/LinkButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
 import SwitchView from "../../components/SwitchView";
-import KakaoMapView from "../../components/KakaoMapView";
-import MarkerFilterView from "../../components/MarkerFilterView";
-import InfoView from "../../components/InfoView";
+import KakaoMapView from "../../components/MapPageComponents/KakaoMapView";
+import MarkerFilterView from "../../components/MapPageComponents/MarkerFilterView";
+import InfoView from "../../components/MapPageComponents/InfoView";
 
 export default _ => {
   const {

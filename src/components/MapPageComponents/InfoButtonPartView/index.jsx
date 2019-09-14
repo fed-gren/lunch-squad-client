@@ -1,8 +1,8 @@
 import React from "react";
 import Styled from "./styles";
-import { styles } from "../../../config";
+import { styles } from "../../../../config";
 //components
-import LinkButtonView from "../../components/LinkButtonView";
+import LinkButtonView from "../../LinkButtonView";
 
 export default function index({ id }) {
   const descButtonStyles = {
