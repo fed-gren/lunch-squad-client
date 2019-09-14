@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Styled from "./styles";
-import { PostingReviewPageContext } from "../../contexts/PostingReviewPageContext";
+import { PostingReviewPageContext } from "../../../contexts/PostingReviewPageContext";
 //component
 import SetRateView from "../SetRateView";
 import RateTextView from "../RateTextView";

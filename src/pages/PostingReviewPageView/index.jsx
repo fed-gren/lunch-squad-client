@@ -5,7 +5,7 @@ import { styles } from "../../../config";
 //components
 import ButtonView from "../../components/ButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
-import PostingReviewView from "../../components/PostingReviewView";
+import PostingReviewView from "../../components/PostingReviewPageComponents/PostingReviewView";
 
 export default ({ match, history }) => {
   // console.log(match.params.id);

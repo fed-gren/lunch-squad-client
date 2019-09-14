@@ -1,8 +1,8 @@
 import React from "react";
 import Styled from "./styles";
-import { styles } from "../../../config";
+import { styles } from "../../../../config";
 //components
-import ButtonView from "../../components/ButtonView";
+import ButtonView from "../../ButtonView";
 
 export default function index() {
   const registButtonStyles = {
