@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { styles } from "../../../config";
+import { styles } from "../../../../config";
 
 const ReviewBar = styled.div`
   width: 100%;

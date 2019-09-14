@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Styled from "./styles";
-import { styles } from "../../../config";
+import { styles } from "../../../../config";
 import Truncate from "react-truncate";
 
 //components
-import ButtonView from "../ButtonView";
+import ButtonView from "../../ButtonView";
 
 export default function index({ review }) {
   const [foldFlag, setFoldFlag] = useState(true);

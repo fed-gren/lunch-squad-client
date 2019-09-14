@@ -5,7 +5,7 @@ import { styles } from "../../../config";
 //components
 import ButtonView from "../../components/ButtonView";
 import TopbarLayoutView from "../../components/TopbarLayoutView";
-import DetailInfoView from "../../components/DetailInfoView";
+import DetailInfoView from "../../components/DetailPageComponents/DetailInfoView";
 
 export default ({ match, history }) => {
   // console.log(match.params.id);

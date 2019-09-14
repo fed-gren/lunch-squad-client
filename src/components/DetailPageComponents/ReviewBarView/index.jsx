@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Styled from "./styles";
-import { styles } from "../../../config";
+import { styles } from "../../../../config";
 //components
-import ButtonView from "../ButtonView";
+import ButtonView from "../../ButtonView";
 import ReviewListView from "../ReviewListView";
-import LinkButtonView from "../../components/LinkButtonView";
+import LinkButtonView from "../../LinkButtonView";
 
 export default function index() {
   const [reviewOpenFlag, setReviewOpenFlag] = useState(false);
