@@ -2,14 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
-
-const environment =
-  process.env.NODE_ENV === "development" ? "development" : "production";
-
-const MODE = {
-  development: "development",
-  production: "production"
-};
+const devEnv = require("dotenv").config({
+  path: path.resolve(process.cwd(), ".env.development")
+});
 
 module.exports = {
   entry: "./src/index.js",
@@ -59,7 +54,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.EnvironmentPlugin({
-      MODE: MODE[environment]
+      KAKAO_MAP_API_URL: devEnv.parsed.KAKAO_MAP_API_URL
     })
   ]
 };

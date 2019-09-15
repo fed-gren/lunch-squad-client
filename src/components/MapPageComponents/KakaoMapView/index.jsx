@@ -11,9 +11,7 @@ import { data } from "../../../../config";
 import { RestaurantDataContext } from "../../../contexts/RestaurantDataContext";
 import { MapPageContext } from "../../../contexts/MapPageContext";
 
-const Kakao = withJs(
-  `//dapi.kakao.com/v2/maps/sdk.js?appkey=fe732a20e66cfd694c2afad012a95da9&libraries=services,clusterer,drawing&autoload=false`
-)(withKakaoMap(KakaoMap));
+const Kakao = withJs(process.env.KAKAO_MAP_API_URL)(withKakaoMap(KakaoMap));
 
 export default () => {
   const {
