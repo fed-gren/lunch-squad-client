@@ -1,10 +1,7 @@
 const data = {
   ncpClientId: "04lxzjey4k",
+  restaurantApiUrl: "https://goodbye-codesquadbot.herokuapp.com/showAll",
   kakaoMapConfig: {
-    style: {
-      width: "100%",
-      height: "100%"
-    },
     defaultCenter: {
       lat: 37.4908351,
       lng: 127.0331809
