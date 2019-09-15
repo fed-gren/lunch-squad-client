@@ -30,6 +30,13 @@ export const MapPageProvider = ({ children }) => {
   ];
 
   const [filteredCategory, setFilteredCategory] = useState(initCategory);
+  const [restaurantsShowFlags, setRestaurantsShowFlags] = useState(null);
+
+  useEffect(() => {
+    const obj = {};
+    filteredCategory.forEach(({ name, isOff }) => (obj[name] = !isOff));
+    setRestaurantsShowFlags(obj);
+  }, [filteredCategory]);
 
   return (
     <MapPageContext.Provider
@@ -37,7 +44,8 @@ export const MapPageProvider = ({ children }) => {
         listShowFlag,
         setListShowFlag,
         filteredCategory,
-        setFilteredCategory
+        setFilteredCategory,
+        restaurantsShowFlags
       }}
     >
       {children}

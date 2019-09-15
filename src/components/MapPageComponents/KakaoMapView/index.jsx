@@ -9,6 +9,7 @@ import {
 } from "react-kakaomap-api";
 import { data } from "../../../../config";
 import { RestaurantDataContext } from "../../../contexts/RestaurantDataContext";
+import { MapPageContext } from "../../../contexts/MapPageContext";
 
 const Kakao = withJs(
   `//dapi.kakao.com/v2/maps/sdk.js?appkey=fe732a20e66cfd694c2afad012a95da9&libraries=services,clusterer,drawing&autoload=false`
@@ -21,6 +22,7 @@ export default () => {
     chRestaurants,
     wsRestaurants
   } = useContext(RestaurantDataContext);
+  const { restaurantsShowFlags } = useContext(MapPageContext);
 
   const getMarkersByFoodTypes = foodType => {
     const restaurantObj = {
@@ -34,19 +36,17 @@ export default () => {
     return (
       restaurants &&
       restaurants.map(
-        ({ _id, name, positionX, positionY, foodType }, index) => {
-          return (
-            <InfoWindoWithMarker
-              key={_id}
-              delay={10 * index}
-              options={{
-                content: `${name}, ${foodType}`,
-                lat: positionX,
-                lng: positionY
-              }}
-            />
-          );
-        }
+        ({ _id, name, positionX, positionY, foodType }, index) => (
+          <InfoWindoWithMarker
+            key={_id}
+            delay={10 * index}
+            options={{
+              content: `${name}, ${foodType}`,
+              lat: positionX,
+              lng: positionY
+            }}
+          />
+        )
       )
     );
   };
@@ -80,10 +80,18 @@ export default () => {
           level: 3
         }}
       >
-        <MarkerClusterer options={options}>{Markers.ko}</MarkerClusterer>
-        <MarkerClusterer options={options}>{Markers.jp}</MarkerClusterer>
-        <MarkerClusterer options={options}>{Markers.ch}</MarkerClusterer>
-        <MarkerClusterer options={options}>{Markers.ws}</MarkerClusterer>
+        {restaurantsShowFlags && restaurantsShowFlags.한식 && (
+          <MarkerClusterer {...{ options }}>{Markers.ko}</MarkerClusterer>
+        )}
+        {restaurantsShowFlags && restaurantsShowFlags.일식 && (
+          <MarkerClusterer {...{ options }}>{Markers.jp}</MarkerClusterer>
+        )}
+        {restaurantsShowFlags && restaurantsShowFlags.중식 && (
+          <MarkerClusterer {...{ options }}>{Markers.ch}</MarkerClusterer>
+        )}
+        {restaurantsShowFlags && restaurantsShowFlags.양식 && (
+          <MarkerClusterer {...{ options }}>{Markers.ws}</MarkerClusterer>
+        )}
       </Kakao>
     </Styled.KakaoMapContainer>
   );
