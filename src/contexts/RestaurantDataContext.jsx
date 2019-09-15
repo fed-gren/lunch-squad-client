@@ -6,15 +6,15 @@ import { data } from "../../config";
 export const RestaurantDataContext = createContext();
 
 export const RestaurantDataProvider = ({ children }) => {
-  const { loading, data: retaurantData, error } = useFetch({
-    url: data.restaurantApiUrl
+  const { loading, data: lunchSquadData, error } = useFetch({
+    url: data.lunchSquadApiUrl
   });
 
   return (
     <RestaurantDataContext.Provider
       value={{
         loading,
-        retaurantData,
+        lunchSquadData,
         error
       }}
     >
