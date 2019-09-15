@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { createContext } from "react";
 import PropTypes from "prop-types";
 import { useFetch } from "../hooks";
 import { data } from "../../config";
@@ -6,7 +6,7 @@ import { data } from "../../config";
 export const RestaurantDataContext = createContext();
 
 export const RestaurantDataProvider = ({ children }) => {
-  const { loading, data: restauarantData, error } = useFetch({
+  const { loading, data: retaurantData, error } = useFetch({
     url: data.restaurantApiUrl
   });
 
@@ -14,7 +14,7 @@ export const RestaurantDataProvider = ({ children }) => {
     <RestaurantDataContext.Provider
       value={{
         loading,
-        restauarantData,
+        retaurantData,
         error
       }}
     >

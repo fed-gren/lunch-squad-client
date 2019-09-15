@@ -27,7 +27,7 @@ const useFetch = ({ url }) => {
       setState({
         ...state,
         loading: false,
-        data: jsonData.body
+        data: jsonData
       });
     }
     fetchData();
