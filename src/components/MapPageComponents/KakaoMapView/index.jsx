@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import {
   withJs,
@@ -15,28 +15,48 @@ const Kakao = withJs(
 )(withKakaoMap(KakaoMap));
 
 export default () => {
-  const { loading, error, lunchSquadData } = useContext(RestaurantDataContext);
-  console.log(loading, error, lunchSquadData);
+  const {
+    koRestaurants,
+    jpRestaurants,
+    chRestaurants,
+    wsRestaurants
+  } = useContext(RestaurantDataContext);
 
-  const Markers =
-    lunchSquadData &&
-    lunchSquadData.allRestaurant &&
-    lunchSquadData.allRestaurant.map(
-      ({ _id, name, positionX, positionY }, index) => {
-        return (
-          <Fragment key={_id}>
+  const getMarkersByFoodTypes = foodType => {
+    const restaurantObj = {
+      한식: koRestaurants,
+      일식: jpRestaurants,
+      중식: chRestaurants,
+      양식: wsRestaurants
+    };
+
+    const restaurants = restaurantObj[foodType];
+    return (
+      restaurants &&
+      restaurants.map(
+        ({ _id, name, positionX, positionY, foodType }, index) => {
+          return (
             <InfoWindoWithMarker
-              delay={100 * index}
+              key={_id}
+              delay={10 * index}
               options={{
-                content: name,
+                content: `${name}, ${foodType}`,
                 lat: positionX,
                 lng: positionY
               }}
             />
-          </Fragment>
-        );
-      }
+          );
+        }
+      )
     );
+  };
+
+  const Markers = {
+    ko: getMarkersByFoodTypes("한식"),
+    jp: getMarkersByFoodTypes("일식"),
+    ch: getMarkersByFoodTypes("중식"),
+    ws: getMarkersByFoodTypes("양식")
+  };
 
   const options = {
     gridSize: 35,
@@ -60,7 +80,10 @@ export default () => {
           level: 3
         }}
       >
-        <MarkerClusterer options={options}>{Markers}</MarkerClusterer>
+        <MarkerClusterer options={options}>{Markers.ko}</MarkerClusterer>
+        <MarkerClusterer options={options}>{Markers.jp}</MarkerClusterer>
+        <MarkerClusterer options={options}>{Markers.ch}</MarkerClusterer>
+        <MarkerClusterer options={options}>{Markers.ws}</MarkerClusterer>
       </Kakao>
     </Styled.KakaoMapContainer>
   );
