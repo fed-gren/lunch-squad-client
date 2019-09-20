@@ -1,7 +1,6 @@
 import { hot } from "react-hot-loader/root";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import reset from "styled-reset";
 import { MapPageProvider } from "./contexts/MapPageContext";
 import { PostingReviewPageProvider } from "./contexts/PostingReviewPageContext";
@@ -11,23 +10,12 @@ import LandingPageView from "./pages/LandingPageView";
 import MapPageView from "./pages/MapPageView";
 import DetailPageView from "./pages/DetailPageView";
 import PostingReviewPageView from "./pages/PostingReviewPageView";
+import Layout from "./components/Layout";
 
 export default hot(() => {
   return (
     <MyApp>
       <GlobalStyle />
-      <Router>
-        <Route exact path="/" component={LandingPageView} />
-        <RestaurantDataProvider>
-          <MapPageProvider>
-            <Route path="/map" component={MapPageView} />
-          </MapPageProvider>
-          <Route path="/detail" component={DetailPageView} />
-        </RestaurantDataProvider>
-        <PostingReviewPageProvider>
-          <Route path="/post-review" component={PostingReviewPageView} />
-        </PostingReviewPageProvider>
-      </Router>
     </MyApp>
   );
 });
