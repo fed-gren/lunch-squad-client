@@ -11,11 +11,17 @@ import MapPageView from "./pages/MapPageView";
 import DetailPageView from "./pages/DetailPageView";
 import PostingReviewPageView from "./pages/PostingReviewPageView";
 import Layout from "./components/Layout";
+import MapView from "./components/MapComponents/MapView";
+import InfoView from "./components/InfoComponents/InfoView";
 
 export default hot(() => {
   return (
     <MyApp>
       <GlobalStyle />
+      <Layout>
+        <MapView />
+        <InfoView />
+      </Layout>
     </MyApp>
   );
 });
