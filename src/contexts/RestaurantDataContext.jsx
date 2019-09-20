@@ -23,7 +23,7 @@ export const RestaurantDataProvider = ({ children }) => {
       양식: []
     };
 
-    lunchSquadData.allRestaurant.forEach(rest => {
+    lunchSquadData.forEach(rest => {
       foodTypes[rest.foodType].push(rest);
     });
     setKoRestaurants([...foodTypes["한식"]]);
