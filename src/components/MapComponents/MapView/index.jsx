@@ -11,6 +11,7 @@ import { data } from "../../../../config";
 import { RestaurantDataContext } from "../../../contexts/RestaurantDataContext";
 import { MapPageContext } from "../../../contexts/MapPageContext";
 import MapLayout from "../../MapLayout";
+import FilterView from "../FilterView";
 
 const Kakao = withJs(process.env.KAKAO_MAP_API_URL)(withKakaoMap(KakaoMap));
 
@@ -33,6 +34,7 @@ export default () => {
           }}
         ></Kakao>
       </Styled.KakaoMapContainer>
+      <FilterView />
     </MapLayout>
   );
 };
