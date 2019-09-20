@@ -22,8 +22,7 @@ export default () => {
 
   return (
     <MapLayout>
-      Map
-      {/* <Styled.KakaoMapContainer>
+      <Styled.KakaoMapContainer>
         <Kakao
           onZoomChang={onZoomChang}
           options={{
@@ -33,7 +32,7 @@ export default () => {
             level: 3
           }}
         ></Kakao>
-      </Styled.KakaoMapContainer> */}
+      </Styled.KakaoMapContainer>
     </MapLayout>
   );
 };
