@@ -1,11 +1,14 @@
 import React from "react";
 import Styled from "./styles";
-import ToggleButtonView from "../ToggleButtonView";
+import ToggleButtonView from "../FilterToggleButtonView";
+import { FilterProvider } from "../../../contexts/FilterContext";
 
 export default () => {
   return (
     <Styled.Filter>
-      <ToggleButtonView />
+      <FilterProvider>
+        <ToggleButtonView />
+      </FilterProvider>
     </Styled.Filter>
   );
 };

@@ -9,6 +9,7 @@ const Button = styled.button`
   /* customizing attribute */
   ${({ width }) => width && `width: ${width};`}
   ${({ height }) => height && `height: ${height};`}
+  ${({ border }) => border && `border: ${border};`}
   ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius};`}
   ${({ bgColor }) => bgColor && `background-color: ${bgColor};`}
   ${({ color }) => color && `color: ${color};`}
