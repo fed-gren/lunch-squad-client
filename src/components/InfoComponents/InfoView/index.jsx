@@ -1,8 +1,12 @@
 import React from "react";
-import Styled from "./styles";
 
 import InfoLayout from "../../InfoLayout";
+import RestaurantListView from "../RestaurantListView";
 
 export default function styles() {
-  return <InfoLayout></InfoLayout>;
+  return (
+    <InfoLayout>
+      <RestaurantListView />
+    </InfoLayout>
+  );
 }
