@@ -6,13 +6,13 @@ import RestaurantItemView from "../RestaurantItemView";
 
 export default function RestaurantListView() {
   const { allRestaurant } = useContext(RestaurantDataContext);
-  console.log(allRestaurant);
+
   return (
     <Styled.RestaurantList>
       {allRestaurant &&
-        allRestaurant.map(({ _id, ...info }) => {
-          return <RestaurantItemView key={_id} {...info}></RestaurantItemView>;
-        })}
+        allRestaurant.map(({ ...info }) => (
+          <RestaurantItemView key={info._id} {...info}></RestaurantItemView>
+        ))}
     </Styled.RestaurantList>
   );
 }
