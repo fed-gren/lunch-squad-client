@@ -22,6 +22,11 @@ const Button = styled.button`
   ${({ margin }) => margin && `margin: ${margin};`}
   ${({ padding }) => padding && `padding: ${padding};`}
   ${({ isOff }) => isOff && `background-color: #888;`}
+
+  &:active {
+  ${({ activeBgColor }) =>
+    activeBgColor && `background-color: ${activeBgColor};`}
+  }
 `;
 
 export default { Button };

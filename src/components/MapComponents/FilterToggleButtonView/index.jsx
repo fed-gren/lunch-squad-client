@@ -7,7 +7,9 @@ const toggleButtonStyles = {
   width: "4.5rem",
   height: "2.5rem",
   fontSize: "1.2rem",
-  border: "1px solid black"
+  border: "1px solid black",
+  borderRadius: "0",
+  activeBgColor: "#888"
 };
 
 export default () => {
