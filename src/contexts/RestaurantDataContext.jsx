@@ -6,7 +6,7 @@ import { data } from "../../config";
 export const RestaurantDataContext = createContext();
 
 export const RestaurantDataProvider = ({ children }) => {
-  const { loading, data: lunchSquadData, error } = useFetch({
+  const { loading, data: allRestaurant, error } = useFetch({
     url: data.lunchSquadApiUrl
   });
   const [koRestaurants, setKoRestaurants] = useState(null);
@@ -15,7 +15,7 @@ export const RestaurantDataProvider = ({ children }) => {
   const [wsRestaurants, setWsRestaurants] = useState(null);
 
   useEffect(() => {
-    if (!lunchSquadData) return;
+    if (!allRestaurant) return;
     const foodTypes = {
       한식: [],
       일식: [],
@@ -23,18 +23,19 @@ export const RestaurantDataProvider = ({ children }) => {
       양식: []
     };
 
-    lunchSquadData.forEach(rest => {
+    allRestaurant.forEach(rest => {
       foodTypes[rest.foodType].push(rest);
     });
     setKoRestaurants([...foodTypes["한식"]]);
     setJpRestaurants([...foodTypes["일식"]]);
     setChRestaurants([...foodTypes["중식"]]);
     setWsRestaurants([...foodTypes["양식"]]);
-  }, [lunchSquadData]);
+  }, [allRestaurant]);
 
   return (
     <RestaurantDataContext.Provider
       value={{
+        allRestaurant,
         koRestaurants,
         jpRestaurants,
         chRestaurants,

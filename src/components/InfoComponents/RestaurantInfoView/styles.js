@@ -6,7 +6,6 @@ const RestaurantInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  border: 1px solid skyblue;
   padding: 0 0.4rem;
 `;
 
