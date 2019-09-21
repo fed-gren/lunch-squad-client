@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const FilterTitle = styled.div`
-  border-bottom: 1px solid black;
   height: 2rem;
   display: flex;
   align-items: center;
