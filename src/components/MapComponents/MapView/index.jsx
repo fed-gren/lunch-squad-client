@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Styled from "./styles";
-import { KakaoMap, Marker } from "react-kakao-maps";
+import { KakaoMap } from "react-kakao-maps";
 import { data } from "../../../../config";
-import { RestaurantDataContext } from "../../../contexts/RestaurantDataContext";
 import { MapPageContext } from "../../../contexts/MapPageContext";
 import MapLayout from "../../MapLayout";
 import FilterView from "../FilterView";
+import MarkerListView from "../MarkerListView";
 
 export default () => {
   return (
@@ -19,10 +19,7 @@ export default () => {
           lat={data.kakaoMapConfig.defaultCenter.lat}
           lng={data.kakaoMapConfig.defaultCenter.lng}
         >
-          <Marker
-            lat={data.kakaoMapConfig.defaultCenter.lat}
-            lng={data.kakaoMapConfig.defaultCenter.lng}
-          ></Marker>
+          <MarkerListView />
         </KakaoMap>
       </Styled.KakaoMapContainer>
       <FilterView />
