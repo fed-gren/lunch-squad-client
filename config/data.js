@@ -3,10 +3,9 @@ const data = {
   lunchSquadApiUrl: "https://goodbye-codesquadbot.herokuapp.com/showAll",
   kakaoMapConfig: {
     defaultCenter: {
-      lat: 37.4908351,
-      lng: 127.0331809
-    },
-    defaultZoom: 11
+      lat: 37.490826,
+      lng: 127.033419
+    }
   },
   dummyList: [
     {

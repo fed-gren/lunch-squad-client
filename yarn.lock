@@ -613,7 +613,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime-corejs2@^7.5.5":
+"@babel/runtime-corejs2@^7.5.5", "@babel/runtime-corejs2@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.6.0.tgz#6fcd37c2580070817d62f219db97f67e26f50f9c"
   dependencies:
@@ -1065,7 +1065,7 @@ babel-polyfill@6.23.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@^6.22.0:
+babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -1559,7 +1559,7 @@ core-js-compat@^3.1.1:
     browserslist "^4.6.6"
     semver "^6.3.0"
 
-core-js@^2.4.0, core-js@^2.6.5:
+core-js@2, core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
 
@@ -3905,6 +3905,19 @@ react-icons@^3.7.0:
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
+
+react-kakao-maps@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-kakao-maps/-/react-kakao-maps-0.0.3.tgz#c90e0a65675c7e2d643df92a8619efce7d1c241c"
+  integrity sha512-PkM/Vix7Lx8ZREHw3X9wJ2S/nF6kAMR4wnWYfPnlPQiHN/nZ4Vw/0kDimOO+R3DWu5fULVEY6OmU5XFqNMc3Iw==
+  dependencies:
+    "@babel/runtime-corejs2" "^7.6.0"
+    babel-runtime "^6.26.0"
+    core-js "2"
+    react "^16.9.0"
+    react-dom "^16.9.0"
+    scriptjs "^2.5.9"
+    styled-components "^4.3.2"
 
 react-kakaomap-api@^0.1.19:
   version "0.1.19"

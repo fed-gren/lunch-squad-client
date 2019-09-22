@@ -34,6 +34,7 @@
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.11",
     "react-icons": "^3.7.0",
+    "react-kakao-maps": "^0.0.3",
     "react-kakaomap-api": "^0.1.19",
     "react-router-dom": "^5.0.1",
     "react-switch": "^5.0.1",

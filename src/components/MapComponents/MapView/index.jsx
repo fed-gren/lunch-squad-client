@@ -1,38 +1,29 @@
 import React, { useContext } from "react";
 import Styled from "./styles";
-import {
-  withJs,
-  withKakaoMap,
-  KakaoMap,
-  MarkerClusterer,
-  InfoWindoWithMarker
-} from "react-kakaomap-api";
+import { KakaoMap, Marker } from "react-kakao-maps";
 import { data } from "../../../../config";
 import { RestaurantDataContext } from "../../../contexts/RestaurantDataContext";
 import { MapPageContext } from "../../../contexts/MapPageContext";
 import MapLayout from "../../MapLayout";
 import FilterView from "../FilterView";
 
-const Kakao = withJs(process.env.KAKAO_MAP_API_URL)(withKakaoMap(KakaoMap));
-
 export default () => {
-  const onZoomChang = map => {
-    const level = map.getLevel();
-    console.log("level: ", level);
-  };
-
   return (
     <MapLayout>
       <Styled.KakaoMapContainer>
-        <Kakao
-          onZoomChang={onZoomChang}
-          options={{
-            lat: data.kakaoMapConfig.defaultCenter.lat,
-            lng: data.kakaoMapConfig.defaultCenter.lng,
-            zoom: "BOTTOMRIGHT",
-            level: 3
-          }}
-        ></Kakao>
+        <KakaoMap
+          apiUrl={process.env.KAKAO_MAP_API_URL}
+          width="100%"
+          height="100%"
+          level={2}
+          lat={data.kakaoMapConfig.defaultCenter.lat}
+          lng={data.kakaoMapConfig.defaultCenter.lng}
+        >
+          <Marker
+            lat={data.kakaoMapConfig.defaultCenter.lat}
+            lng={data.kakaoMapConfig.defaultCenter.lng}
+          ></Marker>
+        </KakaoMap>
       </Styled.KakaoMapContainer>
       <FilterView />
     </MapLayout>

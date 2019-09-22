@@ -19,8 +19,10 @@ export default hot(() => {
     <MyApp>
       <GlobalStyle />
       <Layout>
-        <MapView />
-        <InfoView />
+        <RestaurantDataProvider>
+          <MapView />
+          <InfoView />
+        </RestaurantDataProvider>
       </Layout>
     </MyApp>
   );
