@@ -14,7 +14,7 @@ import PostingReviewPageView from "./pages/PostingReviewPageView";
 import Layout from "./components/Layout";
 import MapView from "./components/MapComponents/MapView";
 import InfoView from "./components/InfoComponents/InfoView";
-import DetailsView from "./components/DetailComponents/DetailsView";
+import DetailView from "./components/DetailComponents/DetailView";
 
 export default hot(() => {
   return (
@@ -25,7 +25,7 @@ export default hot(() => {
           <MapView />
           <Router>
             <Route exact path="/" component={InfoView} />
-            <Route path="/:id" component={DetailsView} />
+            <Route path="/:id" component={DetailView} />
           </Router>
         </RestaurantDataProvider>
       </Layout>
