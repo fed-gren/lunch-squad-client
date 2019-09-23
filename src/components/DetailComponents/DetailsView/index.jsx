@@ -1,7 +1,11 @@
 import React from "react";
 import InfoLayout from "../../InfoLayout";
-// import RestaurantListView from "../RestaurantListView";
+import DetailInfoView from "../DetailInfoView";
 
-export default function styles() {
-  return <InfoLayout></InfoLayout>;
+export default function index({ match }) {
+  return (
+    <InfoLayout>
+      <DetailInfoView id={match.params.id} />
+    </InfoLayout>
+  );
 }
