@@ -6,7 +6,6 @@ const Topbar = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(1, 1, 1, 0.5);
   padding: 0 0.6rem;
   position: relative;
   z-index: 1;
