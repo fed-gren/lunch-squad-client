@@ -7,7 +7,7 @@ import FilterButtonsView from "../FilterbuttonsView";
 
 export default () => {
   const { state } = useContext(FilterContext);
-  console.log(state.isShow);
+
   return (
     state.isShow && (
       <Styled.FilterItems>

@@ -1,7 +1,8 @@
 import React from "react";
 import InfoLayout from "../../InfoLayout";
-import DetailInfoView from "../DetailInfoView";
 import { DetailProvider } from "../../../contexts/DetailContext";
+import DetailInfoView from "../DetailInfoView";
+import ReviewContainerView from "../ReviewContainerView";
 
 export default function index({ match, history }) {
   const { goBack } = history;
@@ -10,6 +11,7 @@ export default function index({ match, history }) {
       <DetailProvider>
         <DetailInfoView id={match.params.id} {...{ goBack }} />
       </DetailProvider>
+      <ReviewContainerView />
     </InfoLayout>
   );
 }
