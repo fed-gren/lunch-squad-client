@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
-const Thumbnail = styled.picture`
-  width: 7rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
+const Thumbnail = styled.div`
+  width: ${({ width }) => (width ? width : "100%")};
 
-  & > img {
+  & > picture {
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    & > img {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 

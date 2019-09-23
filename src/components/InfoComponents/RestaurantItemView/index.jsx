@@ -17,7 +17,10 @@ export default function RestaurantItemView({ ...info }) {
       {...{ hoverFlag }}
     >
       <Link to={linkPath}>
-        <ThumbnailView imageUrl="http://cfd.tourtips.com/@cms_200/2015081384/gjexf1/%EB%B4%89%ED%94%BC%EC%96%91.JPG" />
+        <ThumbnailView
+          width="8rem"
+          imageUrl="http://cfd.tourtips.com/@cms_200/2015081384/gjexf1/%EB%B4%89%ED%94%BC%EC%96%91.JPG"
+        />
         <RestaurantInfoView {...restInfo} />
       </Link>
     </Styled.RestaurantItem>
