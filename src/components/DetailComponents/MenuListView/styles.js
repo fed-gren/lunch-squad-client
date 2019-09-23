@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MenuList = styled.div`
+const MenuList = styled.ul`
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid black;

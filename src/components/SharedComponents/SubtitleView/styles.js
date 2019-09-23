@@ -5,7 +5,7 @@ const Subtitle = styled.div`
   align-items: center;
   height: 2.4rem;
   padding: 0 1rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #aaa;
 
   & > h3 {
     font-size: 1.1rem;
