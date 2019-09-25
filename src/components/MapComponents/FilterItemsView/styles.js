@@ -6,7 +6,7 @@ const FilterItems = styled.div`
   width: 20rem;
   min-height: 5rem;
   border: 1px solid black;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
 `;
 
 export default { FilterItems };
