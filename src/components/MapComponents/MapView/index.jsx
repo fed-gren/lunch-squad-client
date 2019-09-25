@@ -4,7 +4,8 @@ import { KakaoMap } from "react-kakao-maps";
 import { data } from "../../../../config";
 import MapLayout from "../../MapLayout";
 import FilterView from "../FilterView";
-import MarkerListView from "../MarkerListView";
+import OverlayListView from "../OverlayListView";
+import CodeSquadOverlayView from "../CodeSquadOverlayView";
 
 export default () => {
   return (
@@ -18,7 +19,8 @@ export default () => {
           lat={data.kakaoMapConfig.defaultCenter.lat}
           lng={data.kakaoMapConfig.defaultCenter.lng}
         >
-          <MarkerListView />
+          <CodeSquadOverlayView />
+          <OverlayListView />
         </KakaoMap>
       </Styled.KakaoMapContainer>
       <FilterView />

@@ -1,8 +1,15 @@
 const styles = {
-  themeColor: "#11998e",
-  filteredItemColor: "#00BFA5",
-  reviewBarHeight: "3rem",
+  themeColor: "#1abc9c",
+  themeShadowColor: "#16a085",
+  filteredItemColor: "#1abc9c",
+  codeSquadColor: "#3498db",
+  codeSquadShadowColor: "#2980b9",
+  hoverOverlayColor: "#e74c3c",
+  hoverOverlayShadowColor: "#c0392b",
+  selectedOverlayColor: "#e74c3c",
+  selectedOverlayShadowColor: "#c0392b",
 
+  reviewBarHeight: "3rem",
   backButton: {
     bgColor: "transparent",
     color: "#000",
