@@ -17,17 +17,30 @@ export const RestaurantProvider = ({ children }) => {
     양식: { name: "양식", isOn: true }
   });
 
+  const [filteredRestaurants, setFilteredRestaurants] = useState(null);
+
   useEffect(() => {
     if (!restaurants) return;
-    console.log(restaurants);
+    setFilteredRestaurants([...restaurants]);
   }, [restaurants]);
+
+  useEffect(() => {
+    if (!restaurants) return;
+
+    const temp = restaurants.filter(
+      ({ foodType }) => foodTypeCategories[foodType].isOn
+    );
+
+    setFilteredRestaurants([...temp]);
+  }, [foodTypeCategories]);
 
   return (
     <RestaurantContext.Provider
       value={{
         restaurants,
         foodTypeCategories,
-        setFoodTypeCategories
+        setFoodTypeCategories,
+        filteredRestaurants
       }}
     >
       {children}
