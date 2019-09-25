@@ -1,6 +1,8 @@
 const data = {
   ncpClientId: "04lxzjey4k",
-  lunchSquadApiUrl: "https://goodbye-codesquadbot.herokuapp.com/showAll",
+  // lunchSquadApiUrl: "https://goodbye-codesquadbot.herokuapp.com/showAll",
+  lunchSquadApiUrl:
+    "https://ldlyo4kkqc.execute-api.ap-northeast-2.amazonaws.com/dev/restaurants",
   restaurantApiUrl: "https://goodbye-codesquadbot.herokuapp.com/show/",
   kakaoMapConfig: {
     defaultCenter: {

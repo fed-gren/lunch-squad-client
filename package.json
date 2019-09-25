@@ -34,12 +34,11 @@
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.11",
     "react-icons": "^3.7.0",
-    "react-kakao-maps": "^0.0.3",
+    "react-kakao-maps": "^0.0.4",
     "react-kakaomap-api": "^0.1.19",
     "react-router-dom": "^5.0.1",
     "react-switch": "^5.0.1",
     "react-truncate": "^2.4.0",
-    "rxjs": "^6.5.3",
     "styled-components": "^4.3.2",
     "styled-reset": "^4.0.0"
   }

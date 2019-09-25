@@ -7,8 +7,8 @@ import RestaurantInfoView from "../RestaurantInfoView";
 
 export default function RestaurantItemView({ ...info }) {
   const [hoverFlag, setHoverFlag] = useState(false);
-  const { _id, ...restInfo } = info;
-  const linkPath = `/${_id}`;
+  const { id, ...restInfo } = info;
+  const linkPath = `/${id}`;
 
   return (
     <Styled.RestaurantItem

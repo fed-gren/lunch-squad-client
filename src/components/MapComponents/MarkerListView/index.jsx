@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Marker } from "react-kakao-maps";
-import { RestaurantDataContext } from "../../../contexts/RestaurantDataContext";
+import { RestaurantContext } from "../../../contexts/RestaurantContext";
 export default () => {
-  const { allRestaurant } = useContext(RestaurantDataContext);
+  const { restaurants } = useContext(RestaurantContext);
 
   return (
-    allRestaurant &&
-    allRestaurant.map(({ _id, positionX, positionY }) => (
-      <Marker key={_id} lat={positionX} lng={positionY}></Marker>
+    restaurants &&
+    Object.values(restaurants).map(({ id, lat, lng }) => (
+      <Marker key={id} {...{ lat, lng }}></Marker>
     ))
   );
 };

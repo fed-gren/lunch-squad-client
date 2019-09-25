@@ -3,8 +3,7 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { MapPageProvider } from "./contexts/MapPageContext";
-import { RestaurantDataProvider } from "./contexts/RestaurantDataContext";
+import { RestaurantProvider } from "./contexts/RestaurantContext";
 //components
 import Layout from "./components/Layout";
 import MapView from "./components/MapComponents/MapView";
@@ -16,13 +15,13 @@ export default hot(() => {
     <MyApp>
       <GlobalStyle />
       <Layout>
-        <RestaurantDataProvider>
+        <RestaurantProvider>
           <MapView />
           <Router>
             <Route exact path="/" component={InfoView} />
             <Route path="/:id" component={DetailView} />
           </Router>
-        </RestaurantDataProvider>
+        </RestaurantProvider>
       </Layout>
     </MyApp>
   );
