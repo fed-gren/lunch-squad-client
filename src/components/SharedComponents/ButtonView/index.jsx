@@ -5,10 +5,8 @@ const ButtonView = ({ name, onClick, isOff, ...styles }) => {
   return (
     <Styled.Button
       {...styles}
-      onClick={event => {
-        onClick && onClick(event);
-      }}
-      isOff={isOff}
+      onClick={event => onClick && onClick(event)}
+      {...{ isOff }}
     >
       {name}
     </Styled.Button>

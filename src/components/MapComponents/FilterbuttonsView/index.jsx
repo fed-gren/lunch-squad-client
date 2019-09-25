@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import ButtonView from "../../SharedComponents/ButtonView";
 import { styles } from "../../../../config";
+import { RestaurantContext } from "../../../contexts/RestaurantContext";
+import { foodType } from "../../../constants";
 
 const toggleButtonStyles = {
   width: "3rem",
@@ -11,12 +13,54 @@ const toggleButtonStyles = {
 };
 
 export default () => {
+  const { foodTypeCategories, setFoodTypeCategories } = useContext(
+    RestaurantContext
+  );
+
+  const clickHandler = ({ foodType }) => {
+    const tempObj = { ...foodTypeCategories[foodType] };
+
+    tempObj.isOn = !tempObj.isOn;
+    setFoodTypeCategories({
+      ...foodTypeCategories,
+      [foodType]: { ...tempObj }
+    });
+  };
+
   return (
     <Styled.FilterButtons>
-      <ButtonView name="한식" {...toggleButtonStyles}></ButtonView>
-      <ButtonView name="일식" {...toggleButtonStyles}></ButtonView>
-      <ButtonView name="중식" {...toggleButtonStyles}></ButtonView>
-      <ButtonView name="양식" {...toggleButtonStyles}></ButtonView>
+      <ButtonView
+        name={foodTypeCategories[foodType.KO_FOOD].name}
+        isOff={!foodTypeCategories[foodType.KO_FOOD].isOn}
+        onClick={() =>
+          clickHandler({ foodType: foodTypeCategories[foodType.KO_FOOD].name })
+        }
+        {...toggleButtonStyles}
+      ></ButtonView>
+      <ButtonView
+        name={foodTypeCategories[foodType.JP_FOOD].name}
+        isOff={!foodTypeCategories[foodType.JP_FOOD].isOn}
+        onClick={() =>
+          clickHandler({ foodType: foodTypeCategories[foodType.JP_FOOD].name })
+        }
+        {...toggleButtonStyles}
+      ></ButtonView>
+      <ButtonView
+        name={foodTypeCategories[foodType.WS_FOOD].name}
+        isOff={!foodTypeCategories[foodType.WS_FOOD].isOn}
+        onClick={() =>
+          clickHandler({ foodType: foodTypeCategories[foodType.WS_FOOD].name })
+        }
+        {...toggleButtonStyles}
+      ></ButtonView>
+      <ButtonView
+        name={foodTypeCategories[foodType.CH_FOOD].name}
+        isOff={!foodTypeCategories[foodType.CH_FOOD].isOn}
+        onClick={() =>
+          clickHandler({ foodType: foodTypeCategories[foodType.CH_FOOD].name })
+        }
+        {...toggleButtonStyles}
+      ></ButtonView>
     </Styled.FilterButtons>
   );
 };

@@ -3906,24 +3906,16 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
 
-react-kakao-maps@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-kakao-maps/-/react-kakao-maps-0.0.4.tgz#1a21a618f2a2882a688adb0dc9d0cf1896884f78"
-  integrity sha512-ne46G6hEKv7ChQO+9PcFBGi6pmav+V2snSO+0sEhMBtEUMv09Omt1xL5U8U9RiQocWI90GPphTDoMscbIWtn1A==
+react-kakao-maps@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/react-kakao-maps/-/react-kakao-maps-0.0.5.tgz#e5cc6f7f06836065fd274cb06dd1b15694dd724e"
+  integrity sha512-NYk6AgKl65Fa0hUvmUF3iZ2Nyu9+hMk601XqaBg8GNJ2QJiOu0cJBmmPKc9BQ/+LWDyNWP4El4FStlHrgfuXcw==
   dependencies:
     "@babel/runtime-corejs2" "^7.6.0"
     babel-runtime "^6.26.0"
     core-js "2"
     react "^16.9.0"
     react-dom "^16.9.0"
-    scriptjs "^2.5.9"
-    styled-components "^4.3.2"
-
-react-kakaomap-api@^0.1.19:
-  version "0.1.19"
-  resolved "https://registry.yarnpkg.com/react-kakaomap-api/-/react-kakaomap-api-0.1.19.tgz#7046f73e6866146770fff43cab6238f05d9ea875"
-  dependencies:
-    react "^16.9.0"
     scriptjs "^2.5.9"
     styled-components "^4.3.2"
 
@@ -3957,12 +3949,6 @@ react-router@5.0.1:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
-
-react-switch@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-5.0.1.tgz#449277f4c3aed5286fffd0f50d5cbc2a23330406"
-  dependencies:
-    prop-types "^15.6.2"
 
 react-truncate@^2.4.0:
   version "2.4.0"
