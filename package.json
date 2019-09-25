@@ -34,7 +34,7 @@
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.11",
     "react-icons": "^3.7.0",
-    "react-kakao-maps": "^0.0.5",
+    "react-kakao-maps": "^0.0.6",
     "react-router-dom": "^5.0.1",
     "react-truncate": "^2.4.0",
     "styled-components": "^4.3.2",
