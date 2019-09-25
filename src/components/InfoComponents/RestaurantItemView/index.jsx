@@ -7,7 +7,7 @@ import RestaurantInfoView from "../RestaurantInfoView";
 
 export default function RestaurantItemView({ ...info }) {
   const [hoverFlag, setHoverFlag] = useState(false);
-  const { id, ...restInfo } = info;
+  const { id, thumnailImageURL, ...restInfo } = info;
   const linkPath = `/${id}`;
 
   return (
@@ -17,10 +17,7 @@ export default function RestaurantItemView({ ...info }) {
       {...{ hoverFlag }}
     >
       <Link to={linkPath}>
-        <ThumbnailView
-          width="8rem"
-          imageUrl="http://cfd.tourtips.com/@cms_200/2015081384/gjexf1/%EB%B4%89%ED%94%BC%EC%96%91.JPG"
-        />
+        <ThumbnailView width="7rem" imageUrl={thumnailImageURL} />
         <RestaurantInfoView {...restInfo} />
       </Link>
     </Styled.RestaurantItem>
