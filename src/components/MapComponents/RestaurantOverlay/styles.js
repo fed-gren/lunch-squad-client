@@ -8,6 +8,7 @@ const RestaurantOverlay = styled.div`
   color: #fff;
   padding: 0.3rem;
   border-radius: 0.4rem;
+  box-shadow: 2px -2px #16a085;
 
   &:after {
     content: "";
