@@ -6,7 +6,7 @@ export default function ThumbnailView({ width, height, imageUrl, title }) {
   return (
     <Styled.Thumbnail {...{ width, height }}>
       <picture>
-        <img src={imageUrl} alt="thumbnail" />
+        <img src={imageUrl} alt="thumbnail" {...{ width, height }} />
       </picture>
       {title && <Styled.ThumbnailTitle>{title}</Styled.ThumbnailTitle>}
     </Styled.Thumbnail>

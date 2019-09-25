@@ -1,48 +1,39 @@
 import React, { useContext, useEffect } from "react";
 import Styled from "./styles";
-import { useFetch } from "../../../hooks";
-import { data, styles } from "../../../../config";
+import { styles } from "../../../../config";
 import { FaArrowLeft } from "react-icons/fa";
-import { DetailContext } from "../../../contexts/DetailContext";
+import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 import ThumbnailView from "../../SharedComponents/ThumbnailView";
 import TopbarLayoutView from "../../SharedComponents/TopbarLayoutView";
 import ButtonView from "../../SharedComponents/ButtonView";
 import ContactInfoView from "../ContactInfoView";
-import MenuListView from "../MenuListView";
 
-export default function index({ id, goBack }) {
-  const { detailState, setDetailState } = useContext(DetailContext);
-  const { loading, data: restaurantData } = useFetch({
-    url: `${data.restaurantApiUrl}${id}`
-  });
+export default function index({ goBack, restaurantData }) {
+  const {
+    restaurantName,
+    imageURL,
+    businessHour,
+    contactNumber
+  } = restaurantData;
 
-  useEffect(() => {
-    if (!restaurantData) return;
-    setDetailState({
-      ...restaurantData
-    });
-  }, [restaurantData]);
-
-  //TODO: create Loading component
   return (
-    !loading && (
-      <Styled.DetailInfo>
-        <TopbarLayoutView>
-          <ButtonView
-            name={<FaArrowLeft />}
-            {...styles.backButton}
-            onClick={goBack}
-          />
-        </TopbarLayoutView>
-        <ThumbnailView
-          imageUrl="http://cfd.tourtips.com/@cms_800/2015081384/gjexf1/%EB%B4%89%ED%94%BC%EC%96%91.JPG"
-          title={detailState.name}
-          height="300px"
+    <Styled.DetailInfo>
+      <TopbarLayoutView>
+        <ButtonView
+          name={<FaArrowLeft />}
+          {...styles.backButton}
+          onClick={goBack}
         />
-        <ContactInfoView />
-        <MenuListView />
-      </Styled.DetailInfo>
-    )
+      </TopbarLayoutView>
+      <ThumbnailView
+        title={restaurantName}
+        imageUrl={imageURL}
+        height="400px"
+      />
+      <ContactInfoView {...{ businessHour, contactNumber }} />
+      {/* TODO:in restaurant data has not menus */}
+      {/* <MenuListView /> */}
+    </Styled.DetailInfo>
   );
 }

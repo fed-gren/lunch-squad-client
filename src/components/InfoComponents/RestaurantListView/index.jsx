@@ -5,13 +5,19 @@ import { RestaurantContext } from "../../../contexts/RestaurantContext";
 import RestaurantItemView from "../RestaurantItemView";
 
 export default function RestaurantListView() {
-  const { filteredRestaurants } = useContext(RestaurantContext);
+  const { filteredRestaurants, setSelectedRestaurant } = useContext(
+    RestaurantContext
+  );
 
   return (
     <Styled.RestaurantList>
       {filteredRestaurants &&
-        filteredRestaurants.map(({ ...info }) => (
-          <RestaurantItemView key={info.id} {...info}></RestaurantItemView>
+        filteredRestaurants.map(({ ...info }, idx, arr) => (
+          <RestaurantItemView
+            key={info.id}
+            {...info}
+            restaurantData={arr[idx]}
+          ></RestaurantItemView>
         ))}
     </Styled.RestaurantList>
   );
