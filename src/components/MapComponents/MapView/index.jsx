@@ -6,6 +6,7 @@ import MapLayout from "../../MapLayout";
 import FilterView from "../FilterView";
 import OverlayListView from "../OverlayListView";
 import CodeSquadOverlayView from "../CodeSquadOverlayView";
+import SelectedOverlayView from "../SelectedOverlayView";
 
 export default () => {
   return (
@@ -21,6 +22,7 @@ export default () => {
         >
           <CodeSquadOverlayView />
           <OverlayListView />
+          <SelectedOverlayView />
         </KakaoMap>
       </Styled.KakaoMapContainer>
       <FilterView />

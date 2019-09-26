@@ -17,8 +17,8 @@ export default () => {
         />
       }
       {...{ lat, lng }}
-      yAnchor={1}
-      zIndex={1}
+      yAnchor={data.codesquadOverlayYAnchor}
+      zIndex={data.codesquadOverlayZIndex}
     ></CustomOverlay>
   );
 };
