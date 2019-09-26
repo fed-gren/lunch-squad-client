@@ -19,6 +19,7 @@ export const RestaurantProvider = ({ children }) => {
 
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  const [hoveredRestaurant, setHoveredRestaurant] = useState(null);
 
   useEffect(() => {
     if (!restaurants) return;
@@ -43,7 +44,9 @@ export const RestaurantProvider = ({ children }) => {
         setFoodTypeCategories,
         filteredRestaurants,
         selectedRestaurant,
-        setSelectedRestaurant
+        setSelectedRestaurant,
+        hoveredRestaurant,
+        setHoveredRestaurant
       }}
     >
       {children}

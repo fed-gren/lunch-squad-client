@@ -5,15 +5,25 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import ThumbnailView from "../../SharedComponents/ThumbnailView";
 import RestaurantInfoView from "../RestaurantInfoView";
 
-export default function RestaurantItemView({ ...info }) {
+export default function RestaurantItemView({
+  mouseEnterHandler,
+  mouseLeaveHandler,
+  ...info
+}) {
   const [hoverFlag, setHoverFlag] = useState(false);
   const { id, thumnailImageURL, ...restInfo } = info;
   const linkPath = `/${id}`;
 
   return (
     <Styled.RestaurantItem
-      onMouseEnter={() => setHoverFlag(true)}
-      onMouseLeave={() => setHoverFlag(false)}
+      onMouseEnter={() => {
+        mouseEnterHandler(restInfo);
+        setHoverFlag(true);
+      }}
+      onMouseLeave={() => {
+        mouseLeaveHandler();
+        setHoverFlag(false);
+      }}
       {...{ hoverFlag }}
     >
       <Link to={linkPath}>
