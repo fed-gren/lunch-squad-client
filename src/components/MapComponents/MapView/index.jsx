@@ -8,6 +8,7 @@ import OverlayListView from "../OverlayListView";
 import CodeSquadOverlayView from "../CodeSquadOverlayView";
 import SelectedOverlayView from "../SelectedOverlayView";
 import HoveredOverlayView from "../HoveredOverlayView";
+import RandomButtonView from "../RandomButtonView";
 
 export default () => {
   return (
@@ -26,8 +27,9 @@ export default () => {
           <SelectedOverlayView />
           <HoveredOverlayView />
         </KakaoMap>
+        <FilterView />
+        <RandomButtonView />
       </Styled.KakaoMapContainer>
-      <FilterView />
     </MapLayout>
   );
 };
