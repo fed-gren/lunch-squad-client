@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { CustomOverlay } from "react-kakao-maps";
 import { data, styles } from "../../../../config";
 import { RestaurantContext } from "../../../contexts/RestaurantContext";
@@ -6,19 +6,20 @@ import { RestaurantContext } from "../../../contexts/RestaurantContext";
 import RestaurantOverlay from "../RestaurantOverlay";
 
 export default () => {
-  const { selectedRestaurant } = useContext(RestaurantContext);
+  const { hoveredRestaurant } = useContext(RestaurantContext);
 
   return (
-    selectedRestaurant && (
+    hoveredRestaurant && (
       <CustomOverlay
+        key={hoveredRestaurant.id}
         content={
           <RestaurantOverlay
-            message={selectedRestaurant.restaurantName}
+            message={hoveredRestaurant.restaurantName}
             bgColor={styles.selectedOverlayColor}
             shadowColor={styles.selectedOverlayShadowColor}
           />
         }
-        {...{ lat: selectedRestaurant.lat, lng: selectedRestaurant.lng }}
+        {...{ lat: hoveredRestaurant.lat, lng: hoveredRestaurant.lng }}
         yAnchor={data.selectedOverlayYAnchor}
         zIndex={data.selectedOverlayZIndex}
       ></CustomOverlay>
