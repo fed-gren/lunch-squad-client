@@ -1,15 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import Styled from "./styles";
 import { styles } from "../../../../config";
 import { FaArrowLeft } from "react-icons/fa";
-import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 import ThumbnailView from "../../SharedComponents/ThumbnailView";
 import TopbarLayoutView from "../../SharedComponents/TopbarLayoutView";
-import ButtonView from "../../SharedComponents/ButtonView";
+import LinkButtonView from "../../SharedComponents/LinkButtonView";
 import ContactInfoView from "../ContactInfoView";
 
-export default function index({ goBack, restaurantData }) {
+export default function index({ restaurantData }) {
   const {
     restaurantName,
     imageURL,
@@ -20,11 +19,7 @@ export default function index({ goBack, restaurantData }) {
   return (
     <Styled.DetailInfo>
       <TopbarLayoutView>
-        <ButtonView
-          name={<FaArrowLeft />}
-          {...styles.backButton}
-          onClick={goBack}
-        />
+        <LinkButtonView name={<FaArrowLeft />} {...styles.backButton} to="/" />
       </TopbarLayoutView>
       <ThumbnailView
         title={restaurantName}
