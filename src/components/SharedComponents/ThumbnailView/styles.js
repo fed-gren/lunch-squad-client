@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Thumbnail = styled.div`
   width: ${({ width }) => (width ? width : "100%")};
   height: ${({ height }) => (height ? height : "auto")};
+  padding: ${({ padding }) => padding && padding};
   position: relative;
 
   & > picture {

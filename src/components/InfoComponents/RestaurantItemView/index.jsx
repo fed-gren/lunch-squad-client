@@ -30,7 +30,11 @@ export default function RestaurantItemView({ ...info }) {
       {...{ hoverFlag }}
     >
       <Link to={linkPath}>
-        <ThumbnailView width="7rem" imageUrl={thumnailImageURL} />
+        <ThumbnailView
+          width="7rem"
+          imageUrl={thumnailImageURL}
+          padding="0.5rem"
+        />
         <RestaurantInfoView {...restInfo} />
       </Link>
     </Styled.RestaurantItem>

@@ -9,6 +9,12 @@ const styles = {
   selectedOverlayColor: "#e74c3c",
   selectedOverlayShadowColor: "#c0392b",
 
+  restaurantList: {
+    bgColor: "#B2DFDB",
+    itemColor: "#FFF",
+    hoverColor: "#E0F2F1"
+  },
+
   reviewBarHeight: "3rem",
   backButton: {
     bgColor: "transparent",

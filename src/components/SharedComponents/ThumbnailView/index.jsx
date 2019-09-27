@@ -2,9 +2,15 @@ import React from "react";
 import Styled from "./styles";
 import PropTypes from "prop-types";
 
-export default function ThumbnailView({ width, height, imageUrl, title }) {
+export default function ThumbnailView({
+  width,
+  height,
+  imageUrl,
+  title,
+  ...styles
+}) {
   return (
-    <Styled.Thumbnail {...{ width, height }}>
+    <Styled.Thumbnail {...{ width, height }} {...styles}>
       <picture>
         <img src={imageUrl} alt="thumbnail" {...{ width, height }} />
       </picture>
