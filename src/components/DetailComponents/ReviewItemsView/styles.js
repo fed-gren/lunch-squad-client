@@ -3,11 +3,16 @@ import styled from "styled-components";
 const ReviewItem = styled.li`
   display: flex;
   align-items: center;
-  height: 4rem;
   font-size: 1rem;
-  padding: 0 1rem;
   border-bottom: 1px solid #ccc;
   color: #444;
+
+  & > p {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    min-height: 3rem;
+  }
 `;
 
 export default { ReviewItem };
