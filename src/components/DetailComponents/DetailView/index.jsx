@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import InfoLayout from "../../InfoLayout";
 import DetailInfoView from "../DetailInfoView";
 import ReviewContainerView from "../ReviewContainerView";
@@ -16,7 +16,7 @@ export default function index({ match, history }) {
 
     setSelectedRestaurant(...temp);
     return () => setSelectedRestaurant(null);
-  }, [restaurants]);
+  }, [restaurants, match.params.id]);
 
   const { goBack } = history;
   return (

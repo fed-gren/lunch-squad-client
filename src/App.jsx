@@ -16,8 +16,8 @@ export default hot(() => {
       <GlobalStyle />
       <Layout>
         <RestaurantProvider>
-          <MapView />
           <Router>
+            <MapView />
             <Route exact path="/" component={InfoView} />
             <Route path="/:id" component={DetailView} />
           </Router>

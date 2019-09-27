@@ -15,6 +15,7 @@ export default () => {
     const { lat, lng } = selectedRestaurant;
 
     map.setCenter(new kakaoMapObj.maps.LatLng(lat, lng));
+    map.setLevel(2);
   }, [selectedRestaurant]);
 
   return (

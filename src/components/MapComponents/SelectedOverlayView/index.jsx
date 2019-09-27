@@ -11,6 +11,7 @@ export default () => {
   return (
     selectedRestaurant && (
       <CustomOverlay
+        key={selectedRestaurant.id}
         content={
           <RestaurantOverlay
             message={selectedRestaurant.restaurantName}

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import Styled from "./styles";
-import ButtonView from "../../SharedComponents/ButtonView";
+import LinkButtonView from "../../SharedComponents/LinkButtonView";
 import { FaRandom } from "react-icons/fa";
+import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 const randomButtonStyles = {
   width: "6rem",
@@ -15,17 +16,41 @@ const RandomButtonText = _ => {
   return (
     <Styled.RandomButtonText>
       <FaRandom />
-      <span>랜덤추천</span>
+      <span>랜덤식당</span>
     </Styled.RandomButtonText>
   );
 };
 
 export default function index() {
+  const { filteredRestaurants } = useContext(RestaurantContext);
+
+  const getRandomNum = useCallback(
+    maxLen => Math.floor(Math.random() * maxLen),
+    []
+  );
+
+  const genRandomPath = useCallback(
+    _ => {
+      if (!filteredRestaurants) return "/";
+      const maxLen = filteredRestaurants.length;
+      let randomIdx = getRandomNum(maxLen);
+      let randomPath = `/${filteredRestaurants[randomIdx].id}`;
+
+      while (randomPath === location.pathname) {
+        randomIdx = getRandomNum(maxLen);
+        randomPath = `/${filteredRestaurants[randomIdx].id}`;
+      }
+
+      return randomPath;
+    },
+    [filteredRestaurants]
+  );
+
   return (
     <Styled.RandomButton>
-      <ButtonView
+      <LinkButtonView
         name={<RandomButtonText />}
-        onClick={() => console.log("random!")}
+        to={genRandomPath()}
         {...randomButtonStyles}
       />
     </Styled.RandomButton>
