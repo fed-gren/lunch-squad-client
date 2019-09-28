@@ -6,8 +6,7 @@ export default function index() {
   const { selectedRestaurant } = useContext(RestaurantContext);
   const { review: reviews } = selectedRestaurant;
 
-  return (
-    reviews &&
+  return reviews ? (
     reviews.map((c, idx) => {
       return (
         <Styled.ReviewItem key={idx}>
@@ -15,5 +14,7 @@ export default function index() {
         </Styled.ReviewItem>
       );
     })
+  ) : (
+    <div />
   );
 }

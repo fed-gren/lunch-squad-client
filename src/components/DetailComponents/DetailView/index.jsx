@@ -21,11 +21,13 @@ export default function index({ match, history }) {
   const { goBack } = history;
   return (
     <InfoLayout>
-      {selectedRestaurant && (
+      {selectedRestaurant ? (
         <>
           <DetailInfoView {...{ goBack }} restaurantData={selectedRestaurant} />
           <ReviewContainerView />
         </>
+      ) : (
+        <div />
       )}
     </InfoLayout>
   );

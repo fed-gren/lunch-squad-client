@@ -8,21 +8,21 @@ import RestaurantOverlay from "../RestaurantOverlay";
 export default () => {
   const { selectedRestaurant } = useContext(RestaurantContext);
 
-  return (
-    selectedRestaurant && (
-      <CustomOverlay
-        key={selectedRestaurant.id}
-        content={
-          <RestaurantOverlay
-            message={selectedRestaurant.restaurantName}
-            bgColor={styles.selectedOverlayColor}
-            shadowColor={styles.selectedOverlayShadowColor}
-          />
-        }
-        {...{ lat: selectedRestaurant.lat, lng: selectedRestaurant.lng }}
-        yAnchor={data.selectedOverlayYAnchor}
-        zIndex={data.selectedOverlayZIndex}
-      ></CustomOverlay>
-    )
+  return selectedRestaurant ? (
+    <CustomOverlay
+      key={selectedRestaurant.id}
+      content={
+        <RestaurantOverlay
+          message={selectedRestaurant.restaurantName}
+          bgColor={styles.selectedOverlayColor}
+          shadowColor={styles.selectedOverlayShadowColor}
+        />
+      }
+      {...{ lat: selectedRestaurant.lat, lng: selectedRestaurant.lng }}
+      yAnchor={data.selectedOverlayYAnchor}
+      zIndex={data.selectedOverlayZIndex}
+    ></CustomOverlay>
+  ) : (
+    <div />
   );
 };

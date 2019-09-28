@@ -8,12 +8,12 @@ import FilterButtonsView from "../FilterbuttonsView";
 export default () => {
   const { state } = useContext(FilterContext);
 
-  return (
-    state.isShow && (
-      <Styled.FilterItems>
-        <FilterTitleView filterTitle="음식 분류" />
-        <FilterButtonsView />
-      </Styled.FilterItems>
-    )
+  return state.isShow ? (
+    <Styled.FilterItems>
+      <FilterTitleView filterTitle="음식 분류" />
+      <FilterButtonsView />
+    </Styled.FilterItems>
+  ) : (
+    <div />
   );
 };

@@ -16,8 +16,7 @@ export default function index() {
       price: "123원"
     }
   ];
-  return (
-    dummyMenus &&
+  return dummyMenus ? (
     dummyMenus.map((c, idx) => {
       return (
         <Styled.MenuItem key={idx}>
@@ -27,5 +26,7 @@ export default function index() {
         </Styled.MenuItem>
       );
     })
+  ) : (
+    <div />
   );
 }

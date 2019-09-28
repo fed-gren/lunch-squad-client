@@ -9,10 +9,22 @@ export default function RestaurantListView() {
 
   return (
     <Styled.RestaurantList>
-      {filteredRestaurants &&
+      {filteredRestaurants ? (
         filteredRestaurants.map(({ ...info }) => (
-          <RestaurantItemView key={info.id} {...info}></RestaurantItemView>
-        ))}
+          <RestaurantItemView key={info.id} {...info} />
+        ))
+      ) : (
+        <div />
+      )}
     </Styled.RestaurantList>
   );
+  // return filteredRestaurants ? (
+  //   <Styled.RestaurantList>
+  //     {filteredRestaurants.map(({ ...info }) => (
+  //       <RestaurantItemView key={info.id} {...info} />
+  //     ))}
+  //   </Styled.RestaurantList>
+  // ) : (
+  //   <div />
+  // );
 }
