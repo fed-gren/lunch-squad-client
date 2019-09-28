@@ -19,6 +19,11 @@ export default () => {
 
   const clickHandler = ({ foodType }) => {
     const tempObj = { ...foodTypeCategories[foodType] };
+    const onNum = Object.values(foodTypeCategories).reduce(
+      (acc, cur) => (cur.isOn ? acc + 1 : acc),
+      0
+    );
+    if (onNum <= 1 && tempObj.isOn) return;
 
     tempObj.isOn = !tempObj.isOn;
     setFoodTypeCategories({
