@@ -4,6 +4,8 @@ import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { RestaurantProvider } from "./contexts/RestaurantContext";
+import { Helmet } from "react-helmet";
+import { metadata } from "../config";
 //components
 import Layout from "./components/Layout";
 import MapView from "./components/MapComponents/MapView";
@@ -13,6 +15,15 @@ import DetailView from "./components/DetailComponents/DetailView";
 export default hot(() => {
   return (
     <MyApp>
+      <Helmet>
+        <title>{metadata.title}</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="https://codesquad.kr/favicon.ico"
+          sizes="16x16"
+        />
+      </Helmet>
       <GlobalStyle />
       <Layout>
         <RestaurantProvider>

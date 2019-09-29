@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
+import { Helmet } from "react-helmet";
+import { metadata } from "../../../../config";
 import InfoLayout from "../../InfoLayout";
 import DetailInfoView from "../DetailInfoView";
 import ReviewContainerView from "../ReviewContainerView";
@@ -29,6 +31,11 @@ export default function index({ match, history }) {
     <InfoLayout>
       {selectedRestaurant ? (
         <>
+          <Helmet>
+            <title>
+              {metadata.title} - {selectedRestaurant.restaurantName}
+            </title>
+          </Helmet>
           <DetailInfoView {...{ goBack }} restaurantData={selectedRestaurant} />
           <ReviewContainerView />
         </>

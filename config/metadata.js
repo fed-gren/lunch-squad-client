@@ -1,5 +1,5 @@
 const metadata = {
-  title: "Lunch Squad"
+  title: "런치스쿼드"
 };
 
 export default metadata;
