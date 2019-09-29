@@ -5,9 +5,12 @@ import ReviewContainerView from "../ReviewContainerView";
 import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 export default function index({ match, history }) {
-  const { restaurants, selectedRestaurant, setSelectedRestaurant } = useContext(
-    RestaurantContext
-  );
+  const {
+    restaurants,
+    selectedRestaurant,
+    setSelectedRestaurant,
+    setHoveredRestaurant
+  } = useContext(RestaurantContext);
   const restaurantId = match.params.id;
 
   useEffect(() => {
@@ -15,7 +18,10 @@ export default function index({ match, history }) {
     const temp = restaurants.filter(({ id }) => id === restaurantId);
 
     setSelectedRestaurant(...temp);
-    return () => setSelectedRestaurant(null);
+    return () => {
+      setSelectedRestaurant(null);
+      setHoveredRestaurant(null);
+    };
   }, [restaurants, match.params.id]);
 
   const { goBack } = history;
