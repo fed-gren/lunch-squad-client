@@ -18,7 +18,8 @@ export default () => {
     map.setLevel(2);
   }, [selectedRestaurant]);
 
-  return filteredRestaurants ? (
+  return (
+    filteredRestaurants &&
     filteredRestaurants.map(({ id, lat, lng, restaurantName }) => (
       <CustomOverlay
         key={id}
@@ -27,7 +28,5 @@ export default () => {
         yAnchor={1}
       ></CustomOverlay>
     ))
-  ) : (
-    <div />
   );
 };

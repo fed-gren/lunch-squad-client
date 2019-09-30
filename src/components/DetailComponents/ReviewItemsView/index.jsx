@@ -6,15 +6,12 @@ export default function index() {
   const { selectedRestaurant } = useContext(RestaurantContext);
   const { review: reviews } = selectedRestaurant;
 
-  return reviews ? (
-    reviews.map((c, idx) => {
-      return (
-        <Styled.ReviewItem key={idx}>
-          <p>{c}</p>
-        </Styled.ReviewItem>
-      );
-    })
-  ) : (
-    <div />
+  return (
+    reviews &&
+    reviews.map((c, idx) => (
+      <Styled.ReviewItem key={idx}>
+        <p>{c}</p>
+      </Styled.ReviewItem>
+    ))
   );
 }

@@ -6,15 +6,14 @@ import RestaurantItemView from "../RestaurantItemView";
 
 export default function RestaurantListView() {
   const { filteredRestaurants } = useContext(RestaurantContext);
+
   return (
-    <Styled.RestaurantList>
-      {filteredRestaurants ? (
-        filteredRestaurants.map(({ ...info }) => (
+    filteredRestaurants && (
+      <Styled.RestaurantList>
+        {filteredRestaurants.map(({ ...info }) => (
           <RestaurantItemView key={info.id} {...info} />
-        ))
-      ) : (
-        <div />
-      )}
-    </Styled.RestaurantList>
+        ))}
+      </Styled.RestaurantList>
+    )
   );
 }

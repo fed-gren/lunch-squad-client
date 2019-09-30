@@ -16,17 +16,12 @@ export default function index() {
       price: "123원"
     }
   ];
-  return dummyMenus ? (
-    dummyMenus.map((c, idx) => {
-      return (
-        <Styled.MenuItem key={idx}>
-          <p>{c.name}</p>
-          <div></div>
-          <p>{c.price}</p>
-        </Styled.MenuItem>
-      );
-    })
-  ) : (
-    <div />
-  );
+  dummyMenus &&
+    dummyMenus.map((c, idx) => (
+      <Styled.MenuItem key={idx}>
+        <p>{c.name}</p>
+        <div></div>
+        <p>{c.price}</p>
+      </Styled.MenuItem>
+    ));
 }
