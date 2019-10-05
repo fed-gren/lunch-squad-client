@@ -9,6 +9,7 @@ import CodeSquadOverlayView from "../CodeSquadOverlayView";
 import SelectedOverlayView from "../SelectedOverlayView";
 import HoveredOverlayView from "../HoveredOverlayView";
 import RandomButtonView from "../RandomButtonView";
+import InfoContainer from "../../InfoComponents_renew/InfoContainer";
 
 export default () => {
   return (
@@ -29,6 +30,7 @@ export default () => {
         </KakaoMap>
         <FilterView />
         <RandomButtonView />
+        <InfoContainer/>
       </Styled.KakaoMapContainer>
     </MapLayout>
   );
