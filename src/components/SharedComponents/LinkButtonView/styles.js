@@ -5,6 +5,10 @@ const Button = styled.button`
   height: 2rem;
   border-radius: 0.2rem;
   cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* customizing attribute */
   ${({ width }) => width && `width: ${width};`}

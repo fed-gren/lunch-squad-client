@@ -1,8 +1,12 @@
 import React from "react";
 import Styled from "./styles";
 
+import InfoTopbar from "../InfoTopbar";
+
 export default function styles() {
   return (
-    <Styled.InfoContainer></Styled.InfoContainer>
+    <Styled.InfoContainer>
+      <InfoTopbar/>
+    </Styled.InfoContainer>
   );
 }
