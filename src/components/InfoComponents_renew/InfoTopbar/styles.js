@@ -9,6 +9,7 @@ const InfoTopbar = styled.div`
   border: 1px solid black;
   background-color: #f9f9f9;
   padding: 0 0.7rem;
+  position: relative;
 
   & > .controller {
     display: flex;
