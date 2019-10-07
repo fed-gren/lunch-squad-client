@@ -10,6 +10,7 @@ const InfoTopbar = styled.div`
   background-color: #f9f9f9;
   padding: 0 0.7rem;
   position: relative;
+  z-index: 2;
 
   & > .controller {
     display: flex;

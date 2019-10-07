@@ -4,7 +4,8 @@ export const InfoContext = createContext();
 
 export const InfoProvider = ({ children }) => {
   const [state, setState] = useState({
-    sortShowFlag: false
+    sortShowFlag: false,
+    filterShowFlag: false
   });
 
   return (

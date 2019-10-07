@@ -29,19 +29,24 @@ export default function InfoTopbar() {
       sortShowFlag: !state.sortShowFlag
     });
   }
+  const toggleFilterShow = _ => {
+    setState({
+      ...state,
+      filterShowFlag: !state.filterShowFlag
+    });
+  }
 
   return (
     <Styled.InfoTopbar>
       <div className="controller">
         <ButtonView name={<MdKeyboardArrowDown />} {...controllerStyles} />
         <ButtonView name={<MdSort />} onClick={toggleSortShow} {...controllerStyles} />
-        <ButtonView name={<MdFilterList />} {...controllerStyles} />
+        <ButtonView name={<MdFilterList />} onClick={toggleFilterShow} {...controllerStyles} />
       </div>
       {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>
         <ButtonView name="로그인" {...loginStyles} />
       </Styled.InfoLogin>
-      <InfoSortView />
     </Styled.InfoTopbar>
 
   );
