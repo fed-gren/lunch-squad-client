@@ -28,6 +28,7 @@ const Button = styled.button`
   ${({ isOff }) => isOff && `color: #999;`}
   ${({ isOff }) => isOff && `border-color: #999;`}
 
+
   &:active {
   ${({ activeBgColor }) =>
     activeBgColor && `background-color: ${activeBgColor};`}

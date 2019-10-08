@@ -1,10 +1,9 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import { MdKeyboardArrowDown, MdSort, MdFilterList } from "react-icons/md"
 import ButtonView from "../../SharedComponents/ButtonView";
 import { InfoContext } from "../../../contexts/InfoContext";
-
-import InfoSortView from "../InfoSortView";
+import { LoginContext } from "../../../contexts/LoginContext";
 
 const controllerStyles = {
   fontSize: "1.4rem",
@@ -21,7 +20,8 @@ const loginStyles = {
 }
 
 export default function InfoTopbar() {
-  const {state, setState} = useContext(InfoContext);
+  const { state, setState } = useContext(InfoContext);
+  const { setOpenFlag } = useContext(LoginContext);
 
   const toggleSortShow = _ => {
     setState({
@@ -45,7 +45,7 @@ export default function InfoTopbar() {
       </div>
       {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>
-        <ButtonView name="로그인" {...loginStyles} />
+        <ButtonView name="로그인" onClick={() => setOpenFlag(true)} {...loginStyles} />
       </Styled.InfoLogin>
     </Styled.InfoTopbar>
 
