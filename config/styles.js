@@ -2,6 +2,7 @@ const styles = {
   themeColor: "#1abc9c",
   themeShadowColor: "#16a085",
   filteredItemColor: "#1abc9c",
+  filteredItemColor: "#ffa538",
   codeSquadColor: "#3498db",
   codeSquadShadowColor: "#2980b9",
   hoverOverlayColor: "#e74c3c",

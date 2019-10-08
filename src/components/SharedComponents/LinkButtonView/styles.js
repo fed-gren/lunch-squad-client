@@ -25,7 +25,8 @@ const Button = styled.button`
   ${({ right }) => right && `right: ${right};`}
   ${({ margin }) => margin && `margin: ${margin};`}
   ${({ padding }) => padding && `padding: ${padding};`}
-  ${({ isOff }) => isOff && `background-color: #888;`}
+  ${({ isOff }) => isOff && `color: #999;`}
+  ${({ isOff }) => isOff && `border-color: #999;`}
 
   &:active {
   ${({ activeBgColor }) =>
