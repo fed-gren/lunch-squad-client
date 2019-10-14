@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { metadata } from "../../../../config";
 import InfoLayout from "../../InfoLayout";
 import DetailInfoView from "../DetailInfoView";
-// import ReviewContainerView from "../ReviewContainerView";
+import ReviewContainerView from "../ReviewContainerView";
 import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 export default function index({ match, history }) {
@@ -31,7 +31,7 @@ export default function index({ match, history }) {
   return (
     <Styled.DetailView>
       <InfoLayout>
-        {selectedRestaurant ? (
+        {selectedRestaurant && (
           <>
             <Helmet>
               <title>
@@ -39,12 +39,9 @@ export default function index({ match, history }) {
               </title>
             </Helmet>
             <DetailInfoView {...{ goBack }} restaurantData={selectedRestaurant} />
-            {/* <ReviewContainerView /> */}
+            <ReviewContainerView />
           </>
-
-        ) : (
-            <div />
-          )}
+        )}
       </InfoLayout>
     </Styled.DetailView>
   );

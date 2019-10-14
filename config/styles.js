@@ -23,7 +23,8 @@ const styles = {
     width: "2rem",
     height: "2rem",
     borderRadius: "1rem",
-    fontSize: "1.2rem"
+    fontSize: "1rem",
+    fontWeight: "300"
   }
 };
 
