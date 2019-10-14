@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import { styles } from "../../../../config";
 
 const RestaurantList = styled.ul`
-  /* background-color: ${styles.restaurantList.bgColor}; */
-  background-color: "#fff";
-  & > li {
-    height: 7rem;
-  }
-  padding: 0.5rem 0;
+  background-color: "#f9f9f9";
+  height: 30rem;
+  width: 100%;
+  overflow: scroll;
+  position: absolute;
+  top: 100%;
+  /* TODO: 리스트 접기, 펼치기 기능 추가 시 top 조절*/
+  /* top: calc(-30rem + 100%); */
+  left: 0;
 `;
 
 export default { RestaurantList };

@@ -1,19 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Styled from "./styles";
-import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
-import RestaurantItemView from "../RestaurantItemView";
+import RestaurantItemsView from "../RestaurantItemsView";
 
 export default function RestaurantListView() {
-  const { filteredRestaurants } = useContext(RestaurantContext);
-
   return (
-    filteredRestaurants && (
-      <Styled.RestaurantList>
-        {filteredRestaurants.map(({ ...info }) => (
-          <RestaurantItemView key={info.id} {...info} />
-        ))}
-      </Styled.RestaurantList>
-    )
+    <Styled.RestaurantList>
+      <RestaurantItemsView />
+    </Styled.RestaurantList>
   );
 }

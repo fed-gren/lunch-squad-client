@@ -4,13 +4,11 @@ import { KakaoMap } from "react-kakao-maps";
 import { data } from "../../../../config";
 
 import MapLayout from "../../MapLayout";
-import FilterView from "../FilterView";
 import OverlayListView from "../OverlayListView";
 import CodeSquadOverlayView from "../CodeSquadOverlayView";
 import SelectedOverlayView from "../SelectedOverlayView";
 import HoveredOverlayView from "../HoveredOverlayView";
-import RandomButtonView from "../RandomButtonView";
-import InfoContainer from "../../InfoComponents_renew/InfoContainer";
+import InfoContainer from "../../InfoComponents/InfoContainer";
 
 export default () => {
   return (
@@ -29,8 +27,6 @@ export default () => {
           <SelectedOverlayView />
           <HoveredOverlayView />
         </KakaoMap>
-        <FilterView />
-        <RandomButtonView />
         <InfoContainer/>
       </Styled.KakaoMapContainer>
     </MapLayout>

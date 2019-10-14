@@ -2,7 +2,7 @@ import { hot } from "react-hot-loader/root";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { RestaurantProvider } from "./contexts/RestaurantContext";
 import { Helmet } from "react-helmet";
 import { metadata } from "../config";
@@ -10,8 +10,6 @@ import { LoginProvider } from "./contexts/LoginContext";
 //components
 import Layout from "./components/Layout";
 import MapView from "./components/MapComponents/MapView";
-import InfoView from "./components/InfoComponents/InfoView";
-import DetailView from "./components/DetailComponents/DetailView";
 import LoginModalView from "./components/LoginModalView";
 
 export default hot(() => {
@@ -32,8 +30,6 @@ export default hot(() => {
           <RestaurantProvider>
             <Router>
               <MapView />
-              <Route exact path="/" component={InfoView} />
-              <Route path="/:id" component={DetailView} />
             </Router>
           </RestaurantProvider>
         </Layout>

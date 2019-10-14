@@ -4,11 +4,12 @@ import Styled from "./styles";
 export default function RestaurantItemView({
   restaurantName,
   recommendedMenu,
-  price
+  price,
+  hoverFlag
 }) {
   return (
     <Styled.RestaurantInfo>
-      <Styled.RestaurantTitle>
+      <Styled.RestaurantTitle {...{ hoverFlag }}>
         <h4>{restaurantName}</h4>
       </Styled.RestaurantTitle>
       <div>추천메뉴: {recommendedMenu}</div>
