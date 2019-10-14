@@ -3,11 +3,8 @@ import { styles } from "../../../../config";
 
 const RestaurantItem = styled.li`
   height: 6rem;
-  border-bottom: 1px solid gray;
-  background-color: ${({ hoverFlag }) =>
-    hoverFlag
-      ? styles.restaurantList.hoverColor
-      : styles.restaurantList.itemColor};
+  border-bottom: 1px solid #999;
+  background-color: ${styles.restaurantList.itemColor};
 
   transition: background-color 0.2s;
   & > a {

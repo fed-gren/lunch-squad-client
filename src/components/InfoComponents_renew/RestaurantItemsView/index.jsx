@@ -4,41 +4,42 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 import ThumbnailView from "../../SharedComponents/ThumbnailView";
-// import RestaurantInfoView from "../RestaurantInfoView";
+import RestaurantInfoView from "../RestaurantInfoView";
 
 export default function RestaurantItemsView() {
-  const [hoverFlag, setHoverFlag] = useState(false);
-  // const { id, thumnailImageURL, ...restInfo } = info;
-  // const linkPath = `/${id}`;
-
+  const [hoverId, setHoverId] = useState(null);
   const { filteredRestaurants, setHoveredRestaurant } = useContext(RestaurantContext);
 
   const mouseEnterHandler = useCallback(info => {
     setHoveredRestaurant(info);
-    setHoverFlag(true);
+    setHoverId(info.id);
   }, []);
 
   const mouseLeaveHandler = useCallback(_ => {
     setHoveredRestaurant(null);
-    setHoverFlag(false);
+    setHoverId(null);
   }, []);
 
   return (
-    filteredRestaurants && filteredRestaurants.map((item, idx) => <Styled.RestaurantItem
-      onMouseEnter={() => mouseEnterHandler(item)}
-      onMouseLeave={() => mouseLeaveHandler()}
-      key={item.id}
-      {...{ hoverFlag }}
-    >
-      <Link to={`/${item.id}`}>
-        <ThumbnailView
-          width="5rem"
-          imageUrl={item.thumnailImageURL}
-          padding="0.5rem"
-          circle={true}
-        />
-        {/* <RestaurantInfoView {...restInfo} /> */}
-      </Link>
-    </Styled.RestaurantItem>)
+    filteredRestaurants && filteredRestaurants.map(info => (
+      <Styled.RestaurantItem
+        onMouseEnter={() => mouseEnterHandler(info)}
+        onMouseLeave={() => mouseLeaveHandler()}
+        key={info.id}
+      >
+        <Link to={`/${info.id}`}>
+          <ThumbnailView
+            width="5rem"
+            imageUrl={info.thumnailImageURL}
+            padding="0.5rem"
+            circle={true}
+          />
+          <RestaurantInfoView
+            {...info}
+            {...{ hoverFlag: info.id === hoverId }}
+          />
+        </Link>
+      </Styled.RestaurantItem>
+    ))
   );
 }
