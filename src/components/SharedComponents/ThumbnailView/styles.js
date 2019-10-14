@@ -20,17 +20,4 @@ const Thumbnail = styled.div`
   }
 `;
 
-const ThumbnailTitle = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 3rem;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(1, 1, 1, 0.3);
-  color: #fff;
-  font-size: 1.4rem;
-`;
-
-export default { Thumbnail, ThumbnailTitle };
+export default { Thumbnail };

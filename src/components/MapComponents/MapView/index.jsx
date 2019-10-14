@@ -2,6 +2,7 @@ import React from "react";
 import Styled from "./styles";
 import { KakaoMap } from "react-kakao-maps";
 import { data } from "../../../../config";
+
 import MapLayout from "../../MapLayout";
 import FilterView from "../FilterView";
 import OverlayListView from "../OverlayListView";

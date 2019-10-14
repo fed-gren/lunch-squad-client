@@ -4,9 +4,11 @@ import { foodType } from "../../../constants";
 import { styles } from "../../../../config";
 import { InfoContext } from "../../../contexts/InfoContext";
 import { RestaurantContext } from "../../../contexts/RestaurantContext";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import RestaurantListView from "../RestaurantListView";
 import ButtonView from "../../SharedComponents/ButtonView";
+import DetailView from "../DetailView";
 
 export default function InfoFilterView() {
   const { foodTypeCategories, setFoodTypeCategories } = useContext(
@@ -70,7 +72,10 @@ export default function InfoFilterView() {
         ></ButtonView>
       </Styled.InfoFilterButtons>
 
-      <RestaurantListView />
+      <Router>
+        <Route exact path="/" component={RestaurantListView} />
+        <Route path="/:id" component={DetailView} />
+      </Router>
     </Styled.InfoFilter>
   );
 }

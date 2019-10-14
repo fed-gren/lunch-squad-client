@@ -5,7 +5,6 @@ const InfoLayout = styled.section`
   min-width: 25rem;
   height: 100%;
   overflow: scroll;
-  border-left: 1px solid #000;
 `;
 
 export default { InfoLayout };

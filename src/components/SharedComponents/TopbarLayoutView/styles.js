@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Topbar = styled.header`
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
