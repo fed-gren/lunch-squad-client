@@ -14,4 +14,16 @@ const InfoSort = styled.div`
   z-index: 1;
 `;
 
-export default { InfoSort };
+const InfoSortDesc = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 100%;
+  color: #888;
+  & > p {
+    font-size: 0.8rem;
+  }
+`;
+
+export default { InfoSort, InfoSortDesc };
