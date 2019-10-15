@@ -3,19 +3,24 @@ import Styled from "./styles";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
-const LinkButtonView = props => {
-  const {
-    history,
-    location,
-    match,
-    staticContext,
-    to,
-    onClick,
-    activeClassName,
-    name,
-    ...styles
-  } = props;
+LinkButtonView.propTypes = {
+  to: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired
+};
 
+function LinkButtonView({
+  history,
+  location,
+  match,
+  staticContext,
+  to,
+  onClick,
+  activeClassName,
+  name,
+  ...styles
+}) {
   return (
     <Styled.Button
       {...styles}
@@ -27,10 +32,6 @@ const LinkButtonView = props => {
       {name}
     </Styled.Button>
   );
-};
-
-LinkButtonView.propTypes = {
-  to: PropTypes.string.isRequired
 };
 
 export default withRouter(LinkButtonView);

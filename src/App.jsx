@@ -2,15 +2,13 @@ import { hot } from "react-hot-loader/root";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { RestaurantProvider } from "./contexts/RestaurantContext";
 import { Helmet } from "react-helmet";
 import { metadata } from "../config";
-import { LoginProvider } from "./contexts/LoginContext";
 //components
 import Layout from "./components/Layout";
 import MapView from "./components/MapComponents/MapView";
-import LoginModalView from "./components/LoginModalView";
 
 export default hot(() => {
   return (
@@ -25,16 +23,13 @@ export default hot(() => {
         />
       </Helmet>
       <GlobalStyle />
-      <LoginProvider>
-        <Layout>
-          <RestaurantProvider>
-            <Router>
-              <MapView />
-            </Router>
-          </RestaurantProvider>
-        </Layout>
-        <LoginModalView />
-      </LoginProvider>
+      <Layout>
+        <RestaurantProvider>
+          <Router>
+            <MapView />
+          </Router>
+        </RestaurantProvider>
+      </Layout>
     </MyApp>
   );
 });

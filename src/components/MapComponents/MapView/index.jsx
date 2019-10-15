@@ -9,6 +9,7 @@ import CodeSquadOverlayView from "../CodeSquadOverlayView";
 import SelectedOverlayView from "../SelectedOverlayView";
 import HoveredOverlayView from "../HoveredOverlayView";
 import InfoContainer from "../../InfoComponents/InfoContainer";
+import ModalSwitch from "../../ModalSwitch";
 
 export default () => {
   return (
@@ -27,8 +28,9 @@ export default () => {
           <SelectedOverlayView />
           <HoveredOverlayView />
         </KakaoMap>
-        <InfoContainer/>
+        <InfoContainer />
       </Styled.KakaoMapContainer>
+      <ModalSwitch />
     </MapLayout>
   );
 };

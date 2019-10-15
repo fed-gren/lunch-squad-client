@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import Styled from "./styles";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList } from "react-icons/md"
-import ButtonView from "../../SharedComponents/ButtonView";
 import { InfoContext } from "../../../contexts/InfoContext";
-import { LoginContext } from "../../../contexts/LoginContext";
+import { useLocation } from "react-router-dom";
+
+import ButtonView from "../../SharedComponents/ButtonView";
+import LinkButtonView from "../../SharedComponents/LinkButtonView";
 
 const controllerStyles = {
   fontSize: "1.4rem",
@@ -21,20 +23,21 @@ const loginStyles = {
 
 export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
-  const { setOpenFlag } = useContext(LoginContext);
+  let location = useLocation();
 
-  const toggleSortShow = _ => {
+  const toggleSortShow = useCallback(_ => {
     setState({
       ...state,
       sortShowFlag: !state.sortShowFlag
     });
-  }
-  const toggleFilterShow = _ => {
+  }, [state, state.sortShowFlag]);
+
+  const toggleFilterShow = useCallback(_ => {
     setState({
       ...state,
       filterShowFlag: !state.filterShowFlag
     });
-  }
+  }, [state, state.filterShowFlag]);
 
   return (
     <Styled.InfoTopbar>
@@ -45,9 +48,15 @@ export default function InfoTopbar() {
       </div>
       {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>
-        <ButtonView name="로그인" onClick={() => setOpenFlag(true)} {...loginStyles} />
+        <LinkButtonView
+          name="로그인"
+          to={{
+            pathname: `/login`,
+            state: { background: location }
+          }}
+          {...loginStyles}
+        />
       </Styled.InfoLogin>
     </Styled.InfoTopbar>
-
   );
 }

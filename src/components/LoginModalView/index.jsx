@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import Styled from "./styles";
-import { LoginContext } from "../../contexts/LoginContext";
 import ModalView from "../SharedComponents/ModalView";
 import ButtonView from "../SharedComponents/ButtonView";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 
 const closeButtonStyles = {
   color: "#f0f0f0",
@@ -13,7 +13,13 @@ const closeButtonStyles = {
 }
 
 function LoginModal() {
-  const { setOpenFlag } = useContext(LoginContext);
+  let history = useHistory();
+
+  let back = e => {
+    e.stopPropagation();
+    history.goBack();
+  }
+
   return (
     <Styled.LoginModal>
       <Styled.LoginModalTitle>
@@ -31,7 +37,7 @@ function LoginModal() {
           </div>
         </div>
         <div className="buttons">
-          <ButtonView name="닫기" onClick={() => setOpenFlag(false)} {...closeButtonStyles} />
+          <ButtonView name="닫기" onClick={back} {...closeButtonStyles} />
         </div>
       </Styled.LoginModalContents>
     </Styled.LoginModal>
@@ -39,10 +45,8 @@ function LoginModal() {
 }
 
 export default function LoginModalView() {
-  const { openFlag } = useContext(LoginContext);
-
   return (
-    openFlag && <ModalView width="22rem" height="15rem">
+    <ModalView width="22rem" height="15rem">
       <LoginModal />
     </ModalView>
   );

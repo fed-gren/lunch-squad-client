@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useContext } from "react";
 import Styled from "./styles";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { RestaurantContext } from "../../../contexts/RestaurantContext";
 
 import ThumbnailView from "../../SharedComponents/ThumbnailView";
