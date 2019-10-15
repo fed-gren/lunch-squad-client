@@ -15,7 +15,7 @@ const Thumbnail = styled.div`
     & > img {
       border-radius: ${({ circle }) => circle ? "50%" : "none"};
       width: 100%;
-      height: auto;
+      height: 100%;
     }
   }
 `;

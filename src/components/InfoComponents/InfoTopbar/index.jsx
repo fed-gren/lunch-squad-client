@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Styled from "./styles";
-import { MdKeyboardArrowDown, MdSort, MdFilterList } from "react-icons/md"
+import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList } from "react-icons/md"
 import ButtonView from "../../SharedComponents/ButtonView";
 import { InfoContext } from "../../../contexts/InfoContext";
 import { LoginContext } from "../../../contexts/LoginContext";
@@ -39,7 +39,7 @@ export default function InfoTopbar() {
   return (
     <Styled.InfoTopbar>
       <div className="controller">
-        <ButtonView name={<MdKeyboardArrowDown />} {...controllerStyles} />
+        <ButtonView name={<MdKeyboardArrowUp />} {...controllerStyles} />
         <ButtonView name={<MdSort />} onClick={toggleSortShow} {...controllerStyles} />
         <ButtonView name={<MdFilterList />} onClick={toggleFilterShow} {...controllerStyles} />
       </div>

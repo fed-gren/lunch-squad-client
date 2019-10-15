@@ -11,6 +11,7 @@ const Subtitle = styled.div`
     font-weight: 600;
     display: inline-block;
     height: 1rem;
+    margin-bottom: 0.6rem;
 
     &::after {
       content: "";

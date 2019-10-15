@@ -4,9 +4,7 @@ const ContactInfo = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
-  align-self: stretch;
+  align-items: center;
   margin-left: 0.5rem;
 
   & > h3 {
