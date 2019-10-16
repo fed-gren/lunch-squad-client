@@ -14,11 +14,9 @@ const ModalBackground = styled.section`
 
 const Modal = styled.article`
   width: ${({ width }) => (width ? width : "10rem")};
-  height: ${({ height }) => (height ? height : "10rem")};
   border: 1px solid #fff;
-  border-radius: 0.2rem;
   display: flex;
-  flex-direction: column;
+  box-shadow: 0 0.3rem 0.3rem #333;
 `;
 
 export default { ModalBackground, Modal };

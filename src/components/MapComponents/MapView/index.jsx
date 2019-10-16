@@ -9,7 +9,7 @@ import CodeSquadOverlayView from "../CodeSquadOverlayView";
 import SelectedOverlayView from "../SelectedOverlayView";
 import HoveredOverlayView from "../HoveredOverlayView";
 import InfoContainer from "../../InfoComponents/InfoContainer";
-import ModalSwitch from "../../ModalSwitch";
+import ModalSwitch from "../../ModalComponents/ModalSwitch";
 
 export default () => {
   return (
