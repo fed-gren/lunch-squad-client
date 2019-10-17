@@ -5,6 +5,7 @@ import { Route, useRouteMatch, Switch } from "react-router-dom";
 import ModalView from "../../SharedComponents/ModalView";
 import LoginModalView from "../LoginModalView";
 import SignupModalView from "../SignupModalView";
+import ForgotPasswordModalView from "../ForgotPasswordModalView";
 
 function Container() {
   let { path } = useRouteMatch();
@@ -17,6 +18,9 @@ function Container() {
         </Route>
         <Route path={`${path}/signup`}>
           <SignupModalView />
+        </Route>
+        <Route path={`${path}/forgot-password`}>
+          <ForgotPasswordModalView />
         </Route>
       </Switch>
     </Styled.ModalContainer>
