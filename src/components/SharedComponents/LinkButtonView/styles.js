@@ -12,6 +12,7 @@ const Button = styled.button`
 
   /* customizing attribute */
   ${({ width }) => width && `width: ${width};`}
+  ${({ minWidth }) => minWidth && `min-width: ${minWidth};`}
   ${({ height }) => height && `height: ${height};`}
   ${({ border }) => border && `border: ${border};`}
   ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius};`}
