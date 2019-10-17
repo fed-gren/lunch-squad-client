@@ -22,7 +22,8 @@ const loginButtonStyles = {
 const signupLinkStyles = {
   fontSize: "0.8rem",
   color: "#2980b9",
-  width: "auto"
+  width: "auto",
+  height: "1.3rem"
 }
 
 export default function LoginModalView() {
@@ -54,6 +55,13 @@ export default function LoginModalView() {
           <LinkButtonView
             name="회원이 아니시라면 회원가입"
             to={`${url}/signup`}
+            {...signupLinkStyles}
+          />
+        </div>
+        <div className="forgot-password">
+          <LinkButtonView
+            name="비밀번호가 기억 안나시나요?"
+            to={`${url}/forgot-password`}
             {...signupLinkStyles}
           />
         </div>
