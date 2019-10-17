@@ -25,6 +25,8 @@ export const RestaurantProvider = ({ children }) => {
   useEffect(() => {
     if (!restaurants) return;
     setFilteredRestaurants([...restaurants]);
+
+    return () => setFilteredRestaurants(null);
   }, [restaurants]);
 
   useEffect(() => {
@@ -35,6 +37,8 @@ export const RestaurantProvider = ({ children }) => {
     );
 
     setFilteredRestaurants([...temp]);
+
+    return () => setFilteredRestaurants(null);
   }, [foodTypeCategories]);
 
   return (
