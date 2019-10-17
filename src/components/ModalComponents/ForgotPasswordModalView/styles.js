@@ -29,30 +29,47 @@ const ForgotPasswordModalContents = styled.div`
     margin: 1rem 0;
 
     & > div {
-      width: 100%;
       margin: 0.5rem 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
 
-      & > label {
-        font-size: 0.7rem;
+      & > .labels {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 0.2rem;
+
+        & > * {
+          font-size: 0.7rem;
+        }
+
+        & > .message {
+          color: ${styles.themeColor}
+        }
       }
 
       & > input {
         flex: 1;
         line-height: 2rem;
         font-size: 1rem;
+        padding: 0 .4rem;
         outline: none;
         border: 1px solid #000;
         border-radius: 0.4rem;
         transition: border-color 0.3s, background-color 0.3s;
+        margin-bottom: 0.2rem;
 
         &:focus {
           border-color: ${styles.filteredItemColor};
           background-color: #fff;
         }
+      }
+
+      & > .sub-button {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }

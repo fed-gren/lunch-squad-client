@@ -1,6 +1,6 @@
 const styles = {
-  themeColor: "#1abc9c",
-  themeShadowColor: "#16a085",
+  themeColor: "#ffa538",
+  themeShadowColor: "#d98b2e",
   filteredItemColor: "#ffa538",
   codeSquadColor: "#3498db",
   codeSquadShadowColor: "#2980b9",
@@ -27,7 +27,7 @@ const styles = {
   },
   modal: {
     closeButton: {
-      color: "#f0f0f0",
+      color: "#333",
       width: "auto",
       minWidth: "3rem",
       height: "2.2rem",
@@ -36,7 +36,7 @@ const styles = {
       padding: "0 0.5rem"
     },
     submitButton: {
-      color: "#f0f0f0",
+      color: "#333",
       width: "auto",
       minWidth: "3rem",
       height: "2.2rem",
@@ -44,6 +44,15 @@ const styles = {
       padding: "0 0.5rem",
       bgColor: "#ffa538",
     },
+    subButton: {
+      color: "#333",
+      width: "auto",
+      minWidth: "3rem",
+      height: "1.8rem",
+      borderRadius: "0",
+      padding: "0 0.5rem",
+      bgColor: "#ffa538",
+    }
   }
 };
 

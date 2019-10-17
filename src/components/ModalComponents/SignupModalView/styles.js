@@ -44,6 +44,7 @@ const SignupModalContents = styled.div`
         flex: 1;
         line-height: 2rem;
         font-size: 1rem;
+        padding: 0 .4rem;
         outline: none;
         border: 1px solid #000;
         border-radius: 0.4rem;

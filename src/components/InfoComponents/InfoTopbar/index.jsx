@@ -2,7 +2,6 @@ import React, { useContext, useCallback } from "react";
 import Styled from "./styles";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList } from "react-icons/md"
 import { InfoContext } from "../../../contexts/InfoContext";
-import { useLocation, useRouteMatch } from "react-router-dom";
 import { LoginContext } from "../../../contexts/LoginContext";
 
 import ButtonView from "../../SharedComponents/ButtonView";
@@ -25,8 +24,6 @@ const loginStyles = {
 export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
   const { setBackground } = useContext(LoginContext);
-  let location = useLocation();
-  let { url } = useRouteMatch();
 
   const toggleSortShow = useCallback(_ => {
     setState({
@@ -53,7 +50,7 @@ export default function InfoTopbar() {
       <Styled.InfoLogin>
         <LinkButtonView
           name="로그인"
-          onClick={() => setBackground(url)}
+          onClick={() => setBackground(window.location.pathname)}
           to="/login"
           {...loginStyles}
         />
