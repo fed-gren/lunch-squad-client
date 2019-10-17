@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import { styles } from "../../../../config";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { LoginContext } from "../../../contexts/LoginContext";
+import { useRouteMatch } from "react-router-dom";
+import { loginMessages } from "../../../constants";
 
 import ButtonView from "../../SharedComponents/ButtonView";
 import LinkButtonView from "../../SharedComponents/LinkButtonView";
@@ -27,47 +29,42 @@ const signupLinkStyles = {
 }
 
 export default function LoginModalView() {
-  let history = useHistory();
+  const { background } = useContext(LoginContext);
   let { url } = useRouteMatch();
-
-  let back = e => {
-    e.stopPropagation();
-    history.goBack();
-  }
 
   return (
     <>
       <Styled.LoginModalTitle>
-        <p>로그인</p>
+        <p>{loginMessages.login.TITLE}</p>
       </Styled.LoginModalTitle>
       <Styled.LoginModalContents>
         <div className="inputs">
           <div className="input-email">
-            <label htmlFor="email">이메일 주소</label>
+            <label htmlFor="email">{loginMessages.login.EMAIL_LABEL}</label>
             <input type="email" name="email" id="email" />
           </div>
           <div className="input-password">
-            <label htmlFor="password">비밀번호</label>
+            <label htmlFor="password">{loginMessages.login.PASSWORD_LABEL}</label>
             <input type="password" name="password" id="password" />
           </div>
         </div>
         <div className="signup-help">
           <LinkButtonView
-            name="회원이 아니시라면 회원가입"
+            name={loginMessages.login.LINK_TO_SIGNUP}
             to={`${url}/signup`}
             {...signupLinkStyles}
           />
         </div>
         <div className="forgot-password">
           <LinkButtonView
-            name="비밀번호가 기억 안나시나요?"
+            name={loginMessages.login.LINK_TO_FORGOT_PASSWORD}
             to={`${url}/forgot-password`}
             {...signupLinkStyles}
           />
         </div>
         <div className="buttons">
-          <ButtonView name="로그인" {...loginButtonStyles} />
-          <ButtonView name="닫기" onClick={back} {...closeButtonStyles} />
+          <ButtonView name={loginMessages.login.LOGIN_BUTTON} {...loginButtonStyles} />
+          <LinkButtonView name={loginMessages.login.CLOSE_BUTTON} to={`${background}`} {...closeButtonStyles} />
         </div>
       </Styled.LoginModalContents>
     </>

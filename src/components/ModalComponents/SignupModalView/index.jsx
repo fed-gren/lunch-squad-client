@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "./styles";
 import { styles } from "../../../../config";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { LoginContext } from "../../../contexts/LoginContext";
+import { loginMessages } from "../../../constants";
 
 import ButtonView from "../../SharedComponents/ButtonView";
 import LinkButtonView from "../../SharedComponents/LinkButtonView";
@@ -19,44 +20,32 @@ const signupButtonStyles = {
   bgColor: styles.filteredItemColor
 }
 
-const signupLinkStyles = {
-  fontSize: "0.8rem",
-  color: "#2980b9",
-  width: "auto"
-}
-
 export default function SignupModalView() {
-  let history = useHistory();
-  let { url } = useRouteMatch();
-
-  let back = e => {
-    e.stopPropagation();
-    history.goBack();
-  }
+  const { background } = useContext(LoginContext);
 
   return (
     <>
       <Styled.SignupModalTitle>
-        <p>회원가입</p>
+        <p>{loginMessages.signup.TITLE}</p>
       </Styled.SignupModalTitle>
       <Styled.SignupModalContents>
         <div className="inputs">
           <div className="input-email">
-            <label htmlFor="email">이메일 주소</label>
+            <label htmlFor="email">{loginMessages.signup.EMAIL_LABEL}</label>
             <input type="email" name="email" id="email" />
           </div>
           <div className="input-password">
-            <label htmlFor="password">비밀번호</label>
+            <label htmlFor="password">{loginMessages.signup.PASSWORD_LABEL}</label>
             <input type="password" name="password" id="password" />
           </div>
           <div className="input-password-check">
-            <label htmlFor="password-check">비밀번호 확인</label>
+            <label htmlFor="password-check">{loginMessages.signup.PASSWORD_CHECK_LABEL}</label>
             <input type="password" name="password-check" id="password-check" />
           </div>
         </div>
         <div className="buttons">
-          <ButtonView name="회원가입" {...signupButtonStyles} />
-          <ButtonView name="닫기" onClick={back} {...closeButtonStyles} />
+          <ButtonView name={loginMessages.signup.SUBMIT_BUTTON} {...signupButtonStyles} />
+          <LinkButtonView name={loginMessages.signup.CLOSE_BUTTON} to={`${background}`} {...closeButtonStyles} />
         </div>
       </Styled.SignupModalContents>
     </>

@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import Styled from "./styles";
 import PropTypes from "prop-types";
-import { noteMessage } from "../../../constants";
+import { noteMessages } from "../../../constants";
 
 ContactInfoView.propTypes = {
   businessHour: PropTypes.string.isRequired,
@@ -11,13 +11,13 @@ ContactInfoView.propTypes = {
 export default function ContactInfoView({ businessHour, contactNumber }) {
   const getValidBusinessHour = useCallback(businessHour =>
     businessHour.length < 5 || businessHour === "-" ?
-      noteMessage.NO_BUSINESS_HOUR :
+      noteMessages.NO_BUSINESS_HOUR :
       businessHour
     , [businessHour]);
 
   const getValidContactNumber = useCallback(contactNumber =>
     contactNumber.length < 5 || contactNumber === "-" ?
-      noteMessage.NO_CONTACT_NUMBER :
+      noteMessages.NO_CONTACT_NUMBER :
       contactNumber
     , [contactNumber]);
 

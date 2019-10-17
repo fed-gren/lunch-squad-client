@@ -30,7 +30,6 @@ const SignupModalContents = styled.div`
 
     & > div {
       width: 100%;
-      height: 2.4rem;
       margin: 0.5rem 0;
       display: flex;
       flex-direction: column;
@@ -38,14 +37,16 @@ const SignupModalContents = styled.div`
 
       & > label {
         font-size: 0.7rem;
+        margin-bottom: 0.2rem;
       }
 
       & > input {
         flex: 1;
-        height: 100%;
+        line-height: 2rem;
         font-size: 1rem;
         outline: none;
         border: 1px solid #000;
+        border-radius: 0.4rem;
         transition: border-color 0.3s, background-color 0.3s;
 
         &:focus {
