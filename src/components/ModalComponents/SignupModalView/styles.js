@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { styles } from "../../../../config";
 
-const LoginModalTitle = styled.div`
+const SignupModalTitle = styled.div`
   width: 100%;
   height: 2rem;
   font-size: 0.9rem;
@@ -13,7 +13,7 @@ const LoginModalTitle = styled.div`
   border-bottom: 1px solid #777;
 `;
 
-const LoginModalContents = styled.div`
+const SignupModalContents = styled.div`
   width: 100%;
   flex: 1;
   display: flex;
@@ -70,4 +70,4 @@ const LoginModalContents = styled.div`
   }
 `;
 
-export default { LoginModalTitle, LoginModalContents };
+export default { SignupModalTitle, SignupModalContents };

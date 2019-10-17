@@ -4,6 +4,7 @@ import { Route, useRouteMatch, Switch } from "react-router-dom";
 
 import ModalView from "../../SharedComponents/ModalView";
 import LoginModalView from "../LoginModalView";
+import SignupModalView from "../SignupModalView";
 
 function Container() {
   let { path } = useRouteMatch();
@@ -14,7 +15,9 @@ function Container() {
         <Route exact path={path}>
           <LoginModalView />
         </Route>
-        <Route path={`${path}/signup`}>회원가입 합시다.</Route>
+        <Route path={`${path}/signup`}>
+          <SignupModalView />
+        </Route>
       </Switch>
     </Styled.ModalContainer>
   );
