@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const RadioButtonContainer = styled.div`
   display: flex;
@@ -9,17 +9,13 @@ const RadioButtonContainer = styled.div`
 
     & > button {
     border: 1px solid;
-    border-color: ${({ radioButtonStyles }) =>
-    radioButtonStyles && radioButtonStyles.deactiveBorderColor};
-    color: ${({ radioButtonStyles }) =>
-    radioButtonStyles && radioButtonStyles.deactiveColor}
+    border-color: ${({ radioButtonStyles }) => radioButtonStyles && radioButtonStyles.deactiveBorderColor};
+    color: ${({ radioButtonStyles }) => radioButtonStyles && radioButtonStyles.deactiveColor}
   }
 
   & > button.active {
-    border-color: ${({ radioButtonStyles }) =>
-    radioButtonStyles && radioButtonStyles.activeBorderColor};
-    color: ${({ radioButtonStyles }) =>
-    radioButtonStyles && radioButtonStyles.activeColor}
+    border-color: ${({ radioButtonStyles }) => radioButtonStyles && radioButtonStyles.activeBorderColor};
+    color: ${({ radioButtonStyles }) => radioButtonStyles && radioButtonStyles.activeColor}
   }
 
   & > button::after {

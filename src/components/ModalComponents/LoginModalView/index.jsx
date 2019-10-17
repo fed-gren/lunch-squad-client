@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
-import Styled from "./styles";
-import { styles } from "../../../../config";
-import { LoginContext } from "../../../contexts/LoginContext";
-import { useRouteMatch } from "react-router-dom";
-import { loginMessages } from "../../../constants";
+import React, { useContext } from 'react';
+import { useRouteMatch } from 'react-router-dom';
+import Styled from './styles';
+import { styles } from '../../../../config';
+import { LoginContext } from '../../../contexts/LoginContext';
+import { loginMessages } from '../../../constants';
 
-import ButtonView from "../../SharedComponents/ButtonView";
-import LinkButtonView from "../../SharedComponents/LinkButtonView";
+import ButtonView from '../../SharedComponents/ButtonView';
+import LinkButtonView from '../../SharedComponents/LinkButtonView';
 
 const signupLinkStyles = {
-  fontSize: "0.8rem",
-  color: "#2980b9",
-  width: "auto",
-  height: "1.3rem"
-}
+  fontSize: '0.8rem',
+  color: '#2980b9',
+  width: 'auto',
+  height: '1.3rem',
+};
 
 export default function LoginModalView() {
   const { background } = useContext(LoginContext);
-  let { url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
     <>

@@ -1,13 +1,13 @@
-import React from "react";
-import Styled from "./styles";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import Styled from './styles';
 
 LinkButtonView.propTypes = {
   to: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object
-  ]).isRequired
+    PropTypes.object,
+  ]).isRequired,
 };
 
 function LinkButtonView({
@@ -24,7 +24,7 @@ function LinkButtonView({
   return (
     <Styled.Button
       {...styles}
-      onClick={event => {
+      onClick={(event) => {
         onClick && onClick(event);
         history.push(to);
       }}
@@ -32,6 +32,6 @@ function LinkButtonView({
       {name}
     </Styled.Button>
   );
-};
+}
 
 export default withRouter(LinkButtonView);

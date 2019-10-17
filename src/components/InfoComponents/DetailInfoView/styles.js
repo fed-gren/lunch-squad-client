@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { styles } from "../../../../config";
+import styled from 'styled-components';
+import { styles } from '../../../../config';
 
 const DetailInfo = styled.div`
   display: flex;

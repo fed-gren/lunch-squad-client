@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const RestaurantList = styled.ul`
   background-color: #f9f9f9;

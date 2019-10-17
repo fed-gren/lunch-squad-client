@@ -1,7 +1,7 @@
-import React from "react";
-import Styled from "./styles";
+import React from 'react';
+import Styled from './styles';
 
-import MenuItemsView from "../MenuItemsView";
+import MenuItemsView from '../MenuItemsView';
 
 export default function index() {
   return (

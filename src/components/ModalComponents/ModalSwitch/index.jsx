@@ -1,7 +1,7 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route } from 'react-router-dom';
 
-import LoginModalView from "../ModalContainer";
+import LoginModalView from '../ModalContainer';
 
 export default function ModalSwitch() {
   return (

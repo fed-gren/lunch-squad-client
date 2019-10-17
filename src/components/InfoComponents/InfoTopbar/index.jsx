@@ -1,41 +1,43 @@
-import React, { useContext, useCallback } from "react";
-import Styled from "./styles";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList } from "react-icons/md"
-import { InfoContext } from "../../../contexts/InfoContext";
-import { LoginContext } from "../../../contexts/LoginContext";
+import React, { useContext, useCallback } from 'react';
+import {
+  MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList,
+} from 'react-icons/md';
+import Styled from './styles';
+import { InfoContext } from '../../../contexts/InfoContext';
+import { LoginContext } from '../../../contexts/LoginContext';
 
-import ButtonView from "../../SharedComponents/ButtonView";
-import LinkButtonView from "../../SharedComponents/LinkButtonView";
+import ButtonView from '../../SharedComponents/ButtonView';
+import LinkButtonView from '../../SharedComponents/LinkButtonView';
 
 const controllerStyles = {
-  fontSize: "1.4rem",
-  bgColor: "transparent",
-  width: "1.8rem",
-  height: "1.4rem",
-  margin: "0 0.4rem 0 0"
-}
+  fontSize: '1.4rem',
+  bgColor: 'transparent',
+  width: '1.8rem',
+  height: '1.4rem',
+  margin: '0 0.4rem 0 0',
+};
 const loginStyles = {
-  fontSize: "0.8rem",
-  bgColor: "transparent",
-  height: "1.4rem",
-  color: "#2980b9"
-}
+  fontSize: '0.8rem',
+  bgColor: 'transparent',
+  height: '1.4rem',
+  color: '#2980b9',
+};
 
 export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
   const { setBackground } = useContext(LoginContext);
 
-  const toggleSortShow = useCallback(_ => {
+  const toggleSortShow = useCallback((_) => {
     setState({
       ...state,
-      sortShowFlag: !state.sortShowFlag
+      sortShowFlag: !state.sortShowFlag,
     });
   }, [state, state.sortShowFlag]);
 
-  const toggleFilterShow = useCallback(_ => {
+  const toggleFilterShow = useCallback((_) => {
     setState({
       ...state,
-      filterShowFlag: !state.filterShowFlag
+      filterShowFlag: !state.filterShowFlag,
     });
   }, [state, state.filterShowFlag]);
 

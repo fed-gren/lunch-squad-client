@@ -1,11 +1,11 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext } from 'react';
 
 export const InfoContext = createContext();
 
 export const InfoProvider = ({ children }) => {
   const [state, setState] = useState({
     sortShowFlag: false,
-    filterShowFlag: false
+    filterShowFlag: false,
   });
 
   return (

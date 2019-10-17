@@ -1,6 +1,4 @@
-import React from "react";
-import Styled from "./styles";
+import React from 'react';
+import Styled from './styles';
 
-export default ({ children }) => {
-  return <Styled.Topbar>{children}</Styled.Topbar>;
-};
+export default ({ children }) => <Styled.Topbar>{children}</Styled.Topbar>;

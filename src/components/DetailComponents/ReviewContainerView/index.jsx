@@ -1,8 +1,8 @@
-import React from "react";
-import Styled from "./styles";
+import React from 'react';
+import Styled from './styles';
 
-import SubtitleView from "../../SharedComponents/SubtitleView";
-import ReviewListView from "../ReviewListView";
+import SubtitleView from '../../SharedComponents/SubtitleView';
+import ReviewListView from '../ReviewListView';
 
 export default function index() {
   return (

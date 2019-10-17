@@ -1,6 +1,6 @@
-import React from "react";
-import Styled from "./styles";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Styled from './styles';
 
 ThumbnailView.propTypes = {
   width: PropTypes.string,

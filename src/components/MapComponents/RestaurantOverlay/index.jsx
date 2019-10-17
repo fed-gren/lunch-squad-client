@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "./styles";
+import React from 'react';
+import Styled from './styles';
 
 export default function index({ message, bgColor, shadowColor }) {
   return (

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import Styled from "./styles";
-import { FilterContext } from "../../../contexts/FilterContext";
+import React, { useContext } from 'react';
+import Styled from './styles';
+import { FilterContext } from '../../../contexts/FilterContext';
 
-import FilterTitleView from "../FilterTitleView";
-import FilterButtonsView from "../FilterbuttonsView";
+import FilterTitleView from '../FilterTitleView';
+import FilterButtonsView from '../FilterbuttonsView';
 
 export default () => {
   const { state } = useContext(FilterContext);

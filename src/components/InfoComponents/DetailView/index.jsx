@@ -1,18 +1,18 @@
-import React, { useContext, useEffect } from "react";
-import Styled from "./styles";
-import { Helmet } from "react-helmet";
-import { metadata } from "../../../../config";
-import InfoLayout from "../../InfoLayout";
-import DetailInfoView from "../DetailInfoView";
-import ReviewContainerView from "../ReviewContainerView";
-import { RestaurantContext } from "../../../contexts/RestaurantContext";
+import React, { useContext, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import Styled from './styles';
+import { metadata } from '../../../../config';
+import InfoLayout from '../../InfoLayout';
+import DetailInfoView from '../DetailInfoView';
+import ReviewContainerView from '../ReviewContainerView';
+import { RestaurantContext } from '../../../contexts/RestaurantContext';
 
 export default function index({ match, history }) {
   const {
     restaurants,
     selectedRestaurant,
     setSelectedRestaurant,
-    setHoveredRestaurant
+    setHoveredRestaurant,
   } = useContext(RestaurantContext);
   const restaurantId = match.params.id;
 
@@ -35,7 +35,10 @@ export default function index({ match, history }) {
           <>
             <Helmet>
               <title>
-                {metadata.title} - {selectedRestaurant.restaurantName}
+                {metadata.title}
+                {' '}
+-
+                {selectedRestaurant.restaurantName}
               </title>
             </Helmet>
             <DetailInfoView {...{ goBack }} restaurantData={selectedRestaurant} />

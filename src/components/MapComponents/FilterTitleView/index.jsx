@@ -1,17 +1,15 @@
-import React from "react";
-import Styled from "./styles";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Styled from './styles';
 
-const FilterTitleView = ({ filterTitle }) => {
-  return (
-    <Styled.FilterTitle>
-      <h3>{filterTitle}</h3>
-    </Styled.FilterTitle>
-  );
-};
+const FilterTitleView = ({ filterTitle }) => (
+  <Styled.FilterTitle>
+    <h3>{filterTitle}</h3>
+  </Styled.FilterTitle>
+);
 
 FilterTitleView.propTyeps = {
-  filterTitle: PropTypes.string.isRequired
+  filterTitle: PropTypes.string.isRequired,
 };
 
 export default FilterTitleView;

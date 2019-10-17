@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import Styled from "./styles";
-import { styles } from "../../../../config";
-import { LoginContext } from "../../../contexts/LoginContext";
-import { loginMessages } from "../../../constants";
+import React, { useContext } from 'react';
+import Styled from './styles';
+import { styles } from '../../../../config';
+import { LoginContext } from '../../../contexts/LoginContext';
+import { loginMessages } from '../../../constants';
 
-import ButtonView from "../../SharedComponents/ButtonView";
-import LinkButtonView from "../../SharedComponents/LinkButtonView";
+import ButtonView from '../../SharedComponents/ButtonView';
+import LinkButtonView from '../../SharedComponents/LinkButtonView';
 
 export default function ForgotPasswordModalView() {
   const { background } = useContext(LoginContext);
@@ -34,10 +34,9 @@ export default function ForgotPasswordModalView() {
             <div className="labels">
               <label htmlFor="auth">{loginMessages.forgotPassword.AUTH_LABEL}</label>
               <p className="message">
-                {true ?
-                  loginMessages.forgotPassword.AUTH_SUCCESS :
-                  loginMessages.forgotPassword.AUTH_FAIL
-                }
+                {true
+                  ? loginMessages.forgotPassword.AUTH_SUCCESS
+                  : loginMessages.forgotPassword.AUTH_FAIL}
               </p>
             </div>
             <input type="text" name="auth" id="auth" />
@@ -58,10 +57,9 @@ export default function ForgotPasswordModalView() {
             <div className="labels">
               <label htmlFor="new-password-check">{loginMessages.forgotPassword.NEW_PASSWORD_CHECK_LABEL}</label>
               <p className="message">
-                {false ?
-                  loginMessages.forgotPassword.SAME_NEW_PASSWORD :
-                  loginMessages.forgotPassword.NOT_SAME_NEW_PASSWORD
-                }
+                {false
+                  ? loginMessages.forgotPassword.SAME_NEW_PASSWORD
+                  : loginMessages.forgotPassword.NOT_SAME_NEW_PASSWORD}
               </p>
             </div>
             <input type="password" name="new-password-check" id="new-password-check" />

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import Styled from "./styles";
-import { InfoContext } from "../../../contexts/InfoContext";
-import { styles } from "../../../../config";
+import React, { useContext } from 'react';
+import Styled from './styles';
+import { InfoContext } from '../../../contexts/InfoContext';
+import { styles } from '../../../../config';
 
-import SortButtonsView from "../SortButtonsView";
+import SortButtonsView from '../SortButtonsView';
 
 export default function InfoSortView() {
   const { state } = useContext(InfoContext);
@@ -19,5 +19,5 @@ export default function InfoSortView() {
 
 const activeStyles = {
   color: styles.filteredItemColor,
-  borderColor: `${styles.filteredItemColor}`
-}
+  borderColor: `${styles.filteredItemColor}`,
+};

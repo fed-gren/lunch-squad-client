@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const DetailView = styled.div`
   background-color: #f9f9f9;

@@ -1,14 +1,14 @@
-import React from "react";
-import Styled from "./styles";
-import { Route, useRouteMatch, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import Styled from './styles';
 
-import ModalView from "../../SharedComponents/ModalView";
-import LoginModalView from "../LoginModalView";
-import SignupModalView from "../SignupModalView";
-import ForgotPasswordModalView from "../ForgotPasswordModalView";
+import ModalView from '../../SharedComponents/ModalView';
+import LoginModalView from '../LoginModalView';
+import SignupModalView from '../SignupModalView';
+import ForgotPasswordModalView from '../ForgotPasswordModalView';
 
 function Container() {
-  let { path } = useRouteMatch();
+  const { path } = useRouteMatch();
 
   return (
     <Styled.ModalContainer>

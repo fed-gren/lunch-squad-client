@@ -1,11 +1,11 @@
-import React, { useState, createContext, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, createContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export const FilterContext = createContext();
 
 export const FilterProvider = ({ children }) => {
   const [state, setState] = useState({
-    isShow: false
+    isShow: false,
   });
 
   return (
@@ -16,5 +16,5 @@ export const FilterProvider = ({ children }) => {
 };
 
 FilterContext.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };

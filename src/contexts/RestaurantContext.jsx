@@ -1,20 +1,20 @@
-import React, { createContext, useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { useFetch } from "../hooks";
-import { data } from "../../config";
+import React, { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useFetch } from '../hooks';
+import { data } from '../../config';
 
 export const RestaurantContext = createContext();
 
 export const RestaurantProvider = ({ children }) => {
   const { loading, data: restaurants, error } = useFetch({
-    url: data.lunchSquadApiUrl
+    url: data.lunchSquadApiUrl,
   });
 
   const [foodTypeCategories, setFoodTypeCategories] = useState({
-    한식: { name: "한식", isOn: true },
-    일식: { name: "일식", isOn: true },
-    중식: { name: "중식", isOn: true },
-    양식: { name: "양식", isOn: true }
+    한식: { name: '한식', isOn: true },
+    일식: { name: '일식', isOn: true },
+    중식: { name: '중식', isOn: true },
+    양식: { name: '양식', isOn: true },
   });
 
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
@@ -33,7 +33,7 @@ export const RestaurantProvider = ({ children }) => {
     if (!restaurants) return;
 
     const temp = restaurants.filter(
-      ({ foodType }) => foodTypeCategories[foodType].isOn
+      ({ foodType }) => foodTypeCategories[foodType].isOn,
     );
 
     setFilteredRestaurants([...temp]);
@@ -53,7 +53,7 @@ export const RestaurantProvider = ({ children }) => {
         hoveredRestaurant,
         setHoveredRestaurant,
         randomRestaurant,
-        setRandomRestaurant
+        setRandomRestaurant,
       }}
     >
       {children}
@@ -62,5 +62,5 @@ export const RestaurantProvider = ({ children }) => {
 };
 
 RestaurantContext.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
 };

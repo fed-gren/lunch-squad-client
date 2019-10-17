@@ -1,19 +1,19 @@
-import React from "react";
-import Styled from "./styles";
-import { styles } from "../../../../config";
-import { FaArrowLeft } from "react-icons/fa";
+import React from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
+import Styled from './styles';
+import { styles } from '../../../../config';
 
-import ThumbnailView from "../../SharedComponents/ThumbnailView";
-import TopbarLayoutView from "../../SharedComponents/TopbarLayoutView";
-import LinkButtonView from "../../SharedComponents/LinkButtonView";
-import ContactInfoView from "../ContactInfoView";
+import ThumbnailView from '../../SharedComponents/ThumbnailView';
+import TopbarLayoutView from '../../SharedComponents/TopbarLayoutView';
+import LinkButtonView from '../../SharedComponents/LinkButtonView';
+import ContactInfoView from '../ContactInfoView';
 
 export default function index({ restaurantData }) {
   const {
     restaurantName,
     imageURL,
     businessHour,
-    contactNumber
+    contactNumber,
   } = restaurantData;
 
   return (

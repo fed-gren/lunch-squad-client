@@ -1,10 +1,10 @@
-import React from "react";
-import Styled from "./styles";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Styled from './styles';
 
 ModalView.propTypes = {
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
 };
 
 export default function ModalView({
@@ -15,7 +15,7 @@ export default function ModalView({
 }) {
   return (
     <Styled.ModalBackground>
-      <Styled.Modal {...{width, height}} {...modalStyles}>
+      <Styled.Modal {...{ width, height }} {...modalStyles}>
         {children}
       </Styled.Modal>
     </Styled.ModalBackground>
