@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { styles } from "../../../../config";
+import styled from 'styled-components';
+import { styles } from '../../../../config';
 
 const RestaurantInfo = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ const RestaurantTitle = styled.div`
     height: .4rem;
     background-color: ${styles.restaurantList.hoverColor};
     transition: opacity 0.2s;
-    opacity: ${({hoverFlag}) => hoverFlag ? "0.7" : "0"};
+    opacity: ${({ hoverFlag }) => (hoverFlag ? '0.7' : '0')};
     position: relative;
     top: -.7rem;
   }

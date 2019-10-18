@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useFetch = ({ url }) => {
   const [state, setState] = useState({
     loading: true,
     error: null,
-    data: null
+    data: null,
   });
 
   const [trigger, setTrigger] = useState(0);
-  const refetch = _ => {
+  const refetch = () => {
     setState({
       ...state,
-      loading: true
+      loading: true,
     });
     setTrigger(Date.now());
   };
@@ -19,7 +19,7 @@ const useFetch = ({ url }) => {
   useEffect(() => {
     setState({
       ...state,
-      loading: true
+      loading: true,
     });
     async function fetchData() {
       const response = await fetch(url);
@@ -27,7 +27,7 @@ const useFetch = ({ url }) => {
       setState({
         ...state,
         loading: false,
-        data: jsonData
+        data: jsonData,
       });
     }
     fetchData();

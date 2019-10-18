@@ -1,18 +1,18 @@
-import React, { useState, createContext } from "react";
-import PropTypes from "prop-types";
+import React, { useState, createContext } from 'react';
+import PropTypes from 'prop-types';
+
+LoginProvider.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+};
 
 export const LoginContext = createContext();
 
-LoginContext.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
-};
-
-export const LoginProvider = ({ children }) => {
-  const [openFlag, setOpenFlag] = useState(false);
+export function LoginProvider({ children }) {
+  const [background, setBackground] = useState('/');
 
   return (
-    <LoginContext.Provider value={{ openFlag, setOpenFlag }}>
+    <LoginContext.Provider value={{ background, setBackground }}>
       {children}
     </LoginContext.Provider>
   );
-};
+}

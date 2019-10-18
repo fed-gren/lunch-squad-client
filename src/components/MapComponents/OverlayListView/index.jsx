@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
-import { CustomOverlay } from "react-kakao-maps";
-import { RestaurantContext } from "../../../contexts/RestaurantContext";
-import RestaurantOverlay from "../RestaurantOverlay";
-import KakaoMapContext from "react-kakao-maps";
+import React, { useContext, useEffect } from 'react';
+import KakaoMapContext, { CustomOverlay } from 'react-kakao-maps';
+import { RestaurantContext } from '../../../contexts/RestaurantContext';
+import RestaurantOverlay from '../RestaurantOverlay';
+
 
 export default () => {
   const { filteredRestaurants, selectedRestaurant } = useContext(
-    RestaurantContext
+    RestaurantContext,
   );
   const { kakaoMapObj, map } = useContext(KakaoMapContext);
 
@@ -19,14 +19,16 @@ export default () => {
   }, [selectedRestaurant]);
 
   return (
-    filteredRestaurants &&
-    filteredRestaurants.map(({ id, lat, lng, restaurantName }) => (
+    filteredRestaurants
+    && filteredRestaurants.map(({
+      id, lat, lng, restaurantName,
+    }) => (
       <CustomOverlay
         key={id}
         content={<RestaurantOverlay message={restaurantName} />}
         {...{ lat, lng }}
         yAnchor={1}
-      ></CustomOverlay>
+      />
     ))
   );
 };

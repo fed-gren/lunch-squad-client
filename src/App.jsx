@@ -1,43 +1,36 @@
-import { hot } from "react-hot-loader/root";
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
-import { BrowserRouter as Router } from "react-router-dom";
-import { RestaurantProvider } from "./contexts/RestaurantContext";
-import { Helmet } from "react-helmet";
-import { metadata } from "../config";
-import { LoginProvider } from "./contexts/LoginContext";
-//components
-import Layout from "./components/Layout";
-import MapView from "./components/MapComponents/MapView";
-import LoginModalView from "./components/LoginModalView";
+import { hot } from 'react-hot-loader/root';
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { RestaurantProvider } from './contexts/RestaurantContext';
+import { metadata } from '../config';
+// components
+import Layout from './components/Layout';
+import MapView from './components/MapComponents/MapView';
 
-export default hot(() => {
-  return (
-    <MyApp>
-      <Helmet>
-        <title>{metadata.title}</title>
-        <link
-          rel="icon"
-          type="image/png"
-          href="https://codesquad.kr/favicon.ico"
-          sizes="16x16"
-        />
-      </Helmet>
-      <GlobalStyle />
-      <LoginProvider>
-        <Layout>
-          <RestaurantProvider>
-            <Router>
-              <MapView />
-            </Router>
-          </RestaurantProvider>
-        </Layout>
-        <LoginModalView />
-      </LoginProvider>
-    </MyApp>
-  );
-});
+export default hot(() => (
+  <MyApp>
+    <Helmet>
+      <title>{metadata.title}</title>
+      <link
+        rel="icon"
+        type="image/png"
+        href="https://codesquad.kr/favicon.ico"
+        sizes="16x16"
+      />
+    </Helmet>
+    <GlobalStyle />
+    <Layout>
+      <RestaurantProvider>
+        <Router>
+          <MapView />
+        </Router>
+      </RestaurantProvider>
+    </Layout>
+  </MyApp>
+));
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

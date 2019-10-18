@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { styles } from "../../../../config";
+import styled from 'styled-components';
 
 const ReviewContainer = styled.div`
   display: flex;

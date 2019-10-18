@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Button = styled.button`
   width: 4rem;
@@ -12,6 +12,7 @@ const Button = styled.button`
 
   /* customizing attribute */
   ${({ width }) => width && `width: ${width};`}
+  ${({ minWidth }) => minWidth && `min-width: ${minWidth};`}
   ${({ height }) => height && `height: ${height};`}
   ${({ border }) => border && `border: ${border};`}
   ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius};`}
@@ -25,13 +26,12 @@ const Button = styled.button`
   ${({ right }) => right && `right: ${right};`}
   ${({ margin }) => margin && `margin: ${margin};`}
   ${({ padding }) => padding && `padding: ${padding};`}
-  ${({ isOff }) => isOff && `color: #999;`}
-  ${({ isOff }) => isOff && `border-color: #999;`}
+  ${({ isOff }) => isOff && 'color: #999;'}
+  ${({ isOff }) => isOff && 'border-color: #999;'}
 
 
   &:active {
-  ${({ activeBgColor }) =>
-    activeBgColor && `background-color: ${activeBgColor};`}
+  ${({ activeBgColor }) => activeBgColor && `background-color: ${activeBgColor};`}
   }
 `;
 

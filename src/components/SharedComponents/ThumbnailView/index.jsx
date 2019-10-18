@@ -1,11 +1,16 @@
-import React from "react";
-import Styled from "./styles";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Styled from './styles';
 
 ThumbnailView.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
+};
+
+ThumbnailView.defaultProps = {
+  width: '100%',
+  height: 'auto',
 };
 
 export default function ThumbnailView({
@@ -15,9 +20,16 @@ export default function ThumbnailView({
   ...styles
 }) {
   return (
-    <Styled.Thumbnail {...{ width, height }} {...styles}>
+    <Styled.Thumbnail
+      {...{ width, height }}
+      {...styles}
+    >
       <picture>
-        <img src={imageUrl} alt="thumbnail" {...{ width, height }} />
+        <img
+          src={imageUrl}
+          alt="thumbnail"
+          {...{ width, height }}
+        />
       </picture>
     </Styled.Thumbnail>
   );

@@ -1,40 +1,45 @@
-import React, { useContext } from "react";
-import Styled from "./styles";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList } from "react-icons/md"
-import ButtonView from "../../SharedComponents/ButtonView";
-import { InfoContext } from "../../../contexts/InfoContext";
-import { LoginContext } from "../../../contexts/LoginContext";
+import React, { useContext, useCallback } from 'react';
+import {
+  MdKeyboardArrowUp, MdSort, MdFilterList,
+} from 'react-icons/md';
+import Styled from './styles';
+import { InfoContext } from '../../../contexts/InfoContext';
+import { LoginContext } from '../../../contexts/LoginContext';
+
+import ButtonView from '../../SharedComponents/ButtonView';
+import LinkButtonView from '../../SharedComponents/LinkButtonView';
 
 const controllerStyles = {
-  fontSize: "1.4rem",
-  bgColor: "transparent",
-  width: "1.8rem",
-  height: "1.4rem",
-  margin: "0 0.4rem 0 0"
-}
+  fontSize: '1.4rem',
+  bgColor: 'transparent',
+  width: '1.8rem',
+  height: '1.4rem',
+  margin: '0 0.4rem 0 0',
+};
 const loginStyles = {
-  fontSize: "0.8rem",
-  bgColor: "transparent",
-  height: "1.4rem",
-  color: "#2980b9"
-}
+  fontSize: '0.8rem',
+  bgColor: 'transparent',
+  height: '1.4rem',
+  color: '#2980b9',
+};
 
 export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
-  const { setOpenFlag } = useContext(LoginContext);
+  const { setBackground } = useContext(LoginContext);
 
-  const toggleSortShow = _ => {
+  const toggleSortShow = useCallback(() => {
     setState({
       ...state,
-      sortShowFlag: !state.sortShowFlag
+      sortShowFlag: !state.sortShowFlag,
     });
-  }
-  const toggleFilterShow = _ => {
+  }, [state, state.sortShowFlag]);
+
+  const toggleFilterShow = useCallback(() => {
     setState({
       ...state,
-      filterShowFlag: !state.filterShowFlag
+      filterShowFlag: !state.filterShowFlag,
     });
-  }
+  }, [state, state.filterShowFlag]);
 
   return (
     <Styled.InfoTopbar>
@@ -45,9 +50,13 @@ export default function InfoTopbar() {
       </div>
       {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>
-        <ButtonView name="로그인" onClick={() => setOpenFlag(true)} {...loginStyles} />
+        <LinkButtonView
+          name="로그인"
+          onClick={() => setBackground(window.location.pathname)}
+          to="/login"
+          {...loginStyles}
+        />
       </Styled.InfoLogin>
     </Styled.InfoTopbar>
-
   );
 }

@@ -1,11 +1,15 @@
-import React, { useState, createContext, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, createContext } from 'react';
+import PropTypes from 'prop-types';
+
+FilterProvider.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+};
 
 export const FilterContext = createContext();
 
-export const FilterProvider = ({ children }) => {
+export function FilterProvider({ children }) {
   const [state, setState] = useState({
-    isShow: false
+    isShow: false,
   });
 
   return (
@@ -13,8 +17,4 @@ export const FilterProvider = ({ children }) => {
       {children}
     </FilterContext.Provider>
   );
-};
-
-FilterContext.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
-};
+}

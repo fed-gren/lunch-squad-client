@@ -1,7 +1,7 @@
-import React from "react";
-import Styled from "./styles";
+import React from 'react';
+import Styled from './styles';
 
-import ReviewItemsView from "../ReviewItemsView";
+import ReviewItemsView from '../ReviewItemsView';
 
 export default function index() {
   return (

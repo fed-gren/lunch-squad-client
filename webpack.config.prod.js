@@ -1,52 +1,52 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const webpack = require("webpack");
-const prodEnv = require("dotenv").config({
-  path: path.resolve(process.cwd(), ".env.production")
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
+const prodEnv = require('dotenv').config({
+  path: path.resolve(process.cwd(), '.env.production'),
 });
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.jsx',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "build")
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build'),
   },
-  mode: "production",
+  mode: 'production',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: "/node_modules",
-        use: ["babel-loader"]
+        exclude: '/node_modules',
+        use: ['babel-loader'],
       },
 
       {
         test: /\.(html)$/,
         use: [
           {
-            loader: "html-loader"
-          }
-        ]
-      }
-    ]
+            loader: 'html-loader',
+          },
+        ],
+      },
+    ],
   },
 
   resolve: {
     alias: {
-      "react-dom": "@hot-loader/react-dom"
+      'react-dom': '@hot-loader/react-dom',
     },
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx'],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html"
+      template: './public/index.html',
+      filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
     new webpack.EnvironmentPlugin({
-      KAKAO_MAP_API_URL: prodEnv.parsed.KAKAO_MAP_API_URL
-    })
-  ]
+      KAKAO_MAP_API_URL: prodEnv.parsed.KAKAO_MAP_API_URL,
+    }),
+  ],
 };
