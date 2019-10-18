@@ -3,7 +3,7 @@ import Styled from './styles';
 import { FilterContext } from '../../../contexts/FilterContext';
 
 import FilterTitleView from '../FilterTitleView';
-import FilterButtonsView from '../FilterbuttonsView';
+import FilterButtonsView from '../FilterButtonsView';
 
 export default () => {
   const { state } = useContext(FilterContext);

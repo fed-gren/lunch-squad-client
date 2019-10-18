@@ -8,7 +8,7 @@ const useFetch = ({ url }) => {
   });
 
   const [trigger, setTrigger] = useState(0);
-  const refetch = (_) => {
+  const refetch = () => {
     setState({
       ...state,
       loading: true,

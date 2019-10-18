@@ -8,16 +8,22 @@ LinkButtonView.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]).isRequired,
+  history: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
+  name: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]).isRequired,
+};
+
+LinkButtonView.defaultProps = {
+  onClick: () => {},
 };
 
 function LinkButtonView({
   history,
-  location,
-  match,
-  staticContext,
   to,
   onClick,
-  activeClassName,
   name,
   ...styles
 }) {
@@ -25,7 +31,7 @@ function LinkButtonView({
     <Styled.Button
       {...styles}
       onClick={(event) => {
-        onClick && onClick(event);
+        if (onClick) onClick(event);
         history.push(to);
       }}
     >

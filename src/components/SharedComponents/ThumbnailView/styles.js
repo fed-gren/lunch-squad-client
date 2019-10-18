@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Thumbnail = styled.div`
-  width: ${({ width }) => (width || '100%')};
-  height: ${({ height }) => (height || 'auto')};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   padding: ${({ padding }) => padding && padding};
   border-radius: ${({ circle }) => (circle ? '50%' : 'none')};
   position: relative;

@@ -15,7 +15,7 @@ export default function RestaurantItemsView() {
     setHoverId(info.id);
   }, []);
 
-  const mouseLeaveHandler = useCallback((_) => {
+  const mouseLeaveHandler = useCallback(() => {
     setHoveredRestaurant(null);
     setHoverId(null);
   }, []);

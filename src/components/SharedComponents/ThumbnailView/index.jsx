@@ -8,6 +8,11 @@ ThumbnailView.propTypes = {
   imageUrl: PropTypes.string.isRequired,
 };
 
+ThumbnailView.defaultProps = {
+  width: '100%',
+  height: 'auto',
+};
+
 export default function ThumbnailView({
   width,
   height,
@@ -15,9 +20,16 @@ export default function ThumbnailView({
   ...styles
 }) {
   return (
-    <Styled.Thumbnail {...{ width, height }} {...styles}>
+    <Styled.Thumbnail
+      {...{ width, height }}
+      {...styles}
+    >
       <picture>
-        <img src={imageUrl} alt="thumbnail" {...{ width, height }} />
+        <img
+          src={imageUrl}
+          alt="thumbnail"
+          {...{ width, height }}
+        />
       </picture>
     </Styled.Thumbnail>
   );

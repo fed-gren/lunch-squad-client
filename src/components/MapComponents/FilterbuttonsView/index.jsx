@@ -17,8 +17,8 @@ export default () => {
     RestaurantContext,
   );
 
-  const clickHandler = ({ foodType }) => {
-    const tempObj = { ...foodTypeCategories[foodType] };
+  const clickHandler = ({ fType }) => {
+    const tempObj = { ...foodTypeCategories[fType] };
     const onNum = Object.values(foodTypeCategories).reduce(
       (acc, cur) => (cur.isOn ? acc + 1 : acc),
       0,
@@ -28,7 +28,7 @@ export default () => {
     tempObj.isOn = !tempObj.isOn;
     setFoodTypeCategories({
       ...foodTypeCategories,
-      [foodType]: { ...tempObj },
+      [fType]: { ...tempObj },
     });
   };
 
@@ -37,25 +37,25 @@ export default () => {
       <ButtonView
         name={foodTypeCategories[foodType.KO_FOOD].name}
         isOff={!foodTypeCategories[foodType.KO_FOOD].isOn}
-        onClick={() => clickHandler({ foodType: foodTypeCategories[foodType.KO_FOOD].name })}
+        onClick={() => clickHandler({ fType: foodTypeCategories[foodType.KO_FOOD].name })}
         {...toggleButtonStyles}
       />
       <ButtonView
         name={foodTypeCategories[foodType.JP_FOOD].name}
         isOff={!foodTypeCategories[foodType.JP_FOOD].isOn}
-        onClick={() => clickHandler({ foodType: foodTypeCategories[foodType.JP_FOOD].name })}
+        onClick={() => clickHandler({ fType: foodTypeCategories[foodType.JP_FOOD].name })}
         {...toggleButtonStyles}
       />
       <ButtonView
         name={foodTypeCategories[foodType.WS_FOOD].name}
         isOff={!foodTypeCategories[foodType.WS_FOOD].isOn}
-        onClick={() => clickHandler({ foodType: foodTypeCategories[foodType.WS_FOOD].name })}
+        onClick={() => clickHandler({ fType: foodTypeCategories[foodType.WS_FOOD].name })}
         {...toggleButtonStyles}
       />
       <ButtonView
         name={foodTypeCategories[foodType.CH_FOOD].name}
         isOff={!foodTypeCategories[foodType.CH_FOOD].isOn}
-        onClick={() => clickHandler({ foodType: foodTypeCategories[foodType.CH_FOOD].name })}
+        onClick={() => clickHandler({ fType: foodTypeCategories[foodType.CH_FOOD].name })}
         {...toggleButtonStyles}
       />
     </Styled.FilterButtons>

@@ -1,12 +1,16 @@
 import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useFetch } from '../hooks';
+import useFetch from '../hooks/useFetch';
 import { data } from '../../config';
+
+RestaurantProvider.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+};
 
 export const RestaurantContext = createContext();
 
-export const RestaurantProvider = ({ children }) => {
-  const { loading, data: restaurants, error } = useFetch({
+export function RestaurantProvider({ children }) {
+  const { data: restaurants } = useFetch({
     url: data.lunchSquadApiUrl,
   });
 
@@ -59,8 +63,4 @@ export const RestaurantProvider = ({ children }) => {
       {children}
     </RestaurantContext.Provider>
   );
-};
-
-RestaurantContext.propTypes = {
-  children: PropTypes.object.isRequired,
-};
+}

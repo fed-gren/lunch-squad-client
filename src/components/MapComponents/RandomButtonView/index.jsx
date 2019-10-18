@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from 'react';
+import React, { useContext, useCallback } from 'react';
 import { FaRandom } from 'react-icons/fa';
 import Styled from './styles';
 import LinkButtonView from '../../SharedComponents/LinkButtonView';
@@ -12,7 +12,7 @@ const randomButtonStyles = {
   activeBgColor: '#888',
 };
 
-const RandomButtonText = (_) => (
+const RandomButtonText = () => (
   <Styled.RandomButtonText>
     <FaRandom />
     <span>랜덤식당</span>
@@ -28,13 +28,13 @@ export default function index() {
   );
 
   const genRandomPath = useCallback(
-    (_) => {
+    () => {
       if (!filteredRestaurants) return '/';
       const maxLen = filteredRestaurants.length;
       let randomIdx = getRandomNum(maxLen);
       let randomPath = `/${filteredRestaurants[randomIdx].id}`;
 
-      while (randomPath === location.pathname) {
+      while (randomPath === window.location.pathname) {
         randomIdx = getRandomNum(maxLen);
         randomPath = `/${filteredRestaurants[randomIdx].id}`;
       }

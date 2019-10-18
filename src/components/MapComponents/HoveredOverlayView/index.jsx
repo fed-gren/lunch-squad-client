@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { CustomOverlay } from 'react-kakao-maps';
 import { data, styles } from '../../../../config';
 import { RestaurantContext } from '../../../contexts/RestaurantContext';

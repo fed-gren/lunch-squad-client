@@ -15,7 +15,7 @@ const toggleButtonStyles = {
 export default () => {
   const { state, setState } = useContext(FilterContext);
   const toggleIsShow = useCallback(
-    (_) => setState({ ...state, isShow: !state.isShow }),
+    () => setState({ ...state, isShow: !state.isShow }),
     [state.isShow],
   );
 

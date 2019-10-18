@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 import {
-  MdKeyboardArrowDown, MdKeyboardArrowUp, MdSort, MdFilterList,
+  MdKeyboardArrowUp, MdSort, MdFilterList,
 } from 'react-icons/md';
 import Styled from './styles';
 import { InfoContext } from '../../../contexts/InfoContext';
@@ -27,14 +27,14 @@ export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
   const { setBackground } = useContext(LoginContext);
 
-  const toggleSortShow = useCallback((_) => {
+  const toggleSortShow = useCallback(() => {
     setState({
       ...state,
       sortShowFlag: !state.sortShowFlag,
     });
   }, [state, state.sortShowFlag]);
 
-  const toggleFilterShow = useCallback((_) => {
+  const toggleFilterShow = useCallback(() => {
     setState({
       ...state,
       filterShowFlag: !state.filterShowFlag,

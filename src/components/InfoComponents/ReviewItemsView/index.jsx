@@ -5,7 +5,7 @@ import { RestaurantContext } from '../../../contexts/RestaurantContext';
 export default function index() {
   const { selectedRestaurant } = useContext(RestaurantContext);
   const { review: reviews } = selectedRestaurant;
-
+  // Todo: Review ID 필요 key값으로 써야 함.
   return (
     reviews
     && reviews.map((review, idx) => (

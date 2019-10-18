@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Styled from './styles';
 import { metadata } from '../../../../config';
@@ -7,7 +8,12 @@ import DetailInfoView from '../DetailInfoView';
 import ReviewContainerView from '../ReviewContainerView';
 import { RestaurantContext } from '../../../contexts/RestaurantContext';
 
-export default function index({ match, history }) {
+DetailView.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
+
+export default function DetailView({ match }) {
   const {
     restaurants,
     selectedRestaurant,
@@ -18,16 +24,15 @@ export default function index({ match, history }) {
 
   useEffect(() => {
     if (!restaurants) return;
-    const temp = restaurants.filter(({ id }) => id === restaurantId);
+    const temp = restaurants.filter(({ id }) => id === restaurantId)[0];
 
-    setSelectedRestaurant(...temp);
+    setSelectedRestaurant(temp);
     return () => {
       setSelectedRestaurant(null);
       setHoveredRestaurant(null);
     };
   }, [restaurants, match.params.id]);
 
-  const { goBack } = history;
   return (
     <Styled.DetailView>
       <InfoLayout>
@@ -35,13 +40,10 @@ export default function index({ match, history }) {
           <>
             <Helmet>
               <title>
-                {metadata.title}
-                {' '}
--
-                {selectedRestaurant.restaurantName}
+                {`${metadata.title} - ${selectedRestaurant.restaurantName}`}
               </title>
             </Helmet>
-            <DetailInfoView {...{ goBack }} restaurantData={selectedRestaurant} />
+            <DetailInfoView {...selectedRestaurant} />
             <ReviewContainerView />
           </>
         )}

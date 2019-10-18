@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaArrowLeft } from 'react-icons/fa';
 import { MdStar } from 'react-icons/md';
 import Styled from './styles';
@@ -9,14 +10,19 @@ import TopbarLayoutView from '../../SharedComponents/TopbarLayoutView';
 import LinkButtonView from '../../SharedComponents/LinkButtonView';
 import ContactInfoView from '../ContactInfoView';
 
-export default function index({ restaurantData }) {
-  const {
-    restaurantName,
-    imageURL,
-    businessHour,
-    contactNumber,
-  } = restaurantData;
+DetailInfoView.propTypes = {
+  restaurantName: PropTypes.string.isRequired,
+  imageURL: PropTypes.string.isRequired,
+  businessHour: PropTypes.string.isRequired,
+  contactNumber: PropTypes.string.isRequired,
+};
 
+export default function DetailInfoView({
+  restaurantName,
+  imageURL,
+  businessHour,
+  contactNumber,
+}) {
   return (
     <div>
       <TopbarLayoutView>
@@ -24,7 +30,7 @@ export default function index({ restaurantData }) {
       </TopbarLayoutView>
       <Styled.DetailInfo>
         <p>
-3.9
+          3.9
           <span><MdStar /></span>
         </p>
         {' '}
