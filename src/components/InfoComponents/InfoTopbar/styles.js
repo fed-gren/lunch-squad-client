@@ -6,8 +6,7 @@ const InfoTopbar = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 3rem;
-  border: 1px solid black;
-  background-color: #f9f9f9;
+  background-color: #c9c9c9;
   padding: 0 0.7rem;
   position: relative;
   z-index: 2;

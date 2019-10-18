@@ -27,7 +27,7 @@ const styles = {
   },
   modal: {
     closeButton: {
-      color: '#333',
+      color: '#fff',
       width: 'auto',
       minWidth: '3rem',
       height: '2.2rem',
@@ -36,7 +36,7 @@ const styles = {
       padding: '0 0.5rem',
     },
     submitButton: {
-      color: '#333',
+      color: '#fff',
       width: 'auto',
       minWidth: '3rem',
       height: '2.2rem',
@@ -45,7 +45,7 @@ const styles = {
       bgColor: '#ffa538',
     },
     subButton: {
-      color: '#333',
+      color: '#fff',
       width: 'auto',
       minWidth: '3rem',
       height: '1.8rem',

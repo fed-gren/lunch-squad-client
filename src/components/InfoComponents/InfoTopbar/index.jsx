@@ -1,6 +1,9 @@
 import React, { useContext, useCallback } from 'react';
 import {
-  MdKeyboardArrowUp, MdSort, MdFilterList,
+  MdSort,
+  MdFilterList,
+  MdVisibility,
+  MdVisibilityOff,
 } from 'react-icons/md';
 import Styled from './styles';
 import { InfoContext } from '../../../contexts/InfoContext';
@@ -41,12 +44,33 @@ export default function InfoTopbar() {
     });
   }, [state, state.filterShowFlag]);
 
+  const toggleFoldFlag = useCallback(() => {
+    setState({
+      ...state,
+      foldFlag: !state.foldFlag,
+    });
+  }, [state, state.foldFlag]);
+
   return (
     <Styled.InfoTopbar>
       <div className="controller">
-        <ButtonView name={<MdKeyboardArrowUp />} {...controllerStyles} />
-        <ButtonView name={<MdSort />} onClick={toggleSortShow} {...controllerStyles} />
-        <ButtonView name={<MdFilterList />} onClick={toggleFilterShow} {...controllerStyles} />
+        <ButtonView
+          name={state.foldFlag ? <MdVisibility /> : <MdVisibilityOff />}
+          onClick={toggleFoldFlag}
+          {...controllerStyles}
+        />
+        <ButtonView
+          name={<MdSort />}
+          onClick={toggleSortShow}
+          {...controllerStyles}
+          color={state.sortShowFlag ? '#000' : '#fff'}
+        />
+        <ButtonView
+          name={<MdFilterList />}
+          onClick={toggleFilterShow}
+          {...controllerStyles}
+          color={state.filterShowFlag ? '#000' : '#fff'}
+        />
       </div>
       {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>

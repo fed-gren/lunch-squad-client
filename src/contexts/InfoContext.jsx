@@ -11,6 +11,7 @@ export function InfoProvider({ children }) {
   const [state, setState] = useState({
     sortShowFlag: false,
     filterShowFlag: false,
+    foldFlag: false,
   });
 
   return (

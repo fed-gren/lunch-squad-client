@@ -6,9 +6,10 @@ const DetailView = styled.div`
   width: 100%;
   overflow: scroll;
   position: absolute;
+  visibility: ${({ foldFlag }) => (foldFlag ? 'hidden' : 'visible')};
+  opacity: ${({ foldFlag }) => (foldFlag ? 0 : 1)};
+  transition: visibility 0.3s, opacity 0.3s;
   top: 100%;
-  /* TODO: 리스트 접기, 펼치기 기능 추가 시 top 조절*/
-  /* top: calc(-36rem + 100%); */
   left: 0;
 `;
 

@@ -7,6 +7,7 @@ import InfoLayout from '../../InfoLayout';
 import DetailInfoView from '../DetailInfoView';
 import ReviewContainerView from '../ReviewContainerView';
 import { RestaurantContext } from '../../../contexts/RestaurantContext';
+import { InfoContext } from '../../../contexts/InfoContext';
 
 DetailView.propTypes = {
   match: PropTypes.object.isRequired,
@@ -20,6 +21,7 @@ export default function DetailView({ match }) {
     setSelectedRestaurant,
     setHoveredRestaurant,
   } = useContext(RestaurantContext);
+  const { state } = useContext(InfoContext);
   const restaurantId = match.params.id;
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function DetailView({ match }) {
   }, [restaurants, match.params.id]);
 
   return (
-    <Styled.DetailView>
+    <Styled.DetailView foldFlag={state.foldFlag}>
       <InfoLayout>
         {selectedRestaurant && (
           <>
