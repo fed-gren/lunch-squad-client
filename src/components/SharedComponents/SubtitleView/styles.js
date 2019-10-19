@@ -19,7 +19,7 @@ const Subtitle = styled.div`
       width: 100%;
       height: 0.4rem;
       border-radius: .2rem;
-      background-color: ${styles.restaurantList.hoverColor};
+      background-color: ${styles.themeColor};
       opacity: 0.6;
       position: relative;
       top: -0.7rem;

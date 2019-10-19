@@ -12,7 +12,7 @@ const styles = {
   restaurantList: {
     bgColor: '#B2DFDB',
     itemColor: '#FFF',
-    hoverColor: '#ffa538',
+    hoverColor: '#e74c3c',
   },
 
   reviewBarHeight: '3rem',
