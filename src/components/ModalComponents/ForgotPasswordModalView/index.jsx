@@ -33,19 +33,8 @@ export default function ForgotPasswordModalView() {
           <div className="input-auth">
             <div className="labels">
               <label htmlFor="auth">{loginMessages.forgotPassword.AUTH_LABEL}</label>
-              <p className="message">
-                {true
-                  ? loginMessages.forgotPassword.AUTH_SUCCESS
-                  : loginMessages.forgotPassword.AUTH_FAIL}
-              </p>
             </div>
             <input type="text" name="auth" id="auth" />
-            <div className="sub-button">
-              <ButtonView
-                name={loginMessages.forgotPassword.AUTH_BUTTON}
-                {...styles.modal.subButton}
-              />
-            </div>
           </div>
           <div className="input-new-password">
             <div className="labels">
