@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyPlugin = require('copy-webpack-plugin');
 const devEnv = require('dotenv').config({
   path: path.resolve(process.cwd(), '.env.development'),
 });
@@ -59,5 +60,8 @@ module.exports = {
       KAKAO_MAP_API_URL: devEnv.parsed.KAKAO_MAP_API_URL,
     }),
     new BundleAnalyzerPlugin(),
+    new CopyPlugin([
+      { from: 'cognito/', to: './' },
+    ]),
   ],
 };

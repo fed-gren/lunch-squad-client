@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const prodEnv = require('dotenv').config({
   path: path.resolve(process.cwd(), '.env.production'),
 });
@@ -48,5 +49,8 @@ module.exports = {
     new webpack.EnvironmentPlugin({
       KAKAO_MAP_API_URL: prodEnv.parsed.KAKAO_MAP_API_URL,
     }),
+    new CopyPlugin([
+      { from: 'cognito/', to: './' },
+    ]),
   ],
 };
