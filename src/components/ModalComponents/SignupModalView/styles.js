@@ -47,7 +47,6 @@ const SignupModalContents = styled.div`
           flex: 1;
           display: flex;
           justify-content: flex-end;
-          cursor: pointer;
         }
 
         & .tooltip {
@@ -60,6 +59,7 @@ const SignupModalContents = styled.div`
           display: flex;
           justify-content: center;
           border-radius: 0.45rem;
+          cursor: pointer;
         }
       }
 

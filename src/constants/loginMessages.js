@@ -11,13 +11,16 @@ export default {
   signup: {
     TITLE: '회원가입',
     EMAIL_LABEL: '이메일 주소',
+    USERNAME_LABEL: '닉네임',
     PASSWORD_LABEL: '비밀번호',
     PASSWORD_CHECK_LABEL: '비밀번호 확인',
     SUBMIT_BUTTON: '회원가입',
     CLOSE_BUTTON: '닫기',
     PASSWORD_RULES: '<p>영문 대문자 필요<br/>영문 소문자 필요<br/>숫자 필요<br/>길이 - 6자 이상, 99자 미만<br/>특수문자 필요(^ $ * . [] { } ( ) ? - " ! @ # % & / \\ , > < \' : ; | _ ~ ` 중 하나)</p>',
+    INVALID_EMAIL: '올바른 이메일 형식을 입력해주세요.',
+    INVALID_USERNAME: '닉네임을 공백 없이 적어주세요.',
     INVALID_PASSWORD: '비밀번호 조건을 충족하지 못하였습니다.',
-    VALID_PASSWORD: '비밀번호 조건이 충족되었습니다.',
+    NOT_SAME_PASSWORD: '비밀번호와 일치하지 않습니다.',
   },
   forgotPassword: {
     TITLE: '비밀번호 찾기',

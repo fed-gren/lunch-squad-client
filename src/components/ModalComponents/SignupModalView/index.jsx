@@ -4,6 +4,7 @@ import Styled from './styles';
 import { styles } from '../../../../config';
 import { LoginContext } from '../../../contexts/LoginContext';
 import { loginMessages } from '../../../constants';
+import { checkValidation, cognito } from '../../../utils';
 
 import ButtonView from '../../SharedComponents/ButtonView';
 import LinkButtonView from '../../SharedComponents/LinkButtonView';
@@ -11,47 +12,93 @@ import LinkButtonView from '../../SharedComponents/LinkButtonView';
 export default function SignupModalView() {
   const { background } = useContext(LoginContext);
   const [state, setState] = useState({
+    invalidEmailMessage: '',
+    emailPassFlag: false,
+    curEmail: '',
+    invalidUsernameMessage: '',
+    usernamePassFlag: false,
+    curUsername: '',
     invalidPasswordMessage: '',
+    passwordPassFlag: false,
+    curPassword: '',
     notSamePasswordMessage: '',
-    allPass: false,
+    curCheckPassword: '',
+    passwordCheckPassFlag: false,
   });
 
-  const submitHandler = () => {
-    console.log('submit');
+  const setEmailCheckMessage = (evt) => {
+    const email = evt.target.value;
+    const { INVALID_EMAIL } = loginMessages.signup;
+    const emailCheckResult = checkValidation.email(email);
+
+    setState({
+      ...state,
+      invalidEmailMessage: emailCheckResult
+        ? ''
+        : INVALID_EMAIL,
+      emailPassFlag: emailCheckResult,
+      curEmail: email,
+    });
   };
 
-  const checkPasswordValidation = (password) => {
-    const minLen = 6;
-    const maxLen = 99;
-    const symbolPattern = /[\^$*.[\]{}()?\-"!@#%&/\\,><':;|_~]/;
-    const lowerCasePattern = /[a-z]/;
-    const upperCasePattern = /[A-Z]/;
-    const numberPattern = /[0-9]/;
+  const setUsernameCheckMessage = (evt) => {
+    const username = evt.target.value;
+    const { INVALID_USERNAME } = loginMessages.signup;
+    const usernameCheckResult = checkValidation.username(username);
 
-    if (password.length >= minLen && password.length <= maxLen
-      && symbolPattern.test(password)
-      && upperCasePattern.test(password)
-      && lowerCasePattern.test(password)
-      && numberPattern.test(password)
-    ) {
-      return true;
-    }
-    return false;
+    setState({
+      ...state,
+      invalidUsernameMessage: usernameCheckResult
+        ? ''
+        : INVALID_USERNAME,
+      usernamePassFlag: usernameCheckResult,
+      curUsername: username,
+    });
   };
 
   const setPasswordCheckMessage = (evt) => {
     const password = evt.target.value;
-    const { VALID_PASSWORD, INVALID_PASSWORD } = loginMessages.signup;
+    const { INVALID_PASSWORD } = loginMessages.signup;
+    const passwordCheckResult = checkValidation.password(password);
+
     setState({
       ...state,
-      invalidPasswordMessage: checkPasswordValidation(password)
-        ? VALID_PASSWORD
+      invalidPasswordMessage: passwordCheckResult
+        ? ''
         : INVALID_PASSWORD,
+      curPassword: password,
+      passwordPassFlag: passwordCheckResult,
     });
   };
 
   const passwordCheckBlurHandler = (evt) => {
-    console.log('비밀번호 일치하는지 확인하기', evt.target.value);
+    const checkPassword = evt.target.value;
+    const { NOT_SAME_PASSWORD } = loginMessages.signup;
+    const passwordSameCheckResult = checkValidation.checkPassword(state.curPassword, checkPassword);
+
+    setState({
+      ...state,
+      notSamePasswordMessage: passwordSameCheckResult
+        ? ''
+        : NOT_SAME_PASSWORD,
+      curCheckPassword: checkPassword,
+      passwordCheckPassFlag: passwordSameCheckResult,
+    });
+  };
+
+  const checkAllPass = () => state.emailPassFlag
+    && state.usernamePassFlag
+    && state.passwordPassFlag
+    && state.passwordCheckPassFlag;
+
+  const submitHandler = () => {
+    if (checkAllPass()) {
+      cognito.register({
+        email: state.curEmail,
+        username: state.curUsername,
+        password: state.curPassword,
+      });
+    }
   };
 
   return (
@@ -64,8 +111,30 @@ export default function SignupModalView() {
           <div className="input-email">
             <div className="labels">
               <label htmlFor="email">{loginMessages.signup.EMAIL_LABEL}</label>
+              <div className="message invalid-email">
+                {state.invalidEmailMessage}
+              </div>
             </div>
-            <input type="email" name="email" id="email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onBlur={setEmailCheckMessage}
+            />
+          </div>
+          <div className="input-username">
+            <div className="labels">
+              <label htmlFor="username">{loginMessages.signup.USERNAME_LABEL}</label>
+              <div className="message invalid-username">
+                {state.invalidUsernameMessage}
+              </div>
+            </div>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onBlur={setUsernameCheckMessage}
+            />
           </div>
           <div className="input-password">
             <div className="labels">
@@ -97,6 +166,9 @@ export default function SignupModalView() {
           <div className="input-password-check">
             <div className="labels">
               <label htmlFor="password-check">{loginMessages.signup.PASSWORD_CHECK_LABEL}</label>
+              <div className="message not-same-password">
+                {state.notSamePasswordMessage}
+              </div>
             </div>
             <input
               type="password"
@@ -111,6 +183,7 @@ export default function SignupModalView() {
             name={loginMessages.signup.SUBMIT_BUTTON}
             onClick={submitHandler}
             {...styles.modal.submitButton}
+            bgColor={!checkAllPass() ? '#666' : styles.modal.submitButton.bgColor}
           />
           <LinkButtonView
             name={loginMessages.signup.CLOSE_BUTTON}
