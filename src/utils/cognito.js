@@ -40,4 +40,42 @@ export default {
       window.location = '/login';
     });
   },
+
+  login: ({ email, password }) => {
+    const authenticationData = {
+      Username: email,
+      Password: password,
+    };
+
+    const authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(
+      authenticationData,
+    );
+
+    const poolData = {
+      UserPoolId: _config.cognito.userPoolId, // Your user pool id here
+      ClientId: _config.cognito.clientId, // Your client id here
+    };
+
+    const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+    const userData = {
+      Username: email,
+      Pool: userPool,
+    };
+
+    const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+    cognitoUser.authenticateUser(authenticationDetails, {
+      onSuccess(result) {
+        const accessToken = result.getAccessToken().getJwtToken(); // access token을 백엔드 서버로 보내주시면 됩니다.
+        const idToken = result.idToken.jwtToken;
+        console.log(accessToken);
+        console.log(result);
+      },
+
+      onFailure(err) {
+        alert(err.message || JSON.stringify(err));
+      },
+    });
+  },
 };

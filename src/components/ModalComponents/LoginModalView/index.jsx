@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import Styled from './styles';
 import { styles } from '../../../../config';
 import { LoginContext } from '../../../contexts/LoginContext';
 import { loginMessages } from '../../../constants';
+import { cognito } from '../../../utils';
 
 import ButtonView from '../../SharedComponents/ButtonView';
 import LinkButtonView from '../../SharedComponents/LinkButtonView';
@@ -18,6 +19,35 @@ const signupLinkStyles = {
 export default function LoginModalView() {
   const { background } = useContext(LoginContext);
   const { url } = useRouteMatch();
+  const [state, setState] = useState({
+    curEmail: '',
+    curPassword: '',
+  });
+
+  const setCurEmail = (evt) => {
+    const email = evt.target.value;
+
+    setState({
+      ...state,
+      curEmail: email,
+    });
+  };
+
+  const setCurPassword = (evt) => {
+    const password = evt.target.value;
+
+    setState({
+      ...state,
+      curPassword: password,
+    });
+  };
+
+  const submitHandler = () => {
+    cognito.login({
+      email: state.curEmail,
+      password: state.curPassword,
+    });
+  };
 
   return (
     <>
@@ -28,11 +58,21 @@ export default function LoginModalView() {
         <div className="inputs">
           <div className="input-email">
             <label htmlFor="email">{loginMessages.login.EMAIL_LABEL}</label>
-            <input type="email" name="email" id="email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onBlur={setCurEmail}
+            />
           </div>
           <div className="input-password">
             <label htmlFor="password">{loginMessages.login.PASSWORD_LABEL}</label>
-            <input type="password" name="password" id="password" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onBlur={setCurPassword}
+            />
           </div>
         </div>
         <div className="signup-help">
@@ -50,7 +90,11 @@ export default function LoginModalView() {
           />
         </div>
         <div className="buttons">
-          <ButtonView name={loginMessages.login.LOGIN_BUTTON} {... styles.modal.submitButton} />
+          <ButtonView
+            name={loginMessages.login.LOGIN_BUTTON}
+            onClick={submitHandler}
+            {... styles.modal.submitButton}
+          />
           <LinkButtonView name={loginMessages.login.CLOSE_BUTTON} to={`${background}`} {...styles.modal.closeButton} />
         </div>
       </Styled.LoginModalContents>
