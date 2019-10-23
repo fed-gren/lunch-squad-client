@@ -15,6 +15,7 @@ export default {
     PASSWORD_CHECK_LABEL: '비밀번호 확인',
     SUBMIT_BUTTON: '회원가입',
     CLOSE_BUTTON: '닫기',
+    PASSWORD_RULES: '<p>영문 대문자 필요<br/>영문 소문자 필요<br/>숫자 필요<br/>길이 - 6자 이상, 99자 미만<br/>특수문자 필요(^ $ * . [] { } ( ) ? - " ! @ # % & / \\ , > < \' : ; | _ ~ ` 중 하나)</p>',
   },
   forgotPassword: {
     TITLE: '비밀번호 찾기',

@@ -35,9 +35,35 @@ const SignupModalContents = styled.div`
       flex-direction: column;
       justify-content: center;
 
-      & > label {
-        font-size: 0.7rem;
+      & > .labels {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 0.2rem;
+
+        & > * {
+          font-size: 0.7rem;
+        }
+
+        & > .message {
+          color: ${styles.themeColor}
+        }
+
+        & > .message.help {
+          cursor: pointer;
+        }
+
+        & .tooltip {
+          width: 0.9rem;
+          height: 0.9rem;
+          line-height: 0.9rem;
+          color: #000;
+          background-color: #eee;
+          box-shadow: .1rem .1rem 1px #aaa;
+          display: flex;
+          justify-content: center;
+          border-radius: 0.45rem;
+        }
       }
 
       & > input {
