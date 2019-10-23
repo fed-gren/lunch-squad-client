@@ -34,6 +34,7 @@ const SignupModalContents = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      font-size: 0.7rem;
 
       & > .labels {
         display: flex;
@@ -41,15 +42,11 @@ const SignupModalContents = styled.div`
         justify-content: space-between;
         margin-bottom: 0.2rem;
 
-        & > * {
-          font-size: 0.7rem;
-        }
-
         & > .message {
-          color: ${styles.themeColor}
-        }
-
-        & > .message.help {
+          color: ${styles.themeColor};
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
           cursor: pointer;
         }
 

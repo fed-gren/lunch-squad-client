@@ -16,6 +16,8 @@ export default {
     SUBMIT_BUTTON: '회원가입',
     CLOSE_BUTTON: '닫기',
     PASSWORD_RULES: '<p>영문 대문자 필요<br/>영문 소문자 필요<br/>숫자 필요<br/>길이 - 6자 이상, 99자 미만<br/>특수문자 필요(^ $ * . [] { } ( ) ? - " ! @ # % & / \\ , > < \' : ; | _ ~ ` 중 하나)</p>',
+    INVALID_PASSWORD: '비밀번호 조건을 충족하지 못하였습니다.',
+    VALID_PASSWORD: '비밀번호 조건이 충족되었습니다.',
   },
   forgotPassword: {
     TITLE: '비밀번호 찾기',
