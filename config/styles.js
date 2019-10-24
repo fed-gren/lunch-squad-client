@@ -43,6 +43,7 @@ const styles = {
       borderRadius: '0.2rem',
       padding: '0 0.5rem',
       bgColor: '#ffa538',
+      disableColor: '#666',
     },
     subButton: {
       color: '#fff',

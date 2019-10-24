@@ -1,3 +1,5 @@
+import { loginMessages } from '../constants';
+
 export default {
   register: ({ email, username, password }) => {
     const poolData = {
@@ -79,7 +81,7 @@ export default {
     });
   },
 
-  forgotPassword: ({ email, verificationCode, newPassword }) => {
+  sendVerificationCode: ({ email }) => {
     const poolData = {
       UserPoolId: _config.cognito.userPoolId, // Your user pool id here
       ClientId: _config.cognito.clientId, // Your client id here
@@ -96,12 +98,44 @@ export default {
 
     cognitoUser.forgotPassword({
       onSuccess(result) {
-        console.log(`call result: ${result}`);
+        console.log(`call result: ${JSON.stringify(result)}`);
+        alert(loginMessages.forgotPassword.NEW_PASSWORD_DONE);
       },
       onFailure(err) {
         alert(JSON.stringify(err));
         console.log(err);
       },
+      inputVerificationCode() {
+        const verificationCode = prompt('인증코드가 전송되었습니다. 확인 후 아래에 입력해주세요.', '');
+        const newPassword = prompt('새로운 비밀번호를 적어주세요.', '');
+        cognitoUser.confirmPassword(verificationCode, newPassword, this);
+      },
+    });
+  },
+
+  setNewPassword: ({ email, verificationCode, newPassword }) => {
+    const poolData = {
+      UserPoolId: _config.cognito.userPoolId, // Your user pool id here
+      ClientId: _config.cognito.clientId, // Your client id here
+    };
+
+    const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+    const userData = {
+      Username: email,
+      Pool: userPool,
+    };
+
+    const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+    cognitoUser.forgotPassword({
+      onSuccess(result) {
+      },
+
+      onFailure(err) {
+        alert(JSON.stringify(err));
+      },
+
       inputVerificationCode() {
         cognitoUser.confirmPassword(verificationCode, newPassword, this);
       },
