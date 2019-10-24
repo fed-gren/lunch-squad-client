@@ -37,5 +37,6 @@ export default {
     NOT_SAME_NEW_PASSWORD: '비밀번호가 일치하지 않습니다.',
     SUBMIT_BUTTON: '비밀번호 변경',
     CLOSE_BUTTON: '닫기',
+    INVALID_EMAIL: '올바른 이메일 형식을 입력해주세요.',
   },
 };

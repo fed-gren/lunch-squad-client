@@ -1,14 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Styled from './styles';
 import { styles } from '../../../../config';
 import { LoginContext } from '../../../contexts/LoginContext';
 import { loginMessages } from '../../../constants';
+import { checkValidation, cognito } from '../../../utils';
 
 import ButtonView from '../../SharedComponents/ButtonView';
 import LinkButtonView from '../../SharedComponents/LinkButtonView';
 
 export default function ForgotPasswordModalView() {
   const { background } = useContext(LoginContext);
+  const [state, setState] = useState({
+    curEmail: '',
+    emailInputMessage: '',
+    emailPassFlag: false,
+    curVerificationCode: '',
+    curPassword: '',
+    curNewPassword: '',
+
+  });
+
+  const setEmailCheckMessage = (evt) => {
+    const email = evt.target.value;
+    const { INVALID_EMAIL } = loginMessages.forgotPassword;
+    const emailCheckResult = checkValidation.email(email);
+
+    setState({
+      ...state,
+      emailInputMessage: emailCheckResult
+        ? ''
+        : INVALID_EMAIL,
+      emailPassFlag: emailCheckResult,
+      curEmail: email,
+    });
+  };
 
   return (
     <>
@@ -20,13 +45,19 @@ export default function ForgotPasswordModalView() {
           <div className="input-email">
             <div className="labels">
               <label htmlFor="email">{loginMessages.forgotPassword.EMAIL_LABEL}</label>
-              <p className="message">{loginMessages.forgotPassword.SENT_AUTH}</p>
+              <p className="message">{state.emailInputMessage}</p>
             </div>
-            <input type="email" name="email" id="email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onBlur={setEmailCheckMessage}
+            />
             <div className="sub-button">
               <ButtonView
                 name={loginMessages.forgotPassword.GET_AUTH_BUTTON}
                 {...styles.modal.subButton}
+                bgColor={!state.emailPassFlag ? '#666' : styles.modal.submitButton.bgColor}
               />
             </div>
           </div>

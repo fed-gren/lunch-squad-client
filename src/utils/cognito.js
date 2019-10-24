@@ -78,4 +78,33 @@ export default {
       },
     });
   },
+
+  forgotPassword: ({ email, verificationCode, newPassword }) => {
+    const poolData = {
+      UserPoolId: _config.cognito.userPoolId, // Your user pool id here
+      ClientId: _config.cognito.clientId, // Your client id here
+    };
+
+    const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+    const userData = {
+      Username: email,
+      Pool: userPool,
+    };
+
+    const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+    cognitoUser.forgotPassword({
+      onSuccess(result) {
+        console.log(`call result: ${result}`);
+      },
+      onFailure(err) {
+        alert(JSON.stringify(err));
+        console.log(err);
+      },
+      inputVerificationCode() {
+        cognitoUser.confirmPassword(verificationCode, newPassword, this);
+      },
+    });
+  },
 };
