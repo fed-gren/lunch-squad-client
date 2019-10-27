@@ -1,4 +1,6 @@
-import React, { useContext, useCallback } from 'react';
+import React, {
+  useContext, useCallback,
+} from 'react';
 import {
   MdSort,
   MdFilterList,
@@ -7,10 +9,10 @@ import {
 } from 'react-icons/md';
 import Styled from './styles';
 import { InfoContext } from '../../../contexts/InfoContext';
-import { LoginContext } from '../../../contexts/LoginContext';
+import { BeforeStateContext } from '../../../contexts/BeforeStateContext';
+import { data } from '../../../../config';
 
 import ButtonView from '../../SharedComponents/ButtonView';
-import LinkButtonView from '../../SharedComponents/LinkButtonView';
 
 const controllerStyles = {
   fontSize: '1.4rem',
@@ -28,7 +30,7 @@ const loginStyles = {
 
 export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
-  const { setBackground } = useContext(LoginContext);
+  const { beforeState } = useContext(BeforeStateContext);
 
   const toggleSortShow = useCallback(() => {
     setState({
@@ -50,6 +52,11 @@ export default function InfoTopbar() {
       foldFlag: !state.foldFlag,
     });
   }, [state, state.foldFlag]);
+
+  const moveToLogin = useCallback((url) => {
+    onbeforeunload = () => localStorage.setItem('beforeState', JSON.stringify(beforeState));
+    window.location = url;
+  }, [beforeState]);
 
   return (
     <Styled.InfoTopbar>
@@ -74,10 +81,9 @@ export default function InfoTopbar() {
       </div>
       {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>
-        <LinkButtonView
+        <ButtonView
           name="로그인"
-          onClick={() => setBackground(window.location.pathname)}
-          to="/login"
+          onClick={() => moveToLogin(data.loginUrl)}
           {...loginStyles}
         />
       </Styled.InfoLogin>

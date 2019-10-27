@@ -1,8 +1,8 @@
 import React from 'react';
 import { KakaoMap } from 'react-kakao-maps';
+import { useLocation } from 'react-router-dom';
 import Styled from './styles';
 import { data } from '../../../../config';
-import { LoginProvider } from '../../../contexts/LoginContext';
 
 import MapLayout from '../../MapLayout';
 import OverlayListView from '../OverlayListView';
@@ -12,9 +12,16 @@ import HoveredOverlayView from '../HoveredOverlayView';
 import InfoContainer from '../../InfoComponents/InfoContainer';
 import ModalSwitch from '../../ModalComponents/ModalSwitch';
 
-export default () => (
-  <MapLayout>
-    <LoginProvider>
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+export default () => {
+  const query = useQuery();
+  console.log(query.get('redirect'));
+
+  return (
+    <MapLayout>
       <Styled.KakaoMapContainer>
         <KakaoMap
           apiUrl={process.env.KAKAO_MAP_API_URL}
@@ -32,6 +39,6 @@ export default () => (
         <InfoContainer />
       </Styled.KakaoMapContainer>
       <ModalSwitch />
-    </LoginProvider>
-  </MapLayout>
-);
+    </MapLayout>
+  );
+};

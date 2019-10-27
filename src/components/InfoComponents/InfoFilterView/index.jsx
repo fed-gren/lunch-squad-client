@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Styled from './styles';
 import { foodType } from '../../../constants';
 import { styles } from '../../../../config';
 import { InfoContext } from '../../../contexts/InfoContext';
 import { RestaurantContext } from '../../../contexts/RestaurantContext';
+import { BeforeStateContext } from '../../../contexts/BeforeStateContext';
 
 import RestaurantListView from '../RestaurantListView';
 import ButtonView from '../../SharedComponents/ButtonView';
@@ -21,6 +22,7 @@ export default function InfoFilterView() {
   const { foodTypeCategories, setFoodTypeCategories } = useContext(
     RestaurantContext,
   );
+  const { beforeState, setBeforeState } = useContext(BeforeStateContext);
 
   const clickHandler = ({ fType }) => {
     const tempObj = { ...foodTypeCategories[fType] };
@@ -36,6 +38,14 @@ export default function InfoFilterView() {
       [fType]: { ...tempObj },
     });
   };
+
+  useEffect(() => {
+    if (!foodTypeCategories) return;
+    setBeforeState({
+      ...beforeState,
+      filterItems: JSON.parse(JSON.stringify(foodTypeCategories)),
+    });
+  }, [foodTypeCategories]);
 
   const { state } = useContext(InfoContext);
 
