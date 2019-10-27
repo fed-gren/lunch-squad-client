@@ -54,7 +54,7 @@ export default function InfoTopbar() {
   }, [state, state.foldFlag]);
 
   const moveToLogin = useCallback((url) => {
-    onbeforeunload = () => localStorage.setItem('beforeState', JSON.stringify(beforeState));
+    localStorage.setItem('beforeState', JSON.stringify(beforeState));
     window.location = url;
   }, [beforeState]);
 

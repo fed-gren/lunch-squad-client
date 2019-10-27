@@ -9,7 +9,7 @@ export const BeforeStateContext = createContext();
 
 export function BeforeStateProvider({ children }) {
   const [beforeState, setBeforeState] = useState({
-    restaurantId: null,
+    pathname: '',
     filterItems: {
       한식: { name: '한식', isOn: true },
       일식: { name: '일식', isOn: true },

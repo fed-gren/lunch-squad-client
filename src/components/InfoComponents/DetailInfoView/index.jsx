@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FaArrowLeft } from 'react-icons/fa';
 import { MdStar } from 'react-icons/md';
@@ -9,6 +9,7 @@ import ThumbnailView from '../../SharedComponents/ThumbnailView';
 import TopbarLayoutView from '../../SharedComponents/TopbarLayoutView';
 import LinkButtonView from '../../SharedComponents/LinkButtonView';
 import ContactInfoView from '../ContactInfoView';
+import { BeforeStateContext } from '../../../contexts/BeforeStateContext';
 
 DetailInfoView.propTypes = {
   restaurantName: PropTypes.string.isRequired,
@@ -23,10 +24,23 @@ export default function DetailInfoView({
   businessHour,
   contactNumber,
 }) {
+  const { beforeState, setBeforeState } = useContext(BeforeStateContext);
+  const clickHandler = useCallback(() => {
+    setBeforeState({
+      ...beforeState,
+      pathname: '/',
+    });
+  }, []);
+
   return (
     <div>
       <TopbarLayoutView>
-        <LinkButtonView name={<FaArrowLeft />} {...styles.backButton} to="/" />
+        <LinkButtonView
+          name={<FaArrowLeft />}
+          {...styles.backButton}
+          to="/"
+          onClicl={clickHandler}
+        />
       </TopbarLayoutView>
       <Styled.DetailInfo>
         <p>

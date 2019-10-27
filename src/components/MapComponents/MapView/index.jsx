@@ -18,7 +18,10 @@ function useQuery() {
 
 export default () => {
   const query = useQuery();
-  console.log(query.get('redirect'));
+  if (query.get('redirect')) {
+    const beforeState = JSON.parse(localStorage.getItem('beforeState'));
+    window.location = `/${beforeState.pathname}`;
+  }
 
   return (
     <MapLayout>
