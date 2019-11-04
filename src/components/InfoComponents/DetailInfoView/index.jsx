@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FaArrowLeft } from 'react-icons/fa';
 import { MdStar } from 'react-icons/md';
@@ -28,7 +28,14 @@ export default function DetailInfoView({
   const clickHandler = useCallback(() => {
     setBeforeState({
       ...beforeState,
-      pathname: '/',
+      pathname: '',
+    });
+  }, []);
+
+  useEffect(() => {
+    setBeforeState({
+      ...beforeState,
+      pathname: window.location.pathname,
     });
   }, []);
 
@@ -39,7 +46,7 @@ export default function DetailInfoView({
           name={<FaArrowLeft />}
           {...styles.backButton}
           to="/"
-          onClicl={clickHandler}
+          onClick={clickHandler}
         />
       </TopbarLayoutView>
       <Styled.DetailInfo>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { KakaoMap } from 'react-kakao-maps';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Redirect } from 'react-router-dom';
 import Styled from './styles';
 import { data } from '../../../../config';
 
@@ -18,30 +18,38 @@ function useQuery() {
 
 export default () => {
   const query = useQuery();
-  if (query.get('redirect')) {
-    const beforeState = JSON.parse(localStorage.getItem('beforeState'));
-    window.location = `/${beforeState.pathname}`;
-  }
+  const isRedirect = query.get('redirect');
+  const beforeState = JSON.parse(localStorage.getItem('beforeState'));
 
   return (
-    <MapLayout>
-      <Styled.KakaoMapContainer>
-        <KakaoMap
-          apiUrl={process.env.KAKAO_MAP_API_URL}
-          width="100%"
-          height="100%"
-          level={2}
-          lat={data.kakaoMapConfig.defaultCenter.lat}
-          lng={data.kakaoMapConfig.defaultCenter.lng}
-        >
-          <CodeSquadOverlayView />
-          <OverlayListView />
-          <SelectedOverlayView />
-          <HoveredOverlayView />
-        </KakaoMap>
-        <InfoContainer />
-      </Styled.KakaoMapContainer>
-      <ModalSwitch />
-    </MapLayout>
+    isRedirect
+      ? (
+        <Redirect
+          to={{
+            pathname: `${beforeState.pathname}`,
+          }}
+        />
+      )
+      : (
+        <MapLayout>
+          <Styled.KakaoMapContainer>
+            <KakaoMap
+              apiUrl={process.env.KAKAO_MAP_API_URL}
+              width="100%"
+              height="100%"
+              level={2}
+              lat={data.kakaoMapConfig.defaultCenter.lat}
+              lng={data.kakaoMapConfig.defaultCenter.lng}
+            >
+              <CodeSquadOverlayView />
+              <OverlayListView />
+              <SelectedOverlayView />
+              <HoveredOverlayView />
+            </KakaoMap>
+            <InfoContainer />
+          </Styled.KakaoMapContainer>
+          <ModalSwitch />
+        </MapLayout>
+      )
   );
 };
