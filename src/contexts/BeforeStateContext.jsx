@@ -21,7 +21,11 @@ export function BeforeStateProvider({ children }) {
   });
 
   return (
-    <BeforeStateContext.Provider value={{ beforeState, setBeforeState }}>
+    <BeforeStateContext.Provider value={{
+      beforeState,
+      setBeforeState,
+    }}
+    >
       {children}
     </BeforeStateContext.Provider>
   );

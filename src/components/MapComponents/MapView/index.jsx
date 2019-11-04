@@ -27,6 +27,7 @@ export default () => {
         <Redirect
           to={{
             pathname: `${beforeState.pathname}`,
+            search: '?loadFilterItems=true',
           }}
         />
       )

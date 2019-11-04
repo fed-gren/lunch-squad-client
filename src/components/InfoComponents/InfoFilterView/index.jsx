@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom';
 import Styled from './styles';
 import { foodType } from '../../../constants';
 import { styles } from '../../../../config';
@@ -18,11 +18,18 @@ const toggleButtonStyles = {
   border: `1px solid ${styles.filteredItemColor}`,
 };
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 export default function InfoFilterView() {
-  const { foodTypeCategories, setFoodTypeCategories } = useContext(
+  const { foodTypeCategories, setFoodTypeCategories, restaurants } = useContext(
     RestaurantContext,
   );
   const { beforeState, setBeforeState } = useContext(BeforeStateContext);
+  const localBeforeState = JSON.parse(localStorage.getItem('beforeState'));
+  const query = useQuery();
+  const isRedirect = query.get('loadFilterItems');
 
   const clickHandler = ({ fType }) => {
     const tempObj = { ...foodTypeCategories[fType] };
@@ -38,6 +45,12 @@ export default function InfoFilterView() {
       [fType]: { ...tempObj },
     });
   };
+
+  useEffect(() => {
+    if (!restaurants || !isRedirect) return;
+
+    setFoodTypeCategories({ ...localBeforeState.filterItems });
+  }, [restaurants]);
 
   useEffect(() => {
     if (!foodTypeCategories) return;
