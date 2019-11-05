@@ -58,6 +58,29 @@ export default function InfoTopbar() {
     window.location = url;
   }, [beforeState]);
 
+  const fetchToken = useCallback((url) => {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Basic ${process.env.ENCODED_AUTHORIZATION}`,
+        Host: 'lunchsquad.auth.ap-northeast-2.amazoncognito.com',
+        'Accept-Encoding': 'gzip, deflate',
+        Connection: 'keep-alive',
+        'cache-control': 'no-cache',
+      },
+      body: JSON.stringify({
+        grant_type: 'authorization_code',
+        client_id: `${process.env.COGNITO_CLIENT_ID}`,
+        redirect_uri: `${process.env.COGNITO_REDIRECT_URL}`,
+        code: `${localStorage.getItem('authorizationCode')}`,
+      }),
+    })
+      .then((res) => JSON.parse(res))
+      .then((resData) => console.log(resData))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <Styled.InfoTopbar>
       <div className="controller">
@@ -84,6 +107,11 @@ export default function InfoTopbar() {
         <ButtonView
           name="로그인"
           onClick={() => moveToLogin(data.loginUrl)}
+          {...loginStyles}
+        />
+        <ButtonView
+          name="토큰 요청"
+          onClick={() => fetchToken(data.getTokenUrl)}
           {...loginStyles}
         />
       </Styled.InfoLogin>

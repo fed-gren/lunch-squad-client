@@ -18,11 +18,14 @@ function useQuery() {
 
 export default () => {
   const query = useQuery();
-  const isRedirect = query.get('redirect');
+  const redirectFlag = query.get('redirect');
+  const authorizationCode = query.get('code');
   const beforeState = JSON.parse(localStorage.getItem('beforeState'));
 
+  if (authorizationCode) localStorage.setItem('authorizationCode', authorizationCode);
+
   return (
-    isRedirect
+    redirectFlag
       ? (
         <Redirect
           to={{

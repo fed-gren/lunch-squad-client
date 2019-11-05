@@ -58,6 +58,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.EnvironmentPlugin({
       KAKAO_MAP_API_URL: devEnv.parsed.KAKAO_MAP_API_URL,
+      ENCODED_AUTHORIZATION: devEnv.parsed.ENCODED_AUTHORIZATION,
+      COGNITO_CLIENT_ID: devEnv.parsed.COGNITO_CLIENT_ID,
+      COGNITO_REDIRECT_URL: devEnv.parsed.COGNITO_REDIRECT_URL,
     }),
     new BundleAnalyzerPlugin(),
     new CopyPlugin([
