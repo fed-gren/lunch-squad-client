@@ -7,6 +7,8 @@ import {
   MdVisibility,
   MdVisibilityOff,
 } from 'react-icons/md';
+import axios from 'axios';
+import qs from 'querystring';
 import Styled from './styles';
 import { InfoContext } from '../../../contexts/InfoContext';
 import { BeforeStateContext } from '../../../contexts/BeforeStateContext';
@@ -58,28 +60,28 @@ export default function InfoTopbar() {
     window.location = url;
   }, [beforeState]);
 
-  const fetchToken = useCallback((url) => {
-    fetch(url, {
+  const fetchToken = (url) => {
+    const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${process.env.ENCODED_AUTHORIZATION}`,
-        Host: 'lunchsquad.auth.ap-northeast-2.amazoncognito.com',
-        'Accept-Encoding': 'gzip, deflate',
-        Connection: 'keep-alive',
-        'cache-control': 'no-cache',
-      },
-      body: JSON.stringify({
+      url,
+      data: qs.stringify({
         grant_type: 'authorization_code',
         client_id: `${process.env.COGNITO_CLIENT_ID}`,
         redirect_uri: `${process.env.COGNITO_REDIRECT_URL}`,
         code: `${localStorage.getItem('authorizationCode')}`,
       }),
-    })
-      .then((res) => JSON.parse(res))
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Basic ${process.env.ENCODED_AUTHORIZATION}`,
+        'Cache-control': 'no-cache',
+        Accept: '*/*',
+      },
+    };
+    axios(options)
+      .then((res) => console.log(res))
       .then((resData) => console.log(resData))
       .catch((error) => console.log(error));
-  }, []);
+  };
 
   return (
     <Styled.InfoTopbar>
