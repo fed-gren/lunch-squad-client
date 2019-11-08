@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { KakaoMap } from 'react-kakao-maps';
 import { useLocation, Redirect } from 'react-router-dom';
 import Styled from './styles';
@@ -11,6 +11,8 @@ import SelectedOverlayView from '../SelectedOverlayView';
 import HoveredOverlayView from '../HoveredOverlayView';
 import InfoContainer from '../../InfoComponents/InfoContainer';
 import ModalSwitch from '../../ModalComponents/ModalSwitch';
+import { cognito } from '../../../utils';
+import { LoginContext } from '../../../contexts/LoginContext';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -20,7 +22,24 @@ export default () => {
   const query = useQuery();
   const redirectFlag = query.get('redirect');
   const authorizationCode = query.get('code');
+  const logoutFlag = query.get('logout');
   const beforeState = JSON.parse(localStorage.getItem('beforeState'));
+  const { setLoginFlag } = useContext(LoginContext);
+
+  useEffect(() => {
+    if (!redirectFlag) return;
+
+    async function fetchToken() {
+      setLoginFlag(await cognito.fetchToken());
+    }
+    fetchToken();
+  }, [redirectFlag]);
+
+  useEffect(() => {
+    if (!logoutFlag) return;
+
+    setLoginFlag(false);
+  }, [logoutFlag]);
 
   if (authorizationCode) localStorage.setItem('authorizationCode', authorizationCode);
 

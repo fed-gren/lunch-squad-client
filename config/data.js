@@ -12,7 +12,7 @@ const data = {
   selectedOverlayYAnchor: 1,
   selectedOverlayZIndex: 2,
   loginUrl: 'https://lunchsquad.auth.ap-northeast-2.amazoncognito.com/login?response_type=code&client_id=62iskvnkmva2s0i7i37766ouim&redirect_uri=http://localhost:3000/?redirect=true',
-  logoutUrl: 'https://lunchsquad.auth.ap-northeast-2.amazoncognito.com/logout?client_id=62iskvnkmva2s0i7i37766ouim&logout_uri=http://localhost:3000/?redirect=true',
+  logoutUrl: 'https://lunchsquad.auth.ap-northeast-2.amazoncognito.com/logout?client_id=62iskvnkmva2s0i7i37766ouim&logout_uri=http://localhost:3000/?logout=true',
   getTokenUrl: 'https://lunchsquad.auth.ap-northeast-2.amazoncognito.com/oauth2/token',
 };
 

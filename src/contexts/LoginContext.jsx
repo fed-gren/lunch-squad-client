@@ -8,10 +8,17 @@ LoginProvider.propTypes = {
 export const LoginContext = createContext();
 
 export function LoginProvider({ children }) {
-  const [background, setBackground] = useState('/');
+  const [loginFlag, setLoginFlag] = useState(false);
+  const [authCode, setAuthCode] = useState(null);
 
   return (
-    <LoginContext.Provider value={{ background, setBackground }}>
+    <LoginContext.Provider value={{
+      loginFlag,
+      setLoginFlag,
+      authCode,
+      setAuthCode,
+    }}
+    >
       {children}
     </LoginContext.Provider>
   );

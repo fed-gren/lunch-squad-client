@@ -7,12 +7,11 @@ import {
   MdVisibility,
   MdVisibilityOff,
 } from 'react-icons/md';
-import axios from 'axios';
-import qs from 'querystring';
 import Styled from './styles';
 import { InfoContext } from '../../../contexts/InfoContext';
 import { BeforeStateContext } from '../../../contexts/BeforeStateContext';
 import { data } from '../../../../config';
+import { LoginContext } from '../../../contexts/LoginContext';
 
 import ButtonView from '../../SharedComponents/ButtonView';
 
@@ -33,6 +32,8 @@ const loginStyles = {
 export default function InfoTopbar() {
   const { state, setState } = useContext(InfoContext);
   const { beforeState } = useContext(BeforeStateContext);
+  const { loginFlag } = useContext(LoginContext);
+
 
   const toggleSortShow = useCallback(() => {
     setState({
@@ -60,28 +61,9 @@ export default function InfoTopbar() {
     window.location = url;
   }, [beforeState]);
 
-  const fetchToken = (url) => {
-    const options = {
-      method: 'POST',
-      url,
-      data: qs.stringify({
-        grant_type: 'authorization_code',
-        client_id: `${process.env.COGNITO_CLIENT_ID}`,
-        redirect_uri: `${process.env.COGNITO_REDIRECT_URL}`,
-        code: `${localStorage.getItem('authorizationCode')}`,
-      }),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${process.env.ENCODED_AUTHORIZATION}`,
-        'Cache-control': 'no-cache',
-        Accept: '*/*',
-      },
-    };
-    axios(options)
-      .then((res) => console.log(res))
-      .then((resData) => console.log(resData))
-      .catch((error) => console.log(error));
-  };
+  const moveToLogout = useCallback((url) => {
+    window.location = url;
+  }, []);
 
   return (
     <Styled.InfoTopbar>
@@ -104,18 +86,20 @@ export default function InfoTopbar() {
           color={state.filterShowFlag ? '#000' : '#fff'}
         />
       </div>
-      {/* TODO: 현재 로그인 되어있는지, 상태에 따라 로그인 버튼 혹은 유저 정보와 로그아웃 뷰로 구분해서 보여주기 */}
       <Styled.InfoLogin>
-        <ButtonView
-          name="로그인"
-          onClick={() => moveToLogin(data.loginUrl)}
-          {...loginStyles}
-        />
-        <ButtonView
-          name="토큰 요청"
-          onClick={() => fetchToken(data.getTokenUrl)}
-          {...loginStyles}
-        />
+        {loginFlag ? (
+          <ButtonView
+            name="로그아웃"
+            onClick={() => moveToLogout(data.logoutUrl)}
+            {...loginStyles}
+          />
+        ) : (
+          <ButtonView
+            name="로그인"
+            onClick={() => moveToLogin(data.loginUrl)}
+            {...loginStyles}
+          />
+        )}
       </Styled.InfoLogin>
     </Styled.InfoTopbar>
   );

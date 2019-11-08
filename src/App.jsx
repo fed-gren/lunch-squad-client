@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { RestaurantProvider } from './contexts/RestaurantContext';
 import { metadata } from '../config';
+import { LoginProvider } from './contexts/LoginContext';
 // components
 import Layout from './components/Layout';
 import MapView from './components/MapComponents/MapView';
@@ -23,11 +24,13 @@ export default hot(() => (
     </Helmet>
     <GlobalStyle />
     <Layout>
-      <RestaurantProvider>
-        <Router>
-          <MapView />
-        </Router>
-      </RestaurantProvider>
+      <LoginProvider>
+        <RestaurantProvider>
+          <Router>
+            <MapView />
+          </Router>
+        </RestaurantProvider>
+      </LoginProvider>
     </Layout>
   </MyApp>
 ));
