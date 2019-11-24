@@ -27,6 +27,22 @@ export default () => {
   const { setLoginFlag } = useContext(LoginContext);
 
   useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken || logoutFlag) return;
+
+    async function fetchUserInfo() {
+      setLoginFlag(await cognito.fetchUserInfo({
+        accessToken,
+      }));
+    }
+    try {
+      fetchUserInfo();
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  useEffect(() => {
     if (!redirectFlag) return;
 
     async function fetchToken() {
@@ -39,6 +55,8 @@ export default () => {
     if (!logoutFlag) return;
 
     setLoginFlag(false);
+    localStorage.removeItem('authorizationCode');
+    localStorage.removeItem('accessToken');
   }, [logoutFlag]);
 
   if (authorizationCode) localStorage.setItem('authorizationCode', authorizationCode);

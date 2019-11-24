@@ -33,4 +33,22 @@ export default {
 
     return successFlag;
   },
+
+  async fetchUserInfo({ accessToken }) {
+    const options = {
+      method: 'GET',
+      url: data.getUserInfoUrl,
+      headers: {
+        Host: 'lunchsquad.auth.ap-northeast-2.amazoncognito.com',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    let successFlag = false;
+
+    await axios(options)
+      .then((res) => {
+        if (res.status >= 200 && res.status < 400) successFlag = true;
+      }).catch((error) => console.error(error));
+    return successFlag;
+  },
 };
